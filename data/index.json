@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T16:24:10.168Z",
+  "updatedAt": "2026-10-24T16:43:07.464Z",
   "leaflets": [
     {
       "store": "billa",
@@ -9,12 +9,44 @@
       "source": "https://view.publitas.com/64070/3448636/pdfs/bb99ebb1-85d8-4a32-8881-9de6c5d5454a.pdf"
     },
     {
+      "store": "coop",
+      "file": "coop/2026-10-22.json",
+      "validFrom": "2026-10-22",
+      "validTo": "2026-10-28",
+      "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-42-2026",
+      "count": 268
+    },
+    {
       "store": "kaufland",
       "file": "kaufland/2026-10-22.json",
       "validFrom": "2026-10-22",
       "validTo": "2026-10-28",
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
       "count": 243
+    },
+    {
+      "store": "lidl",
+      "file": "lidl/2026-10-19.json",
+      "validFrom": "2026-10-19",
+      "validTo": "2026-10-25",
+      "source": "https://assets.leaflets.schwarz/leaflets/pdfs/01a14501-0180-7ec2-8fc4-45e095a9b446/Aktualny-letak-Platny-od-19-10-2026-01.pdf",
+      "count": 140
+    },
+    {
+      "store": "lidl",
+      "file": "lidl/2026-10-26.json",
+      "validFrom": "2026-10-26",
+      "validTo": "2026-11-01",
+      "source": "https://assets.leaflets.schwarz/leaflets/pdfs/01a168ed-87be-75b0-9611-c96f72014302/Letak-OD-PONDELKA-Platny-od-26-10-2026-00.pdf",
+      "count": 96
+    },
+    {
+      "store": "tesco",
+      "file": "tesco/2026-10-21.json",
+      "validFrom": "2026-10-21",
+      "validTo": "2026-10-27",
+      "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/a7bc345f-f8e1-41d2-9fc9-91bf11432075/20261015073107374_2026_P34_SK_HM-CHM.pdf",
+      "count": 229
     }
   ]
 }
