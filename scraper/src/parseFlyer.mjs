@@ -22,6 +22,12 @@ const CATEGORY_RULES = [
   ["pantry", /olej|múka|cestovin|ryža|tuniak|konzerv|kečup|cukor|soľ\b|káva|kávy|med\b|cesto|strukov|oriešk|vločk|kukuric|zaváran|omáčk|ocot|instantn|müsli|džem|kakao|fazuľ|šošovic|cereáli|olivy|horčica/],
 ];
 
+/** Odhadne kategóriu produktu podľa slov v názve (spoločné pre viac obchodov). */
+export function guessCategory(text) {
+  const key = text.toLowerCase();
+  return (CATEGORY_RULES.find(([, re]) => re.test(key)) || [null])[0] || undefined;
+}
+
 const JUNK_NAME = /^(rôzne|cena\b|chladen|pultov|vákuovo|voľn|parená|zľava|servíruje|\d)/i;
 
 const clean = (s) =>

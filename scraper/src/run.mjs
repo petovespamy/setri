@@ -73,9 +73,9 @@ async function processStore(store, index) {
   // Obchody, ktoré majú dáta priamo na stránke (bez PDF), vracajú hotové letáky.
   if (store.fetchLeaflets) {
     let changed = false;
-    for (const lf of await store.fetchLeaflets()) {
+    for (const lf of await store.fetchLeaflets({ known: new Set(mine.map((l) => l.source)) })) {
       const prev = mine.find((l) => l.validFrom === lf.validFrom);
-      if (!force && prev && JSON.stringify(prev.count) === JSON.stringify(lf.deals.length)) continue;
+      if (!force && prev && prev.count === lf.deals.length) continue;
       if (lf.deals.length < 10) {
         console.warn(`[${store.id}] podozrivo málo zliav (${lf.deals.length}), leták neukladám`);
         continue;
