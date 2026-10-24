@@ -1,4 +1,4 @@
-2026-10-24T16:38:12.226Z
+2026-10-24T16:40:30.462Z
 [billa] kontrolujem: leták končí, hľadáme nový
 [billa] nájdené letáky: 1
 [kaufland] preskakujem (aktuálny leták platí do 2026-10-28)
