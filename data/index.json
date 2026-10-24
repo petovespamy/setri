@@ -1,1 +1,20 @@
-{ "updatedAt": null, "leaflets": [] }
+{
+  "updatedAt": "2026-10-24T16:24:10.168Z",
+  "leaflets": [
+    {
+      "store": "billa",
+      "file": "billa/2026-10-21.json",
+      "validFrom": "2026-10-21",
+      "validTo": "2026-10-27",
+      "source": "https://view.publitas.com/64070/3448636/pdfs/bb99ebb1-85d8-4a32-8881-9de6c5d5454a.pdf"
+    },
+    {
+      "store": "kaufland",
+      "file": "kaufland/2026-10-22.json",
+      "validFrom": "2026-10-22",
+      "validTo": "2026-10-28",
+      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
+      "count": 243
+    }
+  ]
+}
