@@ -13,6 +13,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", ".
 const DATA = path.join(ROOT, "data");
 const INDEX = path.join(DATA, "index.json");
 
+// Všetko, čo program vypíše, uložíme aj do data/status.txt, aby sa dalo skontrolovať, čo sa pri behu stalo.
+const logLines = [];
+for (const level of ["log", "warn", "error"]) {
+  const original = console[level].bind(console);
+  console[level] = (...a) => {
+    logLines.push((level === "log" ? "" : level.toUpperCase() + ": ") + a.join(" "));
+    original(...a);
+  };
+}
+
 const args = process.argv.slice(2);
 const force = args.includes("--force");
 const only = args.find((a) => !a.startsWith("--"));
@@ -173,6 +183,7 @@ async function main() {
   } else {
     console.log("bez zmien");
   }
+  await fs.writeFile(path.join(DATA, "status.txt"), `${new Date().toISOString()}\n${logLines.join("\n")}\n`, "utf8");
   if (failures) process.exitCode = 1;
 }
 
