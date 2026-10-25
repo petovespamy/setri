@@ -1,4 +1,4 @@
-2026-10-25T14:42:10.281Z
+2026-10-25T14:49:44.237Z
 [billa] kontrolujem: leták končí, hľadáme nový
 [billa] nájdené letáky: 1
 [kaufland] kontrolujem: leták končí, hľadáme nový
@@ -8,4 +8,16 @@
 [kraj] kontrolujem: leták končí, hľadáme nový
 [drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
 [yeme] kontrolujem: leták končí, hľadáme nový
-bez zmien
+[teta] kontrolujem: nemáme aktuálny leták
+[teta] uložené: teta/2026-10-25.json (490 zliav, 2026-10-25 až 2026-10-27)
+[billa] billa/2026-10-21.json: znova zaradených 58 produktov do kategórií
+[coop] coop/2026-10-22.json: znova zaradených 117 produktov do kategórií
+[drogerie101] drogerie101/2026-10-21.json: znova zaradených 28 produktov do kategórií
+[kaufland] kaufland/2026-10-22.json: znova zaradených 17 produktov do kategórií
+[kraj] kraj/2026-10-22.json: znova zaradených 24 produktov do kategórií
+[lidl] lidl/2026-10-19.json: znova zaradených 53 produktov do kategórií
+[lidl] lidl/2026-10-26.json: znova zaradených 34 produktov do kategórií
+[tesco] tesco/2026-10-21.json: znova zaradených 94 produktov do kategórií
+[yeme] yeme/2026-10-25.json: znova zaradených 338 produktov do kategórií
+[teta] teta/2026-10-25.json: znova zaradených 12 produktov do kategórií
+index.json aktualizovaný
