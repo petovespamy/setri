@@ -1,0 +1,15 @@
+{
+  "name": "setri-scraper",
+  "private": true,
+  "type": "module",
+  "description": "Sťahuje letáky obchodov a ukladá zľavy do priečinka data/",
+  "scripts": {
+    "update": "node src/run.mjs",
+    "update:force": "node src/run.mjs --force",
+    "test": "node src/test.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "4.4.168"
+  },
+  "engines": { "node": ">=20" }
+}
