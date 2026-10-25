@@ -6,6 +6,8 @@ const URL_NEXT = "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html?klof
 const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15";
 
+import { recategorize } from "../categorize.mjs";
+
 // Oblasti, ktoré do potravinovej appky nepatria.
 const SKIP_CATEGORY = /^(elektro|oble[cč]enie|dom,)/i;
 // Nepotravinový tovar, ktorý sa objaví aj v potravinových oddieloch (kvety, dekorácie).
@@ -75,7 +77,7 @@ export function offersToLeaflet(ssr) {
           deal.o = oldPrice;
           deal.x = o.discount > 0 ? o.discount : Math.round((1 - o.price / oldPrice) * 100);
         }
-        const cs = categoryFor(cat.displayName, `${name} ${detail}`.toLowerCase());
+        const cs = recategorize("kaufland", name, detail, categoryFor(cat.displayName, `${name} ${detail}`.toLowerCase()));
         if (cs) deal.c = cs;
         deals.push(deal);
       }

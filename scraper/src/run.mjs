@@ -3,11 +3,13 @@
 //   node src/run.mjs --force    skontroluje všetky obchody hneď
 //   node src/run.mjs billa      len jeden obchod
 import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { stores } from "./stores/index.mjs";
 import { readPdfPages } from "./pdf.mjs";
 import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
+import { recategorize } from "./categorize.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA = path.join(ROOT, "data");
@@ -155,6 +157,56 @@ async function prune(index) {
   index.leaflets = keep;
 }
 
+/**
+ * Znova zaradí produkty do kategórií podľa aktuálnych pravidiel (categorize.mjs).
+ * Vďaka tomu sa oprava pravidiel prejaví aj v letákoch, ktoré už máme stiahnuté.
+ */
+async function recategorizeAll(index) {
+  let changed = false;
+  for (const l of index.leaflets) {
+    if (only && l.store !== only) continue;
+    const file = path.join(DATA, l.file);
+    let data;
+    try {
+      data = JSON.parse(await fs.readFile(file, "utf8"));
+    } catch {
+      continue;
+    }
+    let touched = 0;
+    for (const deal of data.deals ?? []) {
+      const c = recategorize(l.store, deal.n, deal.d, deal.c);
+      if (c !== deal.c) {
+        if (c) deal.c = c;
+        else delete deal.c;
+        touched++;
+      }
+    }
+    if (touched) {
+      await fs.writeFile(file, JSON.stringify(data), "utf8");
+      console.log(`[${l.store}] ${l.file}: znova zaradených ${touched} produktov do kategórií`);
+      changed = true;
+    }
+  }
+  return changed;
+}
+
+/** Ku každému letáku si zapamätáme odtlačok obsahu, aby appka vedela, že sa súbor zmenil. */
+async function stampRevisions(index) {
+  let changed = false;
+  for (const l of index.leaflets) {
+    try {
+      const rev = createHash("sha1").update(await fs.readFile(path.join(DATA, l.file))).digest("hex").slice(0, 10);
+      if (l.rev !== rev) {
+        l.rev = rev;
+        changed = true;
+      }
+    } catch {
+      /* súbor chýba – necháme tak */
+    }
+  }
+  return changed;
+}
+
 async function main() {
   await fs.mkdir(DATA, { recursive: true });
   const index = await readIndex();
@@ -174,6 +226,9 @@ async function main() {
   const before = index.leaflets.length;
   await prune(index);
   changed = changed || index.leaflets.length !== before;
+
+  changed = (await recategorizeAll(index)) || changed;
+  changed = (await stampRevisions(index)) || changed;
 
   if (changed) {
     index.leaflets.sort((a, b) => a.store.localeCompare(b.store) || a.validFrom.localeCompare(b.validFrom));

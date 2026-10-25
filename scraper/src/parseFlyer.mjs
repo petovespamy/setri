@@ -4,29 +4,9 @@
 
 const near = (v, a, b) => v >= a && v <= b;
 
-const CATEGORY_RULES = [
-  ["frozen", /zmrzlin|mrazen/],
-  ["alcohol", /pivo|pilsner|víno|vodka|whisk|rum\b|likér|becherovka|\bgin\b|prosecco|šumivé|brandy|borovič|slivovic|guinness|radler|koňak|vermut|aperol|cider/],
-  ["household", /prací|aviváž|čistiac|toalet|utierk|savo\b|prášok do|tablety do|sáčky|sviečk|fairy|persil|silan|bielidl|kapsule na pranie|papier/],
-  ["drugstore", /šampón|sprch|zubn|dezodor|krém|mydlo|tampón|vložky|holiac|kozmet|ústna voda|vlasov|telov|hygiena/],
-  ["pets", /pre psov|pre mačk|granule|krmivo|whiskas|pedigree|felix/],
-  ["baby", /plienk|detská|bábät|detsk|príkrmy/],
-  ["bakery", /bageta|bagetka|chlieb|rožok|pečivo|croissant|dalamán|koláč|buchta|vianočk|šiška|slimák|mriežka/],
-  ["meat", /kurča|kuracie|bravčov|hovädz|mleté|ryba|losos|kapor|steak|krkovič|stehn|rezne|mäso|pstruh|morčac|krevety|panenka|držky/],
-  ["deli", /šunk|saláma|salám|klobás|párky|párok|údený|údenin|pečienka|slanin|lahôd|tlačenk|špek|mortadel|prosciutto|paštéta|uzeniny/],
-  ["dairy", /mlieko|maslo|jogurt|syr\b|syry|tvaroh|smotan|vajc|parenic|eidam|cheddar|mozzarel|kefír|bryndz|termix|nátierk|mascarpone|žervé|skyr|puding|margarín/],
-  ["drinks", /nápoj|džús|voda|minerál|cola|limonád|sirup|energetick|kofola|nektár|čaj\b|ľadový|fanta|pepsi/],
-  ["sweets", /čokolád|cukrík|guľky|tyčink|keks|sušienk|oplátk|bonbón|chips|snack|žuvač|marcipán|praclík|arašid|sladkost|nutella|lupienky|popcorn|karamel/],
-  ["fruitveg", /banán|malin|jablk|hrozno|mandarín|citrón|gaštan|hurmik|zázvor|rajč|brokol|zemiak|cvikl|cibu|karfiol|karot|cesnak|šampiň|tekvic|zelenin|ovoc|uhork|paprik|kapust|šalát|avokád|pomaranč|hruš|broskyn|kiwi|ananás|slivky|špenát|zeler/],
-  ["ready", /hotové|pizza|pinsa|knedľ|halušk|polievk|sendvič|wrap/],
-  ["pantry", /olej|múka|cestovin|ryža|tuniak|konzerv|kečup|cukor|soľ\b|káva|kávy|med\b|cesto|strukov|oriešk|vločk|kukuric|zaváran|omáčk|ocot|instantn|müsli|džem|kakao|fazuľ|šošovic|cereáli|olivy|horčica/],
-];
-
-/** Odhadne kategóriu produktu podľa slov v názve (spoločné pre viac obchodov). */
-export function guessCategory(text) {
-  const key = text.toLowerCase();
-  return (CATEGORY_RULES.find(([, re]) => re.test(key)) || [null])[0] || undefined;
-}
+// Kategórie sa určujú v categorize.mjs (jedno miesto pre všetky obchody).
+import { guessCategory } from "./categorize.mjs";
+export { guessCategory };
 
 const JUNK_NAME = /^(rôzne|cena\b|chladen|pultov|vákuovo|voľn|parená|zľava|servíruje|\d)/i;
 
@@ -115,7 +95,7 @@ function finalize(raw) {
   if (name.length < 3 || name.length > 60 || JUNK_NAME.test(name) || !(raw.price > 0)) return null;
 
   const key = `${name} ${detail}`.toLowerCase();
-  const category = (CATEGORY_RULES.find(([, re]) => re.test(key)) || [null])[0];
+  const category = guessCategory(key);
   let discount = raw.disc;
   if (!discount && raw.old) discount = Math.round((1 - raw.price / raw.old) * 100);
 

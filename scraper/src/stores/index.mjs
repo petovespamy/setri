@@ -7,5 +7,6 @@ import coop from "./coop.mjs";
 import kraj from "./kraj.mjs";
 import drogerie101 from "./drogerie101.mjs";
 import yeme from "./yeme.mjs";
+import teta from "./teta.mjs";
 
-export const stores = [billa, kaufland, lidl, tesco, coop, kraj, drogerie101, yeme];
+export const stores = [billa, kaufland, lidl, tesco, coop, kraj, drogerie101, yeme, teta];
