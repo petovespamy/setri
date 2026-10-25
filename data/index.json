@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T16:43:07.464Z",
+  "updatedAt": "2026-10-25T09:27:56.675Z",
   "leaflets": [
     {
       "store": "billa",
@@ -17,12 +17,28 @@
       "count": 268
     },
     {
+      "store": "drogerie101",
+      "file": "drogerie101/2026-10-21.json",
+      "validFrom": "2026-10-21",
+      "validTo": "2026-11-03",
+      "source": "https://101drogerie.sk/storage/app/media/letak/letak_2026/101_drogeria_letak_c19_2026_SCREEN.pdf",
+      "count": 58
+    },
+    {
       "store": "kaufland",
       "file": "kaufland/2026-10-22.json",
       "validFrom": "2026-10-22",
       "validTo": "2026-10-28",
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
       "count": 243
+    },
+    {
+      "store": "kraj",
+      "file": "kraj/2026-10-22.json",
+      "validFrom": "2026-10-22",
+      "validTo": "2026-10-28",
+      "source": "https://view.publitas.com/75539/3455340/pdfs/c7e8e88a-f06e-4349-8fdf-2ec0b56cd9b1.pdf",
+      "count": 70
     },
     {
       "store": "lidl",
@@ -47,6 +63,14 @@
       "validTo": "2026-10-27",
       "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/a7bc345f-f8e1-41d2-9fc9-91bf11432075/20261015073107374_2026_P34_SK_HM-CHM.pdf",
       "count": 229
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-10-25.json",
+      "validFrom": "2026-10-25",
+      "validTo": "2026-10-27",
+      "source": "https://www.yeme.sk/hrdinovia#2026-10-25",
+      "count": 502
     }
   ]
 }
