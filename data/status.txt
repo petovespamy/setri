@@ -1,14 +1,11 @@
-2026-10-25T09:27:56.676Z
+2026-10-25T14:42:10.281Z
 [billa] kontrolujem: leták končí, hľadáme nový
 [billa] nájdené letáky: 1
 [kaufland] kontrolujem: leták končí, hľadáme nový
 [lidl] preskakujem (aktuálny leták platí do 2026-10-25)
 [tesco] kontrolujem: leták končí, hľadáme nový
 [coop] kontrolujem: leták končí, hľadáme nový
-[kraj] kontrolujem: nemáme aktuálny leták
-[kraj] uložené: kraj/2026-10-22.json (70 zliav, 2026-10-22 až 2026-10-28)
-[drogerie101] kontrolujem: nemáme aktuálny leták
-[drogerie101] uložené: drogerie101/2026-10-21.json (58 zliav, 2026-10-21 až 2026-11-03)
-[yeme] kontrolujem: nemáme aktuálny leták
-[yeme] uložené: yeme/2026-10-25.json (502 zliav, 2026-10-25 až 2026-10-27)
-index.json aktualizovaný
+[kraj] kontrolujem: leták končí, hľadáme nový
+[drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
+[yeme] kontrolujem: leták končí, hľadáme nový
+bez zmien
