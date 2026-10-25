@@ -1,15 +1,8 @@
-2026-10-24T16:43:07.465Z
+2026-10-25T05:01:51.064Z
 [billa] kontrolujem: leták končí, hľadáme nový
 [billa] nájdené letáky: 1
-[kaufland] preskakujem (aktuálny leták platí do 2026-10-28)
-[lidl] kontrolujem: nemáme aktuálny leták
-  [lidl] sťahujem online-letak-platny-od-19-10-2026
-  [lidl] sťahujem online-letak-platny-od-26-10-2026
-[lidl] uložené: lidl/2026-10-19.json (140 zliav, 2026-10-19 až 2026-10-25)
-[lidl] uložené: lidl/2026-10-26.json (96 zliav, 2026-10-26 až 2026-11-01)
-[tesco] kontrolujem: nemáme aktuálny leták
-  [tesco] sťahujem tesco-letak-2026-10-21
-[tesco] uložené: tesco/2026-10-21.json (229 zliav, 2026-10-21 až 2026-10-27)
-[coop] kontrolujem: nemáme aktuálny leták
-[coop] uložené: coop/2026-10-22.json (268 zliav, 2026-10-22 až 2026-10-28)
-index.json aktualizovaný
+[kaufland] kontrolujem: leták končí, hľadáme nový
+[lidl] preskakujem (aktuálny leták platí do 2026-10-25)
+[tesco] kontrolujem: leták končí, hľadáme nový
+[coop] kontrolujem: leták končí, hľadáme nový
+bez zmien
