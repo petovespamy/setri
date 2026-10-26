@@ -187,6 +187,21 @@ export function guessCategory(text) {
   return undefined;
 }
 
+/**
+ * Výživové označenia ("Vegan", "Bezlepkové"): iba ak to je VÝSLOVNE napísané v názve alebo popise produktu
+ * v letáku. Nič neodhadujeme (napr. z toho, že ide o zeleninu alebo ryžu).
+ */
+const DIET_RULES = [
+  ["vegan", new RegExp(`${START}(?:veg[aá]n\\p{L}*|plant[\\s-]?based|na\\s+rastlinnej\\s+báze)`, "iu")],
+  ["glutenfree", new RegExp(`${START}(?:bez\\s+(?:lepku|glutén\\p{L}*)|bezlepk\\p{L}*|gluten[\\s-]?free|free\\s+from\\s+gluten)`, "iu")],
+];
+
+/** Zoznam výživových označení produktu (napr. ["vegan", "glutenfree"]); prázdny, ak nemá žiadne. */
+export function dietTags(name, detail) {
+  const text = `${name ?? ""} ${detail ?? ""}`;
+  return DIET_RULES.filter(([, re]) => re.test(text)).map(([id]) => id);
+}
+
 /** Kategórie, ktorým veríme viac ako členeniu obchodu (napr. Kauflandu): sviečky nie sú "drogéria". */
 export const STRONG = new Set(["seasonal", "nonfood", "household", "drugstore", "pets", "baby", "alcohol"]);
 

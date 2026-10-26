@@ -9,7 +9,8 @@ import { fileURLToPath } from "node:url";
 import { stores } from "./stores/index.mjs";
 import { readPdfPages } from "./pdf.mjs";
 import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
-import { recategorize } from "./categorize.mjs";
+import { recategorize, dietTags } from "./categorize.mjs";
+import { classifyAll } from "./classify.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA = path.join(ROOT, "data");
@@ -180,6 +181,12 @@ async function recategorizeAll(index) {
         else delete deal.c;
         touched++;
       }
+      const tags = dietTags(deal.n, deal.d);
+      if (tags.join() !== (deal.f ?? []).join()) {
+        if (tags.length) deal.f = tags;
+        else delete deal.f;
+        touched++;
+      }
     }
     if (touched) {
       await fs.writeFile(file, JSON.stringify(data), "utf8");
@@ -228,6 +235,7 @@ async function main() {
   changed = changed || index.leaflets.length !== before;
 
   changed = (await recategorizeAll(index)) || changed;
+  changed = (await classifyAll(index, DATA, only)) || changed;
   changed = (await stampRevisions(index)) || changed;
 
   if (changed) {
