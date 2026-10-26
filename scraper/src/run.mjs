@@ -10,7 +10,7 @@ import { stores } from "./stores/index.mjs";
 import { readPdfPages } from "./pdf.mjs";
 import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
 import { recategorize, dietTags } from "./categorize.mjs";
-import { classifyAll } from "./classify.mjs";
+import { classifyAll, keyOf, loadCategoryCache } from "./classify.mjs";
 import { readFlyerWithAI, toAppDeals } from "./aiReader.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -196,6 +196,7 @@ async function prune(index) {
  */
 async function recategorizeAll(index) {
   let changed = false;
+  const aiCategories = await loadCategoryCache(DATA);
   for (const l of index.leaflets) {
     if (only && l.store !== only) continue;
     const file = path.join(DATA, l.file);
@@ -207,7 +208,8 @@ async function recategorizeAll(index) {
     }
     let touched = 0;
     for (const deal of data.deals ?? []) {
-      const c = recategorize(l.store, deal.n, deal.d, deal.c);
+      // Kategória, ktorú určila AI, má prednosť pred slovnými pravidlami.
+      const c = aiCategories[keyOf(deal)] ?? recategorize(l.store, deal.n, deal.d, deal.c);
       if (c !== deal.c) {
         if (c) deal.c = c;
         else delete deal.c;
