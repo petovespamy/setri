@@ -36,7 +36,7 @@ export default {
       const validTo = `${year}-${pad(range[4])}-${pad(range[3])}`;
 
       const view = await text(`https://indd.adobe.com/view/${id}`);
-      const prefix = view.match(/VERSION_PREFIX\\?":\\?"([a-z0-9]+)/)?.[1];
+      const prefix = view.match(/VERSION_PREFIX\\?":\\?"?([a-z0-9]+)/)?.[1];
       if (!prefix) throw new Error("COOP: v dokumente sa nenašla verzia publikácie");
       const content = JSON.parse(await text(`https://indd.adobe.com/view/publication/${id}/${prefix}/content.json`));
       out.push({ source: pageUrl, validFrom, validTo, deals: parseCoop(content) });
