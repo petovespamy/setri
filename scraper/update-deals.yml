@@ -15,11 +15,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - name: Inštalácia
         run: npm install --prefix scraper
       - name: Stiahnutie nových letákov
         run: node scraper/src/run.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - name: Uloženie zmien
         if: always()
         run: |
