@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T13:05:55.154Z",
+  "updatedAt": "2026-10-26T13:25:34.566Z",
   "leaflets": [
     {
       "store": "billa",
@@ -24,7 +24,7 @@
       "validTo": "2026-10-28",
       "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-42-2026",
       "count": 268,
-      "rev": "da1f537a69"
+      "rev": "b46a86ce2c"
     },
     {
       "store": "coop",
@@ -50,8 +50,8 @@
       "validFrom": "2026-10-22",
       "validTo": "2026-10-28",
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
-      "count": 243,
-      "rev": "06a49850cd"
+      "count": 242,
+      "rev": "10420e6769"
     },
     {
       "store": "kraj",

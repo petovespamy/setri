@@ -1,28 +1,17 @@
-2026-10-26T13:05:55.154Z
+2026-10-26T13:25:34.566Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-10-27)
 [kaufland] kontrolujem: leták končí, hľadáme nový
-[kaufland] uložené: kaufland/2026-10-22.json (243 zliav, 2026-10-22 až 2026-10-28)
+[kaufland] uložené: kaufland/2026-10-22.json (242 zliav, 2026-10-22 až 2026-10-28)
 [lidl] preskakujem (aktuálny leták platí do 2026-11-01)
 [tesco] preskakujem (aktuálny leták platí do 2026-10-27)
 [coop] preskakujem (aktuálny leták platí do 2026-10-28)
 [kraj] kontrolujem: leták končí, hľadáme nový
 [drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
 [yeme] kontrolujem: leták končí, hľadáme nový
-[yeme] uložené: yeme/2026-10-26.json (502 zliav, 2026-10-26 až 2026-10-28)
 [teta] kontrolujem: leták končí, hľadáme nový
-[coop] coop/2026-10-22.json: znova zaradených 2 produktov do kategórií
-[kraj] kraj/2026-10-22.json: znova zaradených 1 produktov do kategórií
-[tesco] tesco/2026-10-21.json: znova zaradených 1 produktov do kategórií
-[tesco] tesco/2026-10-28.json: znova zaradených 1 produktov do kategórií
-[teta] teta/2026-10-26.json: znova zaradených 7 produktov do kategórií
-[yeme] yeme/2026-10-25.json: znova zaradených 2 produktov do kategórií
-[kaufland] kaufland/2026-10-22.json: znova zaradených 5 produktov do kategórií
-[yeme] yeme/2026-10-26.json: znova zaradených 2 produktov do kategórií
-ERROR: [classify] pokus 1 zlyhal: Expected ',' or '}' after property value in JSON at position 768 (line 1 column 769)
-ERROR: [classify] pokus 2 zlyhal: Expected ',' or '}' after property value in JSON at position 1716 (line 1 column 1717)
-ERROR: [classify] pokus 1 zlyhal: Expected ',' or '}' after property value in JSON at position 1310 (line 1 column 1311)
-ERROR: [classify] pokus 2 zlyhal: Expected ',' or '}' after property value in JSON at position 1375 (line 1 column 1376)
-[classify] názvy na zaradenie: 4709, typy od AI: 4106, kategórie od AI: 4588
+[kaufland] kaufland/2026-10-22.json: znova zaradených 36 produktov do kategórií
+ERROR: [classify] pokus 1 zlyhal: Expected ',' or '}' after property value in JSON at position 1620 (line 1 column 1621)
+[classify] názvy na zaradenie: 123, typy od AI: 121, kategórie od AI: 123
 index.json aktualizovaný
