@@ -11,6 +11,7 @@ import { readPdfPages } from "./pdf.mjs";
 import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
 import { recategorize, dietTags } from "./categorize.mjs";
 import { classifyAll } from "./classify.mjs";
+import { readFlyerWithAI, toAppDeals } from "./aiReader.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA = path.join(ROOT, "data");
@@ -25,6 +26,9 @@ for (const level of ["log", "warn", "error"]) {
     original(...a);
   };
 }
+
+/** Obchody, ktorých PDF leták číta AI (Claude). Ostatné čítajú pôvodné parsery. */
+const AI_STORES = new Set(["billa"]);
 
 const args = process.argv.slice(2);
 const force = args.includes("--force");
@@ -117,7 +121,8 @@ async function processStore(store, index) {
     if (!force && mine.some((l) => l.source === source)) continue;
 
     console.log(`[${store.id}] sťahujem ${source}`);
-    const pages = await readPdfPages(await download(item.pdfUrl));
+    const pdf = await download(item.pdfUrl);
+    const pages = await readPdfPages(pdf);
     const validity = extractValidity(pageText(pages[0])) ??
       extractValidity(pages.slice(0, 3).map(pageText).join(" ")) ??
       (item.validFrom && item.validTo ? { validFrom: item.validFrom, validTo: item.validTo } : null);
@@ -126,7 +131,10 @@ async function processStore(store, index) {
       continue;
     }
 
-    const deals = parseFlyer(pages);
+    let deals = parseFlyer(pages);
+    if (AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY) {
+      deals = await readWithAI(store.id, pdf, deals);
+    }
     if (deals.length < 10) {
       console.warn(`[${store.id}] podozrivo málo zliav (${deals.length}), leták neukladám`);
       continue;
@@ -145,6 +153,30 @@ async function processStore(store, index) {
     changed = true;
   }
   return changed;
+}
+
+/**
+ * AI prečíta leták ako obrázky. Jej výsledok sa použije len vtedy, keď prešiel kontrolami:
+ * žiadna strana nezlyhala a AI našla aspoň 80 % toho, čo pôvodný parser. Inak ostáva pôvodný výsledok.
+ */
+async function readWithAI(storeId, pdf, fallback) {
+  try {
+    const read = await readFlyerWithAI(pdf);
+    const { deals, issues } = toAppDeals(read.deals);
+    console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), tokeny ${read.usage.input}/${read.usage.output}, zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
+    if (read.failedPages > 0) {
+      console.warn(`[${storeId}] AI neprečítala ${read.failedPages} strán, používam pôvodný parser`);
+      return fallback;
+    }
+    if (deals.length < fallback.length * 0.8) {
+      console.warn(`[${storeId}] AI našla podozrivo málo zliav, používam pôvodný parser`);
+      return fallback;
+    }
+    return deals;
+  } catch (err) {
+    console.warn(`[${storeId}] AI čítanie zlyhalo (${err.message}), používam pôvodný parser`);
+    return fallback;
+  }
 }
 
 async function prune(index) {
