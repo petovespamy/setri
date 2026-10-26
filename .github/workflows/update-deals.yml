@@ -9,6 +9,10 @@ on:
         description: "Skúška AI čítania letáku Billa (nič sa neukladá, výsledok je v Summary)"
         type: boolean
         default: false
+      reread_billa:
+        description: "Znova prečítať aktuálny leták Billa cez AI (prepíše ho)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -23,15 +27,16 @@ jobs:
           node-version: 22
       - name: Inštalácia
         run: npm install --prefix scraper
+      - name: Nástroj na čítanie PDF
+        run: command -v pdftoppm >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)
       - name: Stiahnutie nových letákov
-        run: node scraper/src/run.mjs
+        run: node scraper/src/run.mjs ${{ inputs.reread_billa == true && '--force billa' || '' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - name: Skúška AI čítania letáku (Billa)
         if: ${{ always() && inputs.ai_test == true }}
         continue-on-error: true
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
           node scraper/src/aiTest.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
