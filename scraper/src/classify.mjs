@@ -133,10 +133,17 @@ export async function classifyAll(index, DATA, only) {
   const keys = [...pending.keys()];
   let asked = 0;
   let askedCategories = 0;
-  for (let i = 0; i < keys.length; i += BATCH) {
-    const chunk = keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal }));
+  const handleChunk = async (chunk) => {
     const answer = await askClaude(apiKey, chunk);
-    if (!answer) continue;
+    if (!answer) {
+      // Dávka zlyhala (napr. AI vrátila pokazený JSON): skúsime ju rozdeliť na polovice.
+      if (chunk.length > 1) {
+        const half = Math.ceil(chunk.length / 2);
+        await handleChunk(chunk.slice(0, half));
+        await handleChunk(chunk.slice(half));
+      }
+      return;
+    }
     chunk.forEach((it, idx) => {
       const a = answer[String(idx + 1)];
       const t = typeof a === "string" ? a : a?.t;
@@ -160,6 +167,9 @@ export async function classifyAll(index, DATA, only) {
         }
       }
     });
+  };
+  for (let i = 0; i < keys.length; i += BATCH) {
+    await handleChunk(keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal })));
   }
   if (keys.length) console.log(`[classify] názvy na zaradenie: ${keys.length}, typy od AI: ${asked}, kategórie od AI: ${askedCategories}`);
 
