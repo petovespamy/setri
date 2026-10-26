@@ -1,16 +1,71 @@
-2026-10-26T11:47:27.335Z
-[billa] preskakujem (aktuálny leták platí do 2026-10-27)
-[kaufland] kontrolujem: leták končí, hľadáme nový
-[kaufland] uložené: kaufland/2026-10-22.json (242 zliav, 2026-10-22 až 2026-10-28)
-[lidl] preskakujem (aktuálny leták platí do 2026-11-01)
-[tesco] kontrolujem: leták končí, hľadáme nový
-  [tesco] sťahujem tesco-letak-2026-10-28
-[tesco] uložené: tesco/2026-10-28.json (244 zliav, 2026-10-28 až 2026-11-03)
-[coop] kontrolujem: leták končí, hľadáme nový
-[coop] uložené: coop/2026-10-29.json (261 zliav, 2026-10-29 až 2026-11-04)
-[kraj] kontrolujem: leták končí, hľadáme nový
-[drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
-[yeme] kontrolujem: leták končí, hľadáme nový
-[yeme] uložené: yeme/2026-10-26.json (503 zliav, 2026-10-26 až 2026-10-28)
-[teta] kontrolujem: leták končí, hľadáme nový
+2026-10-26T12:43:50.542Z
+Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
+Warning: Cannot polyfill `Path2D`, rendering may be broken.
+[billa] kontrolujem: vynútená kontrola
+[billa] nájdené letáky: 2
+[billa] sťahujem https://view.publitas.com/64070/3448636/pdfs/bb99ebb1-85d8-4a32-8881-9de6c5d5454a.pdf
+  [ai] strana 1/28: 9 zliav
+  [ai] strana 2/28: 10 zliav
+  [ai] strana 3/28: 9 zliav
+  [ai] strana 4/28: 11 zliav
+  [ai] strana 5/28: 10 zliav
+  [ai] strana 6/28: 10 zliav
+  [ai] strana 7/28: 11 zliav
+  [ai] strana 8/28: 10 zliav
+  [ai] strana 9/28: 11 zliav
+  [ai] strana 10/28: 11 zliav
+  [ai] strana 11/28: 11 zliav
+  [ai] strana 12/28: 10 zliav
+  [ai] strana 13/28: 10 zliav
+  [ai] strana 14/28: 9 zliav
+  [ai] strana 15/28: 10 zliav
+  [ai] strana 16/28: 11 zliav
+  [ai] strana 17/28: 11 zliav
+  [ai] strana 18/28: 10 zliav
+  [ai] strana 19/28: 9 zliav
+  [ai] strana 20/28: 11 zliav
+  [ai] strana 21/28: 11 zliav
+  [ai] strana 22/28: 10 zliav
+  [ai] strana 23/28: 12 zliav
+  [ai] strana 24/28: 11 zliav
+  [ai] strana 25/28: 0 zliav
+  [ai] strana 26/28: 4 zliav
+  [ai] strana 27/28: 0 zliav
+  [ai] strana 28/28: 0 zliav
+[billa] AI: 252 zliav (pôvodný parser 214), tokeny 86044/25970, zahodených 0, opravených percent 6
+[billa] uložené: billa/2026-10-21.json (252 zliav, 2026-10-21 až 2026-10-27)
+[billa] sťahujem https://view.publitas.com/64070/3470637/pdfs/b82fead5-3f28-4bd6-bea0-692350accf71.pdf
+  [ai] strana 1/30: 10 zliav
+  [ai] strana 2/30: 16 zliav
+  [ai] strana 3/30: 11 zliav
+  [ai] strana 4/30: 13 zliav
+  [ai] strana 5/30: 12 zliav
+  [ai] strana 6/30: 7 zliav
+  [ai] strana 7/30: 8 zliav
+  [ai] strana 8/30: 11 zliav
+  [ai] strana 9/30: 11 zliav
+  [ai] strana 10/30: 8 zliav
+  [ai] strana 11/30: 11 zliav
+  [ai] strana 12/30: 10 zliav
+  [ai] strana 13/30: 5 zliav
+  [ai] strana 14/30: 10 zliav
+  [ai] strana 15/30: 10 zliav
+  [ai] strana 16/30: 10 zliav
+  [ai] strana 17/30: 10 zliav
+  [ai] strana 18/30: 9 zliav
+  [ai] strana 19/30: 10 zliav
+  [ai] strana 20/30: 11 zliav
+  [ai] strana 21/30: 11 zliav
+  [ai] strana 22/30: 10 zliav
+  [ai] strana 23/30: 12 zliav
+  [ai] strana 24/30: 7 zliav
+  [ai] strana 25/30: 4 zliav
+  [ai] strana 26/30: 0 zliav
+  [ai] strana 27/30: 0 zliav
+  [ai] strana 28/30: 4 zliav
+  [ai] strana 29/30: 0 zliav
+  [ai] strana 30/30: 0 zliav
+[billa] AI: 251 zliav (pôvodný parser 207), tokeny 92190/24605, zahodených 0, opravených percent 0
+[billa] uložené: billa/2026-10-28.json (251 zliav, 2026-10-28 až 2026-11-03)
+[classify] nové názvy: 483, zaradených AI: 483
 index.json aktualizovaný
