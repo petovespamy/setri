@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T05:09:08.109Z",
+  "updatedAt": "2026-10-26T11:47:27.335Z",
   "leaflets": [
     {
       "store": "billa",
@@ -27,6 +27,15 @@
       "rev": "8551fd0b51"
     },
     {
+      "store": "coop",
+      "file": "coop/2026-10-29.json",
+      "validFrom": "2026-10-29",
+      "validTo": "2026-11-04",
+      "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-43-2026",
+      "count": 261,
+      "rev": "24a690696c"
+    },
+    {
       "store": "drogerie101",
       "file": "drogerie101/2026-10-21.json",
       "validFrom": "2026-10-21",
@@ -41,8 +50,8 @@
       "validFrom": "2026-10-22",
       "validTo": "2026-10-28",
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
-      "count": 243,
-      "rev": "3de6e0ce82"
+      "count": 242,
+      "rev": "ae78805748"
     },
     {
       "store": "kraj",
@@ -81,6 +90,15 @@
       "rev": "4527384892"
     },
     {
+      "store": "tesco",
+      "file": "tesco/2026-10-28.json",
+      "validFrom": "2026-10-28",
+      "validTo": "2026-11-03",
+      "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/28b0a80f-efa1-4236-a10d-aa9750fb0c93/20261022002255013_2026_P35_SK_HM-CHM.pdf",
+      "count": 244,
+      "rev": "49a61e770a"
+    },
+    {
       "store": "teta",
       "file": "teta/2026-10-25.json",
       "validFrom": "2026-10-25",
@@ -113,8 +131,8 @@
       "validFrom": "2026-10-26",
       "validTo": "2026-10-28",
       "source": "https://www.yeme.sk/hrdinovia#2026-10-26",
-      "count": 505,
-      "rev": "22c2d42e1e"
+      "count": 503,
+      "rev": "9a8195594e"
     }
   ]
 }

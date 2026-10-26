@@ -1,22 +1,16 @@
-2026-10-26T05:09:08.110Z
-[billa] kontrolujem: leták končí, hľadáme nový
-[billa] nájdené letáky: 2
-[billa] sťahujem https://view.publitas.com/64070/3470637/pdfs/b82fead5-3f28-4bd6-bea0-692350accf71.pdf
-[billa] uložené: billa/2026-10-28.json (207 zliav, 2026-10-28 až 2026-11-03)
+2026-10-26T11:47:27.335Z
+[billa] preskakujem (aktuálny leták platí do 2026-10-27)
 [kaufland] kontrolujem: leták končí, hľadáme nový
+[kaufland] uložené: kaufland/2026-10-22.json (242 zliav, 2026-10-22 až 2026-10-28)
 [lidl] preskakujem (aktuálny leták platí do 2026-11-01)
 [tesco] kontrolujem: leták končí, hľadáme nový
+  [tesco] sťahujem tesco-letak-2026-10-28
+[tesco] uložené: tesco/2026-10-28.json (244 zliav, 2026-10-28 až 2026-11-03)
 [coop] kontrolujem: leták končí, hľadáme nový
-ERROR: [coop] CHYBA: Error: COOP: v dokumente sa nenašla verzia publikácie
-    at Object.fetchLeaflets (file:///home/runner/work/setri/setri/scraper/src/stores/coop.mjs:40:26)
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async processStore (file:///home/runner/work/setri/setri/scraper/src/run.mjs:88:22)
-    at async main (file:///home/runner/work/setri/setri/scraper/src/run.mjs:219:18)
+[coop] uložené: coop/2026-10-29.json (261 zliav, 2026-10-29 až 2026-11-04)
 [kraj] kontrolujem: leták končí, hľadáme nový
 [drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
 [yeme] kontrolujem: leták končí, hľadáme nový
-[yeme] uložené: yeme/2026-10-26.json (505 zliav, 2026-10-26 až 2026-10-28)
+[yeme] uložené: yeme/2026-10-26.json (503 zliav, 2026-10-26 až 2026-10-28)
 [teta] kontrolujem: leták končí, hľadáme nový
-[teta] uložené: teta/2026-10-26.json (1865 zliav, 2026-10-26 až 2026-10-28)
-[teta] teta/2026-10-26.json: znova zaradených 24 produktov do kategórií
 index.json aktualizovaný
