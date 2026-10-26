@@ -2,8 +2,13 @@ name: Aktualizácia letákov
 
 on:
   schedule:
-    - cron: "30 4 * * *"
-  workflow_dispatch:
+    - cron: "30 4 * * *"   # každý deň o 4:30 UTC (5:30 / 6:30 na Slovensku)
+  workflow_dispatch:         # dá sa spustiť aj ručne v záložke Actions
+    inputs:
+      ai_test:
+        description: "Skúška AI čítania letáku Billa (nič sa neukladá, výsledok je v Summary)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -15,11 +20,21 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Instalácia
+          node-version: 22
+      - name: Inštalácia
         run: npm install --prefix scraper
       - name: Stiahnutie nových letákov
         run: node scraper/src/run.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Skúška AI čítania letáku (Billa)
+        if: ${{ always() && inputs.ai_test == true }}
+        continue-on-error: true
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+          node scraper/src/aiTest.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       - name: Uloženie zmien
         if: always()
         run: |
