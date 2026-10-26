@@ -1,23 +1,22 @@
-2026-10-25T14:49:44.237Z
+2026-10-26T05:09:08.110Z
 [billa] kontrolujem: leták končí, hľadáme nový
-[billa] nájdené letáky: 1
+[billa] nájdené letáky: 2
+[billa] sťahujem https://view.publitas.com/64070/3470637/pdfs/b82fead5-3f28-4bd6-bea0-692350accf71.pdf
+[billa] uložené: billa/2026-10-28.json (207 zliav, 2026-10-28 až 2026-11-03)
 [kaufland] kontrolujem: leták končí, hľadáme nový
-[lidl] preskakujem (aktuálny leták platí do 2026-10-25)
+[lidl] preskakujem (aktuálny leták platí do 2026-11-01)
 [tesco] kontrolujem: leták končí, hľadáme nový
 [coop] kontrolujem: leták končí, hľadáme nový
+ERROR: [coop] CHYBA: Error: COOP: v dokumente sa nenašla verzia publikácie
+    at Object.fetchLeaflets (file:///home/runner/work/setri/setri/scraper/src/stores/coop.mjs:40:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async processStore (file:///home/runner/work/setri/setri/scraper/src/run.mjs:88:22)
+    at async main (file:///home/runner/work/setri/setri/scraper/src/run.mjs:219:18)
 [kraj] kontrolujem: leták končí, hľadáme nový
 [drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
 [yeme] kontrolujem: leták končí, hľadáme nový
-[teta] kontrolujem: nemáme aktuálny leták
-[teta] uložené: teta/2026-10-25.json (490 zliav, 2026-10-25 až 2026-10-27)
-[billa] billa/2026-10-21.json: znova zaradených 58 produktov do kategórií
-[coop] coop/2026-10-22.json: znova zaradených 117 produktov do kategórií
-[drogerie101] drogerie101/2026-10-21.json: znova zaradených 28 produktov do kategórií
-[kaufland] kaufland/2026-10-22.json: znova zaradených 17 produktov do kategórií
-[kraj] kraj/2026-10-22.json: znova zaradených 24 produktov do kategórií
-[lidl] lidl/2026-10-19.json: znova zaradených 53 produktov do kategórií
-[lidl] lidl/2026-10-26.json: znova zaradených 34 produktov do kategórií
-[tesco] tesco/2026-10-21.json: znova zaradených 94 produktov do kategórií
-[yeme] yeme/2026-10-25.json: znova zaradených 338 produktov do kategórií
-[teta] teta/2026-10-25.json: znova zaradených 12 produktov do kategórií
+[yeme] uložené: yeme/2026-10-26.json (505 zliav, 2026-10-26 až 2026-10-28)
+[teta] kontrolujem: leták končí, hľadáme nový
+[teta] uložené: teta/2026-10-26.json (1865 zliav, 2026-10-26 až 2026-10-28)
+[teta] teta/2026-10-26.json: znova zaradených 24 produktov do kategórií
 index.json aktualizovaný
