@@ -1,17 +1,20 @@
-2026-10-26T13:25:34.566Z
+2026-10-27T05:06:17.444Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-10-27)
 [kaufland] kontrolujem: leták končí, hľadáme nový
-[kaufland] uložené: kaufland/2026-10-22.json (242 zliav, 2026-10-22 až 2026-10-28)
+[kaufland] uložené: kaufland/2026-10-22.json (522 zliav, 2026-10-22 až 2026-11-04)
 [lidl] preskakujem (aktuálny leták platí do 2026-11-01)
 [tesco] preskakujem (aktuálny leták platí do 2026-10-27)
 [coop] preskakujem (aktuálny leták platí do 2026-10-28)
 [kraj] kontrolujem: leták končí, hľadáme nový
 [drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
 [yeme] kontrolujem: leták končí, hľadáme nový
+[yeme] uložené: yeme/2026-10-27.json (501 zliav, 2026-10-27 až 2026-10-29)
 [teta] kontrolujem: leták končí, hľadáme nový
-[kaufland] kaufland/2026-10-22.json: znova zaradených 36 produktov do kategórií
-ERROR: [classify] pokus 1 zlyhal: Expected ',' or '}' after property value in JSON at position 1620 (line 1 column 1621)
-[classify] názvy na zaradenie: 123, typy od AI: 121, kategórie od AI: 123
+[teta] uložené: teta/2026-10-27.json (1829 zliav, 2026-10-27 až 2026-10-29)
+[kaufland] kaufland/2026-10-22.json: znova zaradených 35 produktov do kategórií
+[yeme] yeme/2026-10-27.json: znova zaradených 77 produktov do kategórií
+[teta] teta/2026-10-27.json: znova zaradených 494 produktov do kategórií
+[classify] názvy na zaradenie: 286, typy od AI: 286, kategórie od AI: 286
 index.json aktualizovaný
