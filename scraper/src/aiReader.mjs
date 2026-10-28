@@ -22,6 +22,7 @@ Pre každú zľavu uveď:
 
 Dôležité:
 - Ak cena platí len pri kúpe viacerých kusov alebo len s kartou, VŽDY to uveď v condition. Nikdy takú cenu nevydávaj za bežnú.
+- Ak je podmienkou počet kusov (napr. "pri kúpe od 2 ks"), napíš do condition len počet kusov a nepíš, že sa viaže na kartu, kupón alebo BILLA Bonus. Ostatné podmienky (napr. "s BILLA Bonus" bez počtu kusov) uveď tak, ako sú v letáku.
 - Ak sú pri produkte dve ceny (napr. "cena za 1 ks pri kúpe 2 ks" a "cena za 1 ks pri kúpe 1 ks"), vypíš ako price tú akciovú a do condition napíš podmienku.
 - Cena "za 1 kg" alebo "za 100 g" je cena produktu; jednotku uveď v detail (napr. "cena za 1 kg").
 - Nič nehádaj ani nepočítaj. Čo na obrázku nevidíš, daj null. Nevynechávaj zľavy a nevymýšľaj nové.

@@ -12,6 +12,7 @@ import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
 import { recategorize, dietTags } from "./categorize.mjs";
 import { classifyAll, keyOf, loadCategoryCache } from "./classify.mjs";
 import { readFlyerWithAI, toAppDeals } from "./aiReader.mjs";
+import { fillCondition, tidyCondition } from "./conditions.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA = path.join(ROOT, "data");
@@ -80,7 +81,8 @@ function needsCheck(leaflets) {
 
 async function processStore(store, index) {
   const mine = index.leaflets.filter((l) => l.store === store.id);
-  const reason = needsCheck(mine);
+  // Obchody s hotovými dátami na stránke (bez PDF a AI) kontrolujeme vždy – je to lacné a ponuky sa tam môžu meniť.
+  const reason = store.fetchLeaflets ? "kontrola dát na stránke" : needsCheck(mine);
   if (!reason) {
     console.log(`[${store.id}] preskakujem (aktuálny leták platí do ${mine.find((l) => l.validFrom <= today && today <= l.validTo)?.validTo})`);
     return false;
@@ -92,18 +94,20 @@ async function processStore(store, index) {
     let changed = false;
     for (const lf of await store.fetchLeaflets({ known: new Set(mine.map((l) => l.source)) })) {
       const prev = mine.find((l) => l.validFrom === lf.validFrom);
-      if (!force && prev && prev.count === lf.deals.length) continue;
+      const file = `${store.id}/${lf.validFrom}.json`;
+      const content = JSON.stringify({ store: store.id, validFrom: lf.validFrom, validTo: lf.validTo, deals: lf.deals });
+      let existing = null;
+      try { existing = await fs.readFile(path.join(DATA, file), "utf8"); } catch { /* nový súbor */ }
+      // Prepíšeme len vtedy, keď sa obsah zmenil (existujúci súbor má doplnené kategórie, preto porovnávame počet aj podmienky).
+      const sameCount = prev && prev.count === lf.deals.length;
+      const conditionsCount = (txt) => (txt.match(/"q":/g) ?? []).length;
+      if (!force && sameCount && existing && conditionsCount(existing) >= conditionsCount(content)) continue;
       if (lf.deals.length < 10) {
         console.warn(`[${store.id}] podozrivo málo zliav (${lf.deals.length}), leták neukladám`);
         continue;
       }
-      const file = `${store.id}/${lf.validFrom}.json`;
       await fs.mkdir(path.join(DATA, store.id), { recursive: true });
-      await fs.writeFile(
-        path.join(DATA, file),
-        JSON.stringify({ store: store.id, validFrom: lf.validFrom, validTo: lf.validTo, deals: lf.deals }),
-        "utf8"
-      );
+      await fs.writeFile(path.join(DATA, file), content, "utf8");
       index.leaflets = index.leaflets.filter((l) => !(l.store === store.id && l.validFrom === lf.validFrom));
       index.leaflets.push({ store: store.id, file, validFrom: lf.validFrom, validTo: lf.validTo, source: lf.source, count: lf.deals.length });
       console.log(`[${store.id}] uložené: ${file} (${lf.deals.length} zliav, ${lf.validFrom} až ${lf.validTo})`);
@@ -215,6 +219,8 @@ async function recategorizeAll(index) {
         else delete deal.c;
         touched++;
       }
+      if (fillCondition(deal)) touched++;
+      if (tidyCondition(deal)) touched++;
       const tags = dietTags(deal.n, deal.d);
       if (tags.join() !== (deal.f ?? []).join()) {
         if (tags.length) deal.f = tags;
