@@ -1,17 +1,25 @@
-2026-10-28T05:13:16.982Z
+2026-10-28T12:28:13.975Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-03)
-[kaufland] preskakujem (aktuálny leták platí do 2026-11-04)
-[lidl] preskakujem (aktuálny leták platí do 2026-11-01)
-[tesco] preskakujem (aktuálny leták platí do 2026-11-03)
-[coop] preskakujem (aktuálny leták platí do 2026-10-28)
-[kraj] kontrolujem: leták končí, hľadáme nový
-[drogerie101] preskakujem (aktuálny leták platí do 2026-11-03)
-[yeme] kontrolujem: leták končí, hľadáme nový
-[yeme] uložené: yeme/2026-10-28.json (500 zliav, 2026-10-28 až 2026-10-30)
-[teta] kontrolujem: leták končí, hľadáme nový
-[teta] uložené: teta/2026-10-28.json (1825 zliav, 2026-10-28 až 2026-10-30)
-[yeme] yeme/2026-10-28.json: znova zaradených 76 produktov do kategórií
-[teta] teta/2026-10-28.json: znova zaradených 495 produktov do kategórií
+[kaufland] kontrolujem: kontrola dát na stránke
+[lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-26-10-2026
+[lidl] uložené: lidl/2026-10-26.json (102 zliav, 2026-10-26 až 2026-11-01)
+[tesco] kontrolujem: kontrola dát na stránke
+[coop] kontrolujem: kontrola dát na stránke
+[kraj] kontrolujem: kontrola dát na stránke
+[kraj] uložené: kraj/2026-10-29.json (67 zliav, 2026-10-29 až 2026-11-04)
+[drogerie101] kontrolujem: kontrola dát na stránke
+[yeme] kontrolujem: kontrola dát na stránke
+[teta] kontrolujem: kontrola dát na stránke
+[billa] billa/2026-10-21.json: znova zaradených 11 produktov do kategórií
+[billa] billa/2026-10-28.json: znova zaradených 7 produktov do kategórií
+[kaufland] kaufland/2026-10-22.json: znova zaradených 1 produktov do kategórií
+[teta] teta/2026-10-25.json: znova zaradených 30 produktov do kategórií
+[teta] teta/2026-10-26.json: znova zaradených 38 produktov do kategórií
+[teta] teta/2026-10-27.json: znova zaradených 38 produktov do kategórií
+[teta] teta/2026-10-28.json: znova zaradených 38 produktov do kategórií
+[lidl] lidl/2026-10-26.json: znova zaradených 19 produktov do kategórií
+[classify] názvy na zaradenie: 70, typy od AI: 70, kategórie od AI: 70
 index.json aktualizovaný
