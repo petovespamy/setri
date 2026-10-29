@@ -1,25 +1,21 @@
-2026-10-28T12:28:13.975Z
+2026-10-29T05:15:25.669Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-03)
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-10-29.json (280 zliav, 2026-10-29 až 2026-11-04)
 [lidl] kontrolujem: kontrola dát na stránke
-  [lidl] sťahujem online-letak-platny-od-26-10-2026
-[lidl] uložené: lidl/2026-10-26.json (102 zliav, 2026-10-26 až 2026-11-01)
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
-[kraj] uložené: kraj/2026-10-29.json (67 zliav, 2026-10-29 až 2026-11-04)
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
+[yeme] uložené: yeme/2026-10-29.json (500 zliav, 2026-10-29 až 2026-10-31)
 [teta] kontrolujem: kontrola dát na stránke
-[billa] billa/2026-10-21.json: znova zaradených 11 produktov do kategórií
-[billa] billa/2026-10-28.json: znova zaradených 7 produktov do kategórií
-[kaufland] kaufland/2026-10-22.json: znova zaradených 1 produktov do kategórií
-[teta] teta/2026-10-25.json: znova zaradených 30 produktov do kategórií
-[teta] teta/2026-10-26.json: znova zaradených 38 produktov do kategórií
-[teta] teta/2026-10-27.json: znova zaradených 38 produktov do kategórií
-[teta] teta/2026-10-28.json: znova zaradených 38 produktov do kategórií
-[lidl] lidl/2026-10-26.json: znova zaradených 19 produktov do kategórií
-[classify] názvy na zaradenie: 70, typy od AI: 70, kategórie od AI: 70
+[teta] uložené: teta/2026-10-29.json (1823 zliav, 2026-10-29 až 2026-10-31)
+[billa] billa/2026-10-21.json: znova zaradených 1 produktov do kategórií
+[kaufland] kaufland/2026-10-29.json: znova zaradených 40 produktov do kategórií
+[yeme] yeme/2026-10-29.json: znova zaradených 75 produktov do kategórií
+[teta] teta/2026-10-29.json: znova zaradených 534 produktov do kategórií
+[classify] názvy na zaradenie: 7, typy od AI: 7, kategórie od AI: 7
 index.json aktualizovaný

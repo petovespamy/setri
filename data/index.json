@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T12:28:13.974Z",
+  "updatedAt": "2026-10-29T05:15:25.668Z",
   "leaflets": [
     {
       "store": "billa",
@@ -7,7 +7,7 @@
       "validFrom": "2026-10-21",
       "validTo": "2026-10-27",
       "source": "https://view.publitas.com/64070/3448636/pdfs/bb99ebb1-85d8-4a32-8881-9de6c5d5454a.pdf",
-      "rev": "82dfac609a"
+      "rev": "642423f0dc"
     },
     {
       "store": "billa",
@@ -52,6 +52,15 @@
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-22",
       "count": 522,
       "rev": "baafabf217"
+    },
+    {
+      "store": "kaufland",
+      "file": "kaufland/2026-10-29.json",
+      "validFrom": "2026-10-29",
+      "validTo": "2026-11-04",
+      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-29",
+      "count": 280,
+      "rev": "77dcd19339"
     },
     {
       "store": "kraj",
@@ -144,6 +153,15 @@
       "rev": "e59dddaa22"
     },
     {
+      "store": "teta",
+      "file": "teta/2026-10-29.json",
+      "validFrom": "2026-10-29",
+      "validTo": "2026-10-31",
+      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-10-29",
+      "count": 1823,
+      "rev": "a27749e45c"
+    },
+    {
       "store": "yeme",
       "file": "yeme/2026-10-25.json",
       "validFrom": "2026-10-25",
@@ -178,6 +196,15 @@
       "source": "https://www.yeme.sk/hrdinovia#2026-10-28",
       "count": 500,
       "rev": "d438709843"
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-10-29.json",
+      "validFrom": "2026-10-29",
+      "validTo": "2026-10-31",
+      "source": "https://www.yeme.sk/hrdinovia#2026-10-29",
+      "count": 500,
+      "rev": "d14328240b"
     }
   ]
 }
