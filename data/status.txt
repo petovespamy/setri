@@ -1,21 +1,18 @@
-2026-10-29T05:15:25.669Z
+2026-10-30T05:15:17.408Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-03)
 [kaufland] kontrolujem: kontrola dát na stránke
-[kaufland] uložené: kaufland/2026-10-29.json (280 zliav, 2026-10-29 až 2026-11-04)
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-10-29.json (500 zliav, 2026-10-29 až 2026-10-31)
+[yeme] uložené: yeme/2026-10-30.json (508 zliav, 2026-10-30 až 2026-11-01)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] uložené: teta/2026-10-29.json (1823 zliav, 2026-10-29 až 2026-10-31)
-[billa] billa/2026-10-21.json: znova zaradených 1 produktov do kategórií
-[kaufland] kaufland/2026-10-29.json: znova zaradených 40 produktov do kategórií
-[yeme] yeme/2026-10-29.json: znova zaradených 75 produktov do kategórií
-[teta] teta/2026-10-29.json: znova zaradených 534 produktov do kategórií
-[classify] názvy na zaradenie: 7, typy od AI: 7, kategórie od AI: 7
+[teta] uložené: teta/2026-10-30.json (1826 zliav, 2026-10-30 až 2026-11-01)
+[yeme] yeme/2026-10-30.json: znova zaradených 75 produktov do kategórií
+[teta] teta/2026-10-30.json: znova zaradených 536 produktov do kategórií
+[classify] názvy na zaradenie: 17, typy od AI: 17, kategórie od AI: 17
 index.json aktualizovaný
