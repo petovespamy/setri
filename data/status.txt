@@ -1,18 +1,22 @@
-2026-10-30T05:15:17.408Z
+2026-10-31T05:12:34.178Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] preskakujem (aktuálny leták platí do 2026-11-03)
+[billa] kontrolujem: leták končí, hľadáme nový
+[billa] nájdené letáky: 1
 [kaufland] kontrolujem: kontrola dát na stránke
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-02-11-2026
+[lidl] uložené: lidl/2026-11-02.json (103 zliav, 2026-11-02 až 2026-11-08)
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-10-30.json (508 zliav, 2026-10-30 až 2026-11-01)
+[yeme] uložené: yeme/2026-10-31.json (511 zliav, 2026-10-31 až 2026-11-02)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] uložené: teta/2026-10-30.json (1826 zliav, 2026-10-30 až 2026-11-01)
-[yeme] yeme/2026-10-30.json: znova zaradených 75 produktov do kategórií
-[teta] teta/2026-10-30.json: znova zaradených 536 produktov do kategórií
-[classify] názvy na zaradenie: 17, typy od AI: 17, kategórie od AI: 17
+[teta] uložené: teta/2026-10-31.json (1819 zliav, 2026-10-31 až 2026-11-02)
+[lidl] lidl/2026-11-02.json: znova zaradených 4 produktov do kategórií
+[yeme] yeme/2026-10-31.json: znova zaradených 74 produktov do kategórií
+[teta] teta/2026-10-31.json: znova zaradených 529 produktov do kategórií
+[classify] názvy na zaradenie: 92, typy od AI: 92, kategórie od AI: 92
 index.json aktualizovaný
