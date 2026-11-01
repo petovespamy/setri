@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T05:12:34.178Z",
+  "updatedAt": "2026-11-01T05:19:10.832Z",
   "leaflets": [
     {
       "store": "billa",
@@ -189,6 +189,15 @@
       "rev": "5b0a5d6568"
     },
     {
+      "store": "teta",
+      "file": "teta/2026-11-01.json",
+      "validFrom": "2026-11-01",
+      "validTo": "2026-11-03",
+      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-01",
+      "count": 1819,
+      "rev": "e430cb5081"
+    },
+    {
       "store": "yeme",
       "file": "yeme/2026-10-25.json",
       "validFrom": "2026-10-25",
@@ -250,6 +259,15 @@
       "source": "https://www.yeme.sk/hrdinovia#2026-10-31",
       "count": 511,
       "rev": "c1bf7234d3"
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-11-01.json",
+      "validFrom": "2026-11-01",
+      "validTo": "2026-11-03",
+      "source": "https://www.yeme.sk/hrdinovia#2026-11-01",
+      "count": 673,
+      "rev": "6b2f46c1c0"
     }
   ]
 }
