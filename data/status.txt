@@ -1,55 +1,24 @@
-2026-11-02T05:36:09.554Z
+2026-11-03T05:27:18.823Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] kontrolujem: leták končí, hľadáme nový
-[billa] nájdené letáky: 2
-[billa] sťahujem https://view.publitas.com/64070/3497101/pdfs/0fc72a8a-b196-49af-96b9-136eaec2ec2d.pdf
-  [ai] strana 1/29: 9 zliav
-  [ai] strana 2/29: 16 zliav
-  [ai] strana 3/29: 19 zliav
-  [ai] strana 4/29: 12 zliav
-  [ai] strana 5/29: 8 zliav
-  [ai] strana 6/29: 11 zliav
-  [ai] strana 7/29: 11 zliav
-  [ai] strana 8/29: 11 zliav
-  [ai] strana 9/29: 12 zliav
-  [ai] strana 10/29: 9 zliav
-  [ai] strana 11/29: 11 zliav
-  [ai] strana 12/29: 9 zliav
-  [ai] strana 13/29: 12 zliav
-  [ai] strana 14/29: 9 zliav
-  [ai] strana 15/29: 11 zliav
-  [ai] strana 16/29: 10 zliav
-  [ai] strana 17/29: 11 zliav
-  [ai] strana 18/29: 11 zliav
-  [ai] strana 19/29: 11 zliav
-  [ai] strana 20/29: 10 zliav
-  [ai] strana 21/29: 11 zliav
-  [ai] strana 22/29: 10 zliav
-  [ai] strana 23/29: 10 zliav
-  [ai] strana 24/29: 11 zliav
-  [ai] strana 25/29: 2 zliav
-  [ai] strana 26/29: 4 zliav
-  [ai] strana 27/29: 5 zliav
-  [ai] strana 28/29: 0 zliav
-  [ai] strana 29/29: 0 zliav
-[billa] AI: 276 zliav (pôvodný parser 225), tokeny 92800/29236, zahodených 0, opravených percent 1
-[billa] uložené: billa/2026-11-04.json (276 zliav, 2026-11-04 až 2026-11-10)
+[billa] preskakujem (aktuálny leták platí do 2026-11-03)
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-10-29.json (571 zliav, 2026-10-29 až 2026-11-11)
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-02-11-2026
 [tesco] kontrolujem: kontrola dát na stránke
+  [tesco] sťahujem tesco-letak-2026-11-04
+[tesco] uložené: tesco/2026-11-04.json (219 zliav, 2026-11-04 až 2026-11-10)
 [coop] kontrolujem: kontrola dát na stránke
-[coop] uložené: coop/2026-11-05.json (296 zliav, 2026-11-05 až 2026-11-11)
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-02.json (675 zliav, 2026-11-02 až 2026-11-04)
+[yeme] uložené: yeme/2026-11-03.json (698 zliav, 2026-11-03 až 2026-11-05)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] uložené: teta/2026-11-02.json (1818 zliav, 2026-11-02 až 2026-11-04)
-odstránený starý leták lidl/2026-10-19.json
-[billa] billa/2026-11-04.json: znova zaradených 2 produktov do kategórií
-[coop] coop/2026-11-05.json: znova zaradených 3 produktov do kategórií
-[yeme] yeme/2026-11-02.json: znova zaradených 178 produktov do kategórií
-[teta] teta/2026-11-02.json: znova zaradených 529 produktov do kategórií
-[classify] názvy na zaradenie: 532, typy od AI: 532, kategórie od AI: 531
+[teta] uložené: teta/2026-11-03.json (1820 zliav, 2026-11-03 až 2026-11-05)
+[kaufland] kaufland/2026-10-29.json: znova zaradených 42 produktov do kategórií
+[tesco] tesco/2026-11-04.json: znova zaradených 1 produktov do kategórií
+[yeme] yeme/2026-11-03.json: znova zaradených 185 produktov do kategórií
+[teta] teta/2026-11-03.json: znova zaradených 528 produktov do kategórií
+[classify] názvy na zaradenie: 493, typy od AI: 492, kategórie od AI: 493
 index.json aktualizovaný
