@@ -1,27 +1,27 @@
-2026-11-04T05:29:19.197Z
+2026-11-05T05:29:19.356Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-10)
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-11-05.json (299 zliav, 2026-11-05 až 2026-11-11)
 [lidl] kontrolujem: kontrola dát na stránke
   [lidl] sťahujem online-letak-platny-od-02-11-2026
+[lidl] uložené: lidl/2026-11-02.json (108 zliav, 2026-11-02 až 2026-11-08)
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
-[kraj] uložené: kraj/2026-11-05.json (66 zliav, 2026-11-05 až 2026-11-11)
 [drogerie101] kontrolujem: kontrola dát na stránke
-[drogerie101] uložené: drogerie101/2026-11-04.json (74 zliav, 2026-11-04 až 2026-11-17)
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-04.json (698 zliav, 2026-11-04 až 2026-11-06)
+[yeme] uložené: yeme/2026-11-05.json (698 zliav, 2026-11-05 až 2026-11-07)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] uložené: teta/2026-11-04.json (1818 zliav, 2026-11-04 až 2026-11-06)
-odstránený starý leták billa/2026-10-21.json
-odstránený starý leták tesco/2026-10-21.json
-odstránený starý leták teta/2026-10-25.json
-odstránený starý leták yeme/2026-10-25.json
-[kraj] kraj/2026-11-05.json: znova zaradených 1 produktov do kategórií
-[drogerie101] drogerie101/2026-11-04.json: znova zaradených 2 produktov do kategórií
-[yeme] yeme/2026-11-04.json: znova zaradených 214 produktov do kategórií
-[teta] teta/2026-11-04.json: znova zaradených 527 produktov do kategórií
-[classify] názvy na zaradenie: 138, typy od AI: 137, kategórie od AI: 137
+[teta] uložené: teta/2026-11-05.json (541 zliav, 2026-11-05 až 2026-11-07)
+odstránený starý leták coop/2026-10-22.json
+odstránený starý leták kraj/2026-10-22.json
+odstránený starý leták teta/2026-10-26.json
+odstránený starý leták yeme/2026-10-26.json
+[kaufland] kaufland/2026-11-05.json: znova zaradených 52 produktov do kategórií
+[lidl] lidl/2026-11-02.json: znova zaradených 28 produktov do kategórií
+[yeme] yeme/2026-11-05.json: znova zaradených 214 produktov do kategórií
+[teta] teta/2026-11-05.json: znova zaradených 174 produktov do kategórií
+[classify] názvy na zaradenie: 3, typy od AI: 2, kategórie od AI: 3
 index.json aktualizovaný
