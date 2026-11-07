@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T05:28:15.189Z",
+  "updatedAt": "2026-11-07T05:17:48.204Z",
   "leaflets": [
     {
       "store": "billa",
@@ -77,8 +77,8 @@
       "validFrom": "2026-11-05",
       "validTo": "2026-11-11",
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-11-05",
-      "count": 299,
-      "rev": "d4784157a2"
+      "count": 294,
+      "rev": "5b6cc6784b"
     },
     {
       "store": "kraj",
@@ -117,6 +117,15 @@
       "rev": "c00639cb56"
     },
     {
+      "store": "lidl",
+      "file": "lidl/2026-11-09.json",
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-15",
+      "source": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b086-85f2-77d3-9147-dd2c51e808ec/Letak-OD-PONDELKA-Platny-od-09-11-2026-00.pdf",
+      "count": 138,
+      "rev": "a6217af859"
+    },
+    {
       "store": "tesco",
       "file": "tesco/2026-10-28.json",
       "validFrom": "2026-10-28",
@@ -133,15 +142,6 @@
       "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/b944657f-6152-47a4-9954-f9ce476975d9/20261029001637006_2026_P36_SK_HM-CHM.pdf",
       "count": 219,
       "rev": "0e7f61ad6b"
-    },
-    {
-      "store": "teta",
-      "file": "teta/2026-10-28.json",
-      "validFrom": "2026-10-28",
-      "validTo": "2026-10-30",
-      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-10-28",
-      "count": 1825,
-      "rev": "e59dddaa22"
     },
     {
       "store": "teta",
@@ -225,13 +225,13 @@
       "rev": "98faebba03"
     },
     {
-      "store": "yeme",
-      "file": "yeme/2026-10-28.json",
-      "validFrom": "2026-10-28",
-      "validTo": "2026-10-30",
-      "source": "https://www.yeme.sk/hrdinovia#2026-10-28",
-      "count": 500,
-      "rev": "d438709843"
+      "store": "teta",
+      "file": "teta/2026-11-07.json",
+      "validFrom": "2026-11-07",
+      "validTo": "2026-11-09",
+      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-07",
+      "count": 537,
+      "rev": "b51e0bc98c"
     },
     {
       "store": "yeme",
@@ -313,6 +313,15 @@
       "source": "https://www.yeme.sk/hrdinovia#2026-11-06",
       "count": 709,
       "rev": "ad901d8b27"
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-11-07.json",
+      "validFrom": "2026-11-07",
+      "validTo": "2026-11-09",
+      "source": "https://www.yeme.sk/hrdinovia#2026-11-07",
+      "count": 709,
+      "rev": "8a151af866"
     }
   ]
 }
