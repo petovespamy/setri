@@ -1,60 +1,31 @@
-2026-11-09T05:41:57.532Z
+2026-11-10T05:27:29.361Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] kontrolujem: leták končí, hľadáme nový
-[billa] nájdené letáky: 2
-[billa] sťahujem https://view.publitas.com/64070/3512291/pdfs/7e9d757d-efee-4cb8-ad1c-986ef1b6f228.pdf
-  [ai] strana 1/31: 11 zliav
-  [ai] strana 2/31: 16 zliav
-  [ai] strana 3/31: 19 zliav
-  [ai] strana 4/31: 11 zliav
-  [ai] strana 5/31: 0 zliav
-  [ai] strana 6/31: 11 zliav
-  [ai] strana 7/31: 11 zliav
-  [ai] strana 8/31: 11 zliav
-  [ai] strana 9/31: 12 zliav
-  [ai] strana 10/31: 12 zliav
-  [ai] strana 11/31: 12 zliav
-  [ai] strana 12/31: 11 zliav
-  [ai] strana 13/31: 11 zliav
-  [ai] strana 14/31: 10 zliav
-  [ai] strana 15/31: 11 zliav
-  [ai] strana 16/31: 11 zliav
-  [ai] strana 17/31: 10 zliav
-  [ai] strana 18/31: 11 zliav
-  [ai] strana 19/31: 12 zliav
-  [ai] strana 20/31: 11 zliav
-  [ai] strana 21/31: 11 zliav
-  [ai] strana 22/31: 11 zliav
-  [ai] strana 23/31: 11 zliav
-  [ai] strana 24/31: 11 zliav
-  [ai] strana 25/31: 9 zliav
-  [ai] strana 26/31: 5 zliav
-  [ai] strana 27/31: 5 zliav
-  [ai] strana 28/31: 4 zliav
-  [ai] strana 29/31: 0 zliav
-  [ai] strana 30/31: 0 zliav
-  [ai] strana 31/31: 0 zliav
-[billa] AI: 291 zliav (pôvodný parser 234), tokeny 99200/29554, zahodených 0, opravených percent 0
-[billa] uložené: billa/2026-11-11.json (291 zliav, 2026-11-11 až 2026-11-17)
+[billa] preskakujem (aktuálny leták platí do 2026-11-10)
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-11-05.json (583 zliav, 2026-11-05 až 2026-11-18)
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-09-11-2026
+[lidl] uložené: lidl/2026-11-09.json (139 zliav, 2026-11-09 až 2026-11-15)
 [tesco] kontrolujem: kontrola dát na stránke
+  [tesco] sťahujem tesco-letak-2026-11-11
+[tesco] uložené: tesco/2026-11-11.json (192 zliav, 2026-11-11 až 2026-11-17)
 [coop] kontrolujem: kontrola dát na stránke
-[coop] uložené: coop/2026-11-12.json (289 zliav, 2026-11-12 až 2026-11-18)
 [kraj] kontrolujem: kontrola dát na stránke
+[kraj] uložené: kraj/2026-11-12.json (71 zliav, 2026-11-12 až 2026-11-18)
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-09.json (750 zliav, 2026-11-09 až 2026-11-11)
+[yeme] uložené: yeme/2026-11-10.json (748 zliav, 2026-11-10 až 2026-11-12)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] uložené: teta/2026-11-09.json (2068 zliav, 2026-11-09 až 2026-11-11)
-odstránený starý leták lidl/2026-10-26.json
-odstránený starý leták teta/2026-10-30.json
-odstránený starý leták yeme/2026-10-30.json
-[billa] billa/2026-11-11.json: znova zaradených 8 produktov do kategórií
-[coop] coop/2026-11-12.json: znova zaradených 11 produktov do kategórií
-[yeme] yeme/2026-11-09.json: znova zaradených 225 produktov do kategórií
-[teta] teta/2026-11-09.json: znova zaradených 184 produktov do kategórií
-ERROR: [classify] pokus 1 zlyhal: Unexpected non-whitespace character after JSON at position 554 (line 1 column 555)
-[classify] názvy na zaradenie: 2115, typy od AI: 2115, kategórie od AI: 2115
+[teta] uložené: teta/2026-11-10.json (2065 zliav, 2026-11-10 až 2026-11-12)
+odstránený starý leták teta/2026-10-31.json
+odstránený starý leták yeme/2026-10-31.json
+[kaufland] kaufland/2026-11-05.json: znova zaradených 54 produktov do kategórií
+[lidl] lidl/2026-11-09.json: znova zaradených 40 produktov do kategórií
+[tesco] tesco/2026-11-11.json: znova zaradených 4 produktov do kategórií
+[kraj] kraj/2026-11-12.json: znova zaradených 1 produktov do kategórií
+[yeme] yeme/2026-11-10.json: znova zaradených 239 produktov do kategórií
+[teta] teta/2026-11-10.json: znova zaradených 650 produktov do kategórií
+ERROR: [classify] pokus 1 zlyhal: Expected ',' or '}' after property value in JSON at position 1573 (line 1 column 1574)
+[classify] názvy na zaradenie: 487, typy od AI: 487, kategórie od AI: 487
 index.json aktualizovaný
