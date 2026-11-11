@@ -33,11 +33,11 @@ jobs:
         run: |
           command -v pdftoppm >/dev/null && exit 0
           for i in 1 2 3; do
-            sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update -qq \
-              && sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y -qq poppler-utils \
+            timeout 90 sudo apt-get -o Acquire::Retries=0 update -qq \
+              && timeout 120 sudo apt-get -o Acquire::Retries=0 install -y -qq poppler-utils \
               && exit 0
             echo "Pokus $i zlyhal, skúšam znova"
-            sleep 20
+            sleep 10
           done
           exit 1
       - name: Stiahnutie nových letákov
