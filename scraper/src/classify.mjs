@@ -56,9 +56,15 @@ Odpovedz IBA jedným JSON objektom, kde kľúč je číslo produktu a hodnota je
 
 export const keyOf = (deal) => `${deal.n ?? ""} | ${deal.d ?? ""}`.toLowerCase().replace(/\s+/g, " ").trim();
 
+// Počet zlyhaní spojenia/API za sebou. Pri výpadku siete alebo vyčerpanom limite sa nemá donekonečna opakovať.
+let connectionFailures = 0;
+let lastErrorWasParse = false;
+const MAX_CONNECTION_FAILURES = 6;
+
 async function askClaude(apiKey, items) {
   const list = items.map((it, i) => `${i + 1}. ${it.deal.n}${it.deal.d ? " | " + it.deal.d : ""}`).join("\n");
   for (let attempt = 1; attempt <= 2; attempt++) {
+    let parseProblem = false;
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
@@ -68,10 +74,23 @@ async function askClaude(apiKey, items) {
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
       const body = await res.json();
       const text = body.content?.map((c) => c.text ?? "").join("") ?? "";
-      const json = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
-      return json;
+      try {
+        const json = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
+        connectionFailures = 0;
+        return json;
+      } catch (parseErr) {
+        parseProblem = true;
+        throw parseErr;
+      }
     } catch (err) {
       console.error(`[classify] pokus ${attempt} zlyhal: ${err.message}`);
+      lastErrorWasParse = parseProblem;
+      if (!parseProblem) {
+        // Výpadok siete, limit alebo chyba API: nemá zmysel dávku deliť, len chvíľu počkáme.
+        connectionFailures++;
+        if (connectionFailures >= MAX_CONNECTION_FAILURES) break;
+        await new Promise((r) => setTimeout(r, 4000 * attempt));
+      }
     }
   }
   return null;
@@ -145,11 +164,14 @@ export async function classifyAll(index, DATA, only) {
   let asked = 0;
   let askedCategories = 0;
   let askedKeywords = 0;
+  let changedAny = false;
   const handleChunk = async (chunk) => {
+    if (connectionFailures >= MAX_CONNECTION_FAILURES) return;
     const answer = await askClaude(apiKey, chunk);
     if (!answer) {
-      // Dávka zlyhala (napr. AI vrátila pokazený JSON): skúsime ju rozdeliť na polovice.
-      if (chunk.length > 1) {
+      // Dávka zlyhala, lebo AI vrátila pokazený JSON: skúsime ju rozdeliť na polovice.
+      // Pri výpadku siete alebo limite sa nedelí (nepomohlo by to).
+      if (lastErrorWasParse && chunk.length > 1) {
         const half = Math.ceil(chunk.length / 2);
         await handleChunk(chunk.slice(0, half));
         await handleChunk(chunk.slice(half));
@@ -191,29 +213,33 @@ export async function classifyAll(index, DATA, only) {
       }
     });
   };
+  // Priebežné ukladanie: ak beh skončí skôr (výpadok, limit), hotová práca sa nestratí.
+  let savedAsked = 0;
+  let savedCategories = 0;
+  let savedKeywords = 0;
+  const saveProgress = async () => {
+    for (const f of files) {
+      if (!f.touched) continue;
+      await fs.writeFile(f.file, JSON.stringify(f.data), "utf8");
+      f.touched = false;
+      changedAny = true;
+    }
+    if (asked !== savedAsked) { await fs.writeFile(cachePath, JSON.stringify(cache, null, 0), "utf8"); savedAsked = asked; changedAny = true; }
+    if (askedKeywords !== savedKeywords) { await fs.writeFile(kwPath, JSON.stringify(kwCache, null, 0), "utf8"); savedKeywords = askedKeywords; changedAny = true; }
+    if (askedCategories !== savedCategories) { await fs.writeFile(catPath, JSON.stringify(catCache, null, 0), "utf8"); savedCategories = askedCategories; changedAny = true; }
+  };
   for (let i = 0; i < keys.length; i += BATCH) {
     await handleChunk(keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal })));
+    if (connectionFailures >= MAX_CONNECTION_FAILURES) {
+      console.error("[classify] prerušené: AI je nedostupná (sieť alebo limit). Hotová práca sa uloží, zvyšok dobehne nabudúce.");
+      break;
+    }
+    if ((i / BATCH) % 10 === 9) await saveProgress();
   }
   if (keys.length) console.log(`[classify] názvy na zaradenie: ${keys.length}, typy od AI: ${asked}, kategórie od AI: ${askedCategories}, slová od AI: ${askedKeywords}`);
 
   // 3. uložíme
-  let changed = false;
-  for (const f of files) {
-    if (!f.touched) continue;
-    await fs.writeFile(f.file, JSON.stringify(f.data), "utf8");
-    changed = true;
-  }
-  if (asked) {
-    await fs.writeFile(cachePath, JSON.stringify(cache, null, 0), "utf8");
-    changed = true;
-  }
-  if (askedKeywords) {
-    await fs.writeFile(kwPath, JSON.stringify(kwCache, null, 0), "utf8");
-    changed = true;
-  }
-  if (askedCategories) {
-    await fs.writeFile(catPath, JSON.stringify(catCache, null, 0), "utf8");
-    changed = true;
-  }
-  return changed;
+  await saveProgress();
+  return changedAny;
 }
+
