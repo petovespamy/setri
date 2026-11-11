@@ -288,7 +288,13 @@ async function main() {
   for (const store of stores) {
     if (only && store.id !== only) continue;
     try {
-      changed = (await processStore(store, index)) || changed;
+      // Žiadny obchod nesmie blokovať celý beh dlhšie ako 8 minút (AI čítanie letákov je vo výnimke – 40 min).
+      const limitMs = AI_STORES.has(store.id) ? 40 * 60_000 : 8 * 60_000;
+      let timer;
+      const stuck = new Promise((_, rej) => { timer = setTimeout(() => rej(new Error(`prekročený časový limit ${limitMs / 60000} min, obchod preskakujem`)), limitMs); });
+      try {
+        changed = (await Promise.race([processStore(store, index), stuck])) || changed;
+      } finally { clearTimeout(timer); }
     } catch (err) {
       failures++;
       console.error(`[${store.id}] CHYBA: ${err.stack || err}`);

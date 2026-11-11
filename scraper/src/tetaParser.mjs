@@ -29,7 +29,7 @@ export function parseTetaCards(html) {
 }
 
 async function get(url) {
-  const res = await fetch(url, { headers: { "user-agent": UA, "accept-language": "sk-SK,sk;q=0.9" } });
+  const res = await fetch(url, { signal: AbortSignal.timeout(20_000), headers: { "user-agent": UA, "accept-language": "sk-SK,sk;q=0.9" } });
   if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
   return res.text();
 }
@@ -38,8 +38,11 @@ async function get(url) {
 export async function crawlTeta() {
   const seen = new Set();
   const all = [];
+  const started = Date.now();
   for (let page = 0; page < 40; page++) {
+    if (Date.now() - started > 4 * 60_000) { console.warn(`[teta] limit 4 min, končím na strane ${page}`); break; }
     const html = await get(`${BASE}/produkty/?nparams=page;${page};letak;true`);
+    console.log(`[teta] strana ${page}: ${all.length} produktov doteraz`);
     const cards = parseTetaCards(html);
     const fresh = cards.filter((c) => !seen.has(c.name));
     if (!fresh.length) break;
