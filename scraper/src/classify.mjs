@@ -9,7 +9,7 @@ import path from "node:path";
 import { PRODUCT_TYPES } from "./productTypes.mjs";
 
 const MODEL = process.env.CLASSIFY_MODEL || "claude-haiku-5-5";
-const BATCH = 60;
+const BATCH = 40;
 const VALID = new Set([...PRODUCT_TYPES.map((t) => t.id), "other"]);
 
 /** Kategórie vo Feede (rovnaké id ako ProductCategory v appke; "Vegan" a "Bezlepkové" sú označenia, nie kategórie). */
@@ -50,7 +50,9 @@ Kategórie (id – názov a čo tam patrí):
 ${CATEGORIES.map(([id, label]) => `${id} – ${label}`).join("\n")}
 Kategóriu vyber podľa toho, čo produkt reálne je, nie podľa príchute alebo prísady: "Čokoládový jogurt" je dairy, "Citrónové sušienky" sú sweets, "Pes granule" sú pets, "Kuracie prsia" sú meat. Vždy vyber niektorú z uvedených kategórií.
 
-Odpovedz IBA jedným JSON objektom, kde kľúč je číslo produktu a hodnota je objekt s typom (t) a kategóriou (c), napr. {"1":{"t":"biscuit","c":"sweets"},"2":{"t":"fruit","c":"fruitveg"}}. Žiadny ďalší text.`;
+Ku každému produktu dodaj aj "k": 3 až 10 krátkych slov (malé písmená), ktoré o produkte povedia čo najviac: druh produktu tak, ako by ho človek napísal do nákupného zoznamu (pivo, mlieko, sušienky), bežné synonymá a hovorové názvy (rožky aj pečivo, kofola aj malinovka), značka, ak ju poznáš, a zásadné vlastnosti (nealko, bezlepkové, bez laktózy, vegan, bio, light, bez cukru, svetlé, tmavé, príchuť, na čo sa používa: na grilovanie, na pečenie, na raňajky). Napríklad "Wywar nealko" -> ["pivo","nealko","svetle"], "Birell" -> ["pivo","nealko"], "Coca-Cola Zero" -> ["cola","bez cukru"]. Nevymýšľaj: píš len to, čo z názvu alebo z tvojej istej znalosti produktu vyplýva.
+
+Odpovedz IBA jedným JSON objektom, kde kľúč je číslo produktu a hodnota je objekt s typom (t), kategóriou (c) a slovami (k), napr. {"1":{"t":"biscuit","c":"sweets","k":["sušienky","čokoláda"]},"2":{"t":"fruit","c":"fruitveg","k":["ovocie","jablko"]}}. Žiadny ďalší text.`;
 
 export const keyOf = (deal) => `${deal.n ?? ""} | ${deal.d ?? ""}`.toLowerCase().replace(/\s+/g, " ").trim();
 
@@ -61,7 +63,7 @@ async function askClaude(apiKey, items) {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: { "x-api-key": apiKey, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-        body: JSON.stringify({ model: MODEL, max_tokens: 4000, system: SYSTEM, messages: [{ role: "user", content: list }] }),
+        body: JSON.stringify({ model: MODEL, max_tokens: 8000, system: SYSTEM, messages: [{ role: "user", content: list }] }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
       const body = await res.json();
@@ -98,6 +100,11 @@ export async function classifyAll(index, DATA, only) {
     cache = JSON.parse(await fs.readFile(cachePath, "utf8"));
   } catch {}
   const catCache = await loadCategoryCache(DATA);
+  const kwPath = path.join(DATA, "keywords_cache.json");
+  let kwCache = {};
+  try {
+    kwCache = JSON.parse(await fs.readFile(kwPath, "utf8"));
+  } catch {}
 
   // 1. načítame letáky a doplníme z pamäte
   const files = [];
@@ -123,7 +130,11 @@ export async function classifyAll(index, DATA, only) {
         deal.c = catCache[key];
         entry.touched = true;
       }
-      if (deal.t && catCache[key]) continue;
+      if (kwCache[key] && JSON.stringify(deal.k) !== JSON.stringify(kwCache[key])) {
+        deal.k = kwCache[key];
+        entry.touched = true;
+      }
+      if (deal.t && catCache[key] && kwCache[key]) continue;
       if (!pending.has(key)) pending.set(key, []);
       pending.get(key).push({ deal, entry });
     }
@@ -133,6 +144,7 @@ export async function classifyAll(index, DATA, only) {
   const keys = [...pending.keys()];
   let asked = 0;
   let askedCategories = 0;
+  let askedKeywords = 0;
   const handleChunk = async (chunk) => {
     const answer = await askClaude(apiKey, chunk);
     if (!answer) {
@@ -156,6 +168,13 @@ export async function classifyAll(index, DATA, only) {
         catCache[it.key] = c;
         askedCategories++;
       }
+      const k = typeof a === "object" && Array.isArray(a?.k)
+        ? a.k.filter((w) => typeof w === "string" && w.trim() && w.length <= 30).map((w) => w.trim().toLowerCase()).slice(0, 10)
+        : [];
+      if (k.length) {
+        kwCache[it.key] = k;
+        askedKeywords++;
+      }
       for (const { deal, entry } of pending.get(it.key)) {
         if (!deal.t && cache[it.key]) {
           deal.t = cache[it.key];
@@ -165,13 +184,17 @@ export async function classifyAll(index, DATA, only) {
           deal.c = catCache[it.key];
           entry.touched = true;
         }
+        if (kwCache[it.key] && JSON.stringify(deal.k) !== JSON.stringify(kwCache[it.key])) {
+          deal.k = kwCache[it.key];
+          entry.touched = true;
+        }
       }
     });
   };
   for (let i = 0; i < keys.length; i += BATCH) {
     await handleChunk(keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal })));
   }
-  if (keys.length) console.log(`[classify] názvy na zaradenie: ${keys.length}, typy od AI: ${asked}, kategórie od AI: ${askedCategories}`);
+  if (keys.length) console.log(`[classify] názvy na zaradenie: ${keys.length}, typy od AI: ${asked}, kategórie od AI: ${askedCategories}, slová od AI: ${askedKeywords}`);
 
   // 3. uložíme
   let changed = false;
@@ -182,6 +205,10 @@ export async function classifyAll(index, DATA, only) {
   }
   if (asked) {
     await fs.writeFile(cachePath, JSON.stringify(cache, null, 0), "utf8");
+    changed = true;
+  }
+  if (askedKeywords) {
+    await fs.writeFile(kwPath, JSON.stringify(kwCache, null, 0), "utf8");
     changed = true;
   }
   if (askedCategories) {
