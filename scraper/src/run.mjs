@@ -14,6 +14,16 @@ import { classifyAll, keyOf, loadCategoryCache } from "./classify.mjs";
 import { readFlyerWithAI, toAppDeals } from "./aiReader.mjs";
 import { fillCondition, tidyCondition } from "./conditions.mjs";
 
+// Žiadne sieťové volanie nesmie visieť donekonečna (server, ktorý neodpovedá, by zablokoval celý beh):
+// stránky a PDF majú 60 sekúnd, AI odpovede 180 sekúnd. Po uplynutí sa volanie preruší a zvyšok behu pokračuje.
+const realFetch = globalThis.fetch.bind(globalThis);
+globalThis.fetch = (input, init = {}) => {
+  if (init.signal) return realFetch(input, init);
+  const url = String(typeof input === "string" ? input : input?.url ?? input);
+  const ms = url.includes("api.anthropic.com") ? 180_000 : 60_000;
+  return realFetch(input, { ...init, signal: AbortSignal.timeout(ms) });
+};
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const DATA = path.join(ROOT, "data");
 const INDEX = path.join(DATA, "index.json");
@@ -28,8 +38,11 @@ for (const level of ["log", "warn", "error"]) {
   };
 }
 
-/** Obchody, ktorých PDF leták číta AI (Claude). Ostatné čítajú pôvodné parsery. */
-const AI_STORES = new Set(["billa"]);
+/**
+ * Obchody, ktorých PDF leták číta AI (Claude). Ostatné (dáta priamo zo stránky: Kaufland, COOP, Teta, YEME)
+ * čítajú pôvodné parsery. Model sa dá zmeniť premennou AI_READ_MODEL (pre všetky) alebo AI_READ_MODEL_<OBCHOD>.
+ */
+const AI_STORES = new Set(["billa", "tesco", "lidl", "kraj", "drogerie101"]);
 
 const args = process.argv.slice(2);
 const force = args.includes("--force");
@@ -92,7 +105,18 @@ async function processStore(store, index) {
   // Obchody, ktoré majú dáta priamo na stránke (bez PDF), vracajú hotové letáky.
   if (store.fetchLeaflets) {
     let changed = false;
-    for (const lf of await store.fetchLeaflets({ known: new Set(mine.map((l) => l.source)) })) {
+    const useAI = AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY;
+    // Pri vynútenom čítaní (--force) sa znova prečíta aj leták, ktorý už máme.
+    const known = force ? new Set() : new Set(mine.map((l) => l.source));
+    for (const lf of await store.fetchLeaflets({ known })) {
+      if (useAI && lf.pdf) {
+        // Za AI čítanie platíme, takže nikdy nečítame leták, ktorý už skončil.
+        if (lf.validTo < today) {
+          console.log(`[${store.id}] leták ${lf.validFrom} až ${lf.validTo} už skončil, AI ho nečíta`);
+          continue;
+        }
+        lf.deals = await readWithAI(store.id, lf.pdf, lf.deals);
+      }
       const prev = mine.find((l) => l.validFrom === lf.validFrom);
       const file = `${store.id}/${lf.validFrom}.json`;
       const content = JSON.stringify({ store: store.id, validFrom: lf.validFrom, validTo: lf.validTo, deals: lf.deals });
@@ -165,9 +189,10 @@ async function processStore(store, index) {
  */
 async function readWithAI(storeId, pdf, fallback) {
   try {
-    const read = await readFlyerWithAI(pdf);
+    const model = process.env[`AI_READ_MODEL_${storeId.toUpperCase()}`] || undefined;
+    const read = await readFlyerWithAI(pdf, model ? { model } : {});
     const { deals, issues } = toAppDeals(read.deals);
-    console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), tokeny ${read.usage.input}/${read.usage.output}, zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
+    console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), strán ${read.pages}, model ${read.model}, tokeny ${read.usage.input}/${read.usage.output}, zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
     if (read.failedPages > 0) {
       console.warn(`[${storeId}] AI neprečítala ${read.failedPages} strán, používam pôvodný parser`);
       return fallback;
