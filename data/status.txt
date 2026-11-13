@@ -1,9 +1,8 @@
-2026-11-12T05:35:12.467Z
+2026-11-13T05:29:11.569Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-17)
 [kaufland] kontrolujem: kontrola dát na stránke
-[kaufland] uložené: kaufland/2026-11-05.json (294 zliav, 2026-11-05 až 2026-11-18)
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
   [tesco] sťahujem tesco-letak-2026-11-11
@@ -11,53 +10,49 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-12.json (757 zliav, 2026-11-12 až 2026-11-14)
+[yeme] uložené: yeme/2026-11-13.json (757 zliav, 2026-11-13 až 2026-11-15)
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 0 produktov doteraz
-[teta] strana 1: 54 produktov doteraz
-[teta] strana 2: 105 produktov doteraz
-[teta] strana 3: 156 produktov doteraz
-[teta] strana 4: 212 produktov doteraz
-[teta] strana 5: 268 produktov doteraz
-[teta] strana 6: 324 produktov doteraz
-[teta] strana 7: 378 produktov doteraz
-[teta] strana 8: 437 produktov doteraz
-[teta] strana 9: 494 produktov doteraz
-[teta] strana 10: 553 produktov doteraz
-[teta] strana 11: 612 produktov doteraz
-[teta] strana 12: 672 produktov doteraz
-[teta] strana 13: 732 produktov doteraz
-[teta] strana 14: 792 produktov doteraz
-[teta] strana 15: 852 produktov doteraz
-[teta] strana 16: 911 produktov doteraz
-[teta] strana 17: 970 produktov doteraz
-[teta] strana 18: 1026 produktov doteraz
-[teta] strana 19: 1070 produktov doteraz
-[teta] strana 20: 1130 produktov doteraz
-[teta] strana 21: 1190 produktov doteraz
-[teta] strana 22: 1250 produktov doteraz
-[teta] strana 23: 1310 produktov doteraz
-[teta] strana 24: 1370 produktov doteraz
-[teta] strana 25: 1430 produktov doteraz
-[teta] strana 26: 1490 produktov doteraz
-[teta] strana 27: 1549 produktov doteraz
-[teta] strana 28: 1600 produktov doteraz
-[teta] strana 29: 1657 produktov doteraz
-[teta] strana 30: 1715 produktov doteraz
-[teta] strana 31: 1775 produktov doteraz
-[teta] strana 32: 1832 produktov doteraz
-[teta] strana 33: 1884 produktov doteraz
-[teta] strana 34: 1944 produktov doteraz
-[teta] strana 35: 2003 produktov doteraz
-[teta] strana 36: 2058 produktov doteraz
-[teta] uložené: teta/2026-11-12.json (2058 zliav, 2026-11-12 až 2026-11-14)
-odstránený starý leták coop/2026-10-29.json
-odstránený starý leták kaufland/2026-10-22.json
-odstránený starý leták kraj/2026-10-29.json
-odstránený starý leták teta/2026-11-02.json
-odstránený starý leták yeme/2026-11-02.json
-[kaufland] kaufland/2026-11-05.json: znova zaradených 62 produktov do kategórií
-[yeme] yeme/2026-11-12.json: znova zaradených 240 produktov do kategórií
-[teta] teta/2026-11-12.json: znova zaradených 654 produktov do kategórií
-[classify] názvy na zaradenie: 805, typy od AI: 8, kategórie od AI: 801, slová od AI: 805
+[teta] strana 1: 39 produktov doteraz
+[teta] strana 2: 90 produktov doteraz
+[teta] strana 3: 141 produktov doteraz
+[teta] strana 4: 195 produktov doteraz
+[teta] strana 5: 251 produktov doteraz
+[teta] strana 6: 307 produktov doteraz
+[teta] strana 7: 360 produktov doteraz
+[teta] strana 8: 419 produktov doteraz
+[teta] strana 9: 476 produktov doteraz
+[teta] strana 10: 535 produktov doteraz
+[teta] strana 11: 594 produktov doteraz
+[teta] strana 12: 654 produktov doteraz
+[teta] strana 13: 714 produktov doteraz
+[teta] strana 14: 774 produktov doteraz
+[teta] strana 15: 826 produktov doteraz
+[teta] strana 16: 885 produktov doteraz
+[teta] strana 17: 944 produktov doteraz
+[teta] strana 18: 1002 produktov doteraz
+[teta] strana 19: 1044 produktov doteraz
+[teta] strana 20: 1104 produktov doteraz
+[teta] strana 21: 1164 produktov doteraz
+[teta] strana 22: 1224 produktov doteraz
+[teta] strana 23: 1284 produktov doteraz
+[teta] strana 24: 1344 produktov doteraz
+[teta] strana 25: 1402 produktov doteraz
+[teta] strana 26: 1458 produktov doteraz
+[teta] strana 27: 1518 produktov doteraz
+[teta] strana 28: 1574 produktov doteraz
+[teta] strana 29: 1625 produktov doteraz
+[teta] strana 30: 1681 produktov doteraz
+[teta] strana 31: 1740 produktov doteraz
+[teta] strana 32: 1794 produktov doteraz
+[teta] strana 33: 1851 produktov doteraz
+[teta] strana 34: 1908 produktov doteraz
+[teta] strana 35: 1966 produktov doteraz
+[teta] strana 36: 2019 produktov doteraz
+[teta] uložené: teta/2026-11-13.json (2019 zliav, 2026-11-13 až 2026-11-15)
+odstránený starý leták teta/2026-11-03.json
+odstránený starý leták yeme/2026-11-03.json
+[yeme] yeme/2026-11-13.json: znova zaradených 252 produktov do kategórií
+[teta] teta/2026-11-13.json: znova zaradených 655 produktov do kategórií
+[classify] názvy na zaradenie: 4, typy od AI: 4, kategórie od AI: 4, slová od AI: 4
 index.json aktualizovaný
