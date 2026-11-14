@@ -1,24 +1,28 @@
-2026-11-13T05:29:11.569Z
+2026-11-14T05:22:34.223Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] preskakujem (aktuálny leták platí do 2026-11-17)
+[billa] kontrolujem: leták končí, hľadáme nový
+[billa] nájdené letáky: 1
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-11-05.json (291 zliav, 2026-11-05 až 2026-11-18)
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-16-11-2026
+[lidl] uložené: lidl/2026-11-16.json (113 zliav, 2026-11-16 až 2026-11-22)
 [tesco] kontrolujem: kontrola dát na stránke
   [tesco] sťahujem tesco-letak-2026-11-11
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-13.json (757 zliav, 2026-11-13 až 2026-11-15)
+[yeme] uložené: yeme/2026-11-14.json (760 zliav, 2026-11-14 až 2026-11-16)
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 0 produktov doteraz
-[teta] strana 1: 39 produktov doteraz
-[teta] strana 2: 90 produktov doteraz
-[teta] strana 3: 141 produktov doteraz
+[teta] strana 1: 38 produktov doteraz
+[teta] strana 2: 89 produktov doteraz
+[teta] strana 3: 140 produktov doteraz
 [teta] strana 4: 195 produktov doteraz
 [teta] strana 5: 251 produktov doteraz
-[teta] strana 6: 307 produktov doteraz
+[teta] strana 6: 306 produktov doteraz
 [teta] strana 7: 360 produktov doteraz
 [teta] strana 8: 419 produktov doteraz
 [teta] strana 9: 476 produktov doteraz
@@ -28,9 +32,9 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 13: 714 produktov doteraz
 [teta] strana 14: 774 produktov doteraz
 [teta] strana 15: 826 produktov doteraz
-[teta] strana 16: 885 produktov doteraz
+[teta] strana 16: 884 produktov doteraz
 [teta] strana 17: 944 produktov doteraz
-[teta] strana 18: 1002 produktov doteraz
+[teta] strana 18: 991 produktov doteraz
 [teta] strana 19: 1044 produktov doteraz
 [teta] strana 20: 1104 produktov doteraz
 [teta] strana 21: 1164 produktov doteraz
@@ -38,21 +42,23 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 23: 1284 produktov doteraz
 [teta] strana 24: 1344 produktov doteraz
 [teta] strana 25: 1402 produktov doteraz
-[teta] strana 26: 1458 produktov doteraz
-[teta] strana 27: 1518 produktov doteraz
+[teta] strana 26: 1461 produktov doteraz
+[teta] strana 27: 1516 produktov doteraz
 [teta] strana 28: 1574 produktov doteraz
-[teta] strana 29: 1625 produktov doteraz
-[teta] strana 30: 1681 produktov doteraz
-[teta] strana 31: 1740 produktov doteraz
-[teta] strana 32: 1794 produktov doteraz
-[teta] strana 33: 1851 produktov doteraz
+[teta] strana 29: 1626 produktov doteraz
+[teta] strana 30: 1683 produktov doteraz
+[teta] strana 31: 1739 produktov doteraz
+[teta] strana 32: 1796 produktov doteraz
+[teta] strana 33: 1855 produktov doteraz
 [teta] strana 34: 1908 produktov doteraz
-[teta] strana 35: 1966 produktov doteraz
-[teta] strana 36: 2019 produktov doteraz
-[teta] uložené: teta/2026-11-13.json (2019 zliav, 2026-11-13 až 2026-11-15)
-odstránený starý leták teta/2026-11-03.json
-odstránený starý leták yeme/2026-11-03.json
-[yeme] yeme/2026-11-13.json: znova zaradených 252 produktov do kategórií
-[teta] teta/2026-11-13.json: znova zaradených 655 produktov do kategórií
-[classify] názvy na zaradenie: 4, typy od AI: 4, kategórie od AI: 4, slová od AI: 4
+[teta] strana 35: 1967 produktov doteraz
+[teta] strana 36: 2017 produktov doteraz
+[teta] uložené: teta/2026-11-14.json (2017 zliav, 2026-11-14 až 2026-11-16)
+odstránený starý leták teta/2026-11-04.json
+odstránený starý leták yeme/2026-11-04.json
+[kaufland] kaufland/2026-11-05.json: znova zaradených 61 produktov do kategórií
+[lidl] lidl/2026-11-16.json: znova zaradených 6 produktov do kategórií
+[yeme] yeme/2026-11-14.json: znova zaradených 252 produktov do kategórií
+[teta] teta/2026-11-14.json: znova zaradených 655 produktov do kategórií
+[classify] názvy na zaradenie: 89, typy od AI: 83, kategórie od AI: 89, slová od AI: 89
 index.json aktualizovaný
