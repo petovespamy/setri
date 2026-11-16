@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T05:24:40.414Z",
+  "updatedAt": "2026-11-16T06:10:45.022Z",
   "leaflets": [
     {
       "store": "billa",
@@ -18,6 +18,14 @@
       "rev": "3a529e0fb2"
     },
     {
+      "store": "billa",
+      "file": "billa/2026-11-18.json",
+      "validFrom": "2026-11-18",
+      "validTo": "2026-11-24",
+      "source": "https://view.publitas.com/64070/3538012/pdfs/ef7ea18b-3776-47b7-9752-1206e7ffc2d1.pdf",
+      "rev": "6fa92ae10d"
+    },
+    {
       "store": "coop",
       "file": "coop/2026-11-05.json",
       "validFrom": "2026-11-05",
@@ -34,6 +42,15 @@
       "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-45-2026",
       "count": 289,
       "rev": "da76db0a8b"
+    },
+    {
+      "store": "coop",
+      "file": "coop/2026-11-19.json",
+      "validFrom": "2026-11-19",
+      "validTo": "2026-11-25",
+      "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-46-2026",
+      "count": 298,
+      "rev": "48491409b0"
     },
     {
       "store": "drogerie101",
@@ -82,15 +99,6 @@
     },
     {
       "store": "lidl",
-      "file": "lidl/2026-11-02.json",
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-08",
-      "source": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1884a-2299-7cc0-a7a5-7c64199b275e/Aktualny-letak-Platny-od-02-11-2026-01.pdf",
-      "count": 108,
-      "rev": "ae92d6d5fc"
-    },
-    {
-      "store": "lidl",
       "file": "lidl/2026-11-09.json",
       "validFrom": "2026-11-09",
       "validTo": "2026-11-15",
@@ -124,15 +132,6 @@
       "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/3d50cd1e-8bd0-4d81-bec0-744e1a2f6da9/20261105000922144_2026_P37_SK_HM-CHM.pdf",
       "count": 192,
       "rev": "3a8e61003c"
-    },
-    {
-      "store": "teta",
-      "file": "teta/2026-11-06.json",
-      "validFrom": "2026-11-06",
-      "validTo": "2026-11-08",
-      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-06",
-      "count": 541,
-      "rev": "196bfe3f17"
     },
     {
       "store": "teta",
@@ -216,13 +215,13 @@
       "rev": "faedf37f55"
     },
     {
-      "store": "yeme",
-      "file": "yeme/2026-11-06.json",
-      "validFrom": "2026-11-06",
-      "validTo": "2026-11-08",
-      "source": "https://www.yeme.sk/hrdinovia#2026-11-06",
-      "count": 709,
-      "rev": "e0154ca63a"
+      "store": "teta",
+      "file": "teta/2026-11-16.json",
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-18",
+      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-16",
+      "count": 2017,
+      "rev": "84ff9086e3"
     },
     {
       "store": "yeme",
@@ -304,6 +303,15 @@
       "source": "https://www.yeme.sk/hrdinovia#2026-11-15",
       "count": 760,
       "rev": "573903eaef"
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-11-16.json",
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-18",
+      "source": "https://www.yeme.sk/hrdinovia#2026-11-16",
+      "count": 762,
+      "rev": "954826eb25"
     }
   ]
 }
