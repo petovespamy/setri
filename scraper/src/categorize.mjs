@@ -16,6 +16,8 @@ export const CATEGORY_RULES = [
   rule("fruitveg", "rybíz"),
   rule("pantry", "(?:arašidov|mandľov|orieškov|lieskovoorieškov)\\p{L}*\\s+(?:masl|krém)|džem|marmelád|zaváran|kompót|lekvár"),
   rule("drinks", "bezalkohol|nealkohol|vitamín\\p{L}*\\s+(?:nápoj|sirup)|vitamíny\\s+(?:nápoj|sirup)|multivitamín\\p{L}*\\s+nápoj|birell"),
+  rule("drinks", "ice\\s+tea|ice\\s+coffee|ľadov\\p{L}*\\s+(?:čaj|káv)|studen\\p{L}*\\s+káv|starbucks"),
+  rule("hotdrinks", "káva$w|kávy$w|kávu$w|kávou$w|kávovin|zrnkov\\p{L}*\\s+káv|mlet\\p{L}*\\s+káv|instantn\\p{L}*\\s+(?:káv|čaj|kakao|nápoj|cappuccino)|espresso|cappuccino|nescaf|jacobs|tchibo|lavazza|illy$w|dallmayr|kapsul\\p{L}*\\s+(?:káv|nespresso)|nespresso|dolce\\s+gusto|čaj$w|čaje$w|čajov\\p{L}*\\s+(?:vrecúšk|sáčk|zmes)|bylinn\\p{L}*\\s+čaj|ovocn\\p{L}*\\s+čaj|horúc\\p{L}*\\s+čokolád|kakao\\s+(?:instantn|na\\s+pitie)|teekanne|pickwick|lipton|vitto|loyd|sonnentor|milota"),
   rule("fruitveg", "halloween\\s+tekvic|tekvic\\p{L}*\\s+(?:halloween|maslov|hokkaido|špagetov)"),
   rule("seasonal", "tekvic\\p{L}*\\s+ozdobn|ozdobn\\p{L}*\\s+tekvic|vyrezáv"),
   rule("frozen", "zmrzlin|nanuk|ice\\s+cream|sorbet|viennetta"),

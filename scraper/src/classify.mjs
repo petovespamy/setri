@@ -1,14 +1,14 @@
 // AI zaradenie zliav do typov produktov (sušienky, citróny, psie granule…) a do kategórií vo Feede.
 // Claude prečíta CELÝ názov produktu, nielen jednotlivé slová, a vyberie typ zo zoznamu v productTypes.mjs
 // a kategóriu zo zoznamu CATEGORIES nižšie.
-// Typ sa uloží ku každej zľave ako "t" (cache: data/type_cache.json), kategória ako "c" (cache: data/category_cache.json),
+// Typ sa uloží ku každej zľave ako "t" (cache: data/type_cache.json), kategória ako "c" (cache: data/category_cache_v2.json),
 // takže sa každý názov posiela AI len raz. Ak AI kategóriu nedá, ostáva kategória zo slovných pravidiel (categorize.mjs).
 // Ak nie je nastavený ANTHROPIC_API_KEY, preskočí sa (appka vtedy použije svoje slovné pravidlá).
 import fs from "node:fs/promises";
 import path from "node:path";
 import { PRODUCT_TYPES } from "./productTypes.mjs";
 
-const MODEL = process.env.CLASSIFY_MODEL || "claude-haiku-5-5";
+const MODEL = process.env.CLASSIFY_MODEL || "claude-sonnet-5-5";
 const BATCH = 40;
 const VALID = new Set([...PRODUCT_TYPES.map((t) => t.id), "other"]);
 
@@ -23,7 +23,8 @@ export const CATEGORIES = [
   ["pantry", "Trvanlivé potraviny (cestoviny, ryža, múka, konzervy, oleje, korenie, omáčky, cukor, cereálie, nátierky)"],
   ["frozen", "Mrazené (mrazená zelenina, mrazené jedlá, zmrzlina)"],
   ["sweets", "Sladkosti & snacky (čokoláda, sušienky, cukríky, chipsy, oriešky)"],
-  ["drinks", "Nápoje (voda, džúsy, malinovky, energetické nápoje, káva, čaj, nealko pivo)"],
+  ["drinks", "Nápoje (voda, džúsy, malinovky, cola, energetické nápoje, ľadové čaje a hotové studené kávy, nealko pivo)"],
+  ["hotdrinks", "Káva, čaj & zalievané nápoje (zrnková, mletá, instantná a kapsulová káva, kávovina, čaje, instantné a zalievané nápoje, horúca čokoláda, instantné kakao)"],
   ["alcohol", "Víno & alkohol (pivo, víno, destiláty, likéry)"],
   ["drugstore", "Drogéria (hygiena, kozmetika, zubné pasty, vitamíny, lieky)"],
   ["household", "Domácnosť (čistiace a prané prostriedky, toaletný papier, vrecká, batérie, žiarovky)"],
@@ -49,6 +50,9 @@ other – nič z uvedeného
 Kategórie (id – názov a čo tam patrí):
 ${CATEGORIES.map(([id, label]) => `${id} – ${label}`).join("\n")}
 Kategóriu vyber podľa toho, čo produkt reálne je, nie podľa príchute alebo prísady: "Čokoládový jogurt" je dairy, "Citrónové sušienky" sú sweets, "Pes granule" sú pets, "Kuracie prsia" sú meat. Vždy vyber niektorú z uvedených kategórií.
+
+Najprv si v hlave urči, čo to za produkt naozaj je (použi svoju znalosť značiek a slovenského trhu, prípadne podrobnosť za názvom), a až potom vyber kategóriu. Názov môže zavádzať: "Bambino črievko" a "Karička črievko" sú tavené syry (dairy), nie pečivo ani sladkosti; "Mochi" sú ryžové sladkosti; "ryžové chlebíčky" a "kukuričné chlebíčky" sú chrumkavé snacky, nie pečivo.
+Hranica Pekáreň vs. Sladkosti: do bakery patrí čerstvé alebo pečené pekárenské pečivo (chlieb, rožky, žemle, bagety, kaizerky, croissanty, donuty, koláče, šišky, vianočky, štrúdle, závin, muffiny, torty z pekárne). Balené, trvanlivé a cukrárenské sladkosti (mliečny rez, Vesna, Brumík, Kinder Delice, Marlenka, veterníky, zákusky, perníky a lebkuchen, piškóty, pusinky, oblátky, sušienky, mochi) sú sweets. Slané tyčinky, krekry a chlebíčky/chlebíky z ryže alebo kukurice sú sweets (slané snacky). Cesto na pizzu a iné cestá a základy na pečenie sú pantry; hotová pizza a pinsa sú ready. Hotové studené nápoje (ľadový čaj, ice coffee, Starbucks vo fľaši) sú drinks; všetko, čo sa zalieva horúcou vodou alebo mliekom (zrnková a mletá káva, instantná káva, kapsuly, čaje, instantné kakao, horúca čokoláda), je hotdrinks.
 
 Ku každému produktu dodaj aj "k": 3 až 10 krátkych slov (malé písmená), ktoré o produkte povedia čo najviac: druh produktu tak, ako by ho človek napísal do nákupného zoznamu (pivo, mlieko, sušienky), bežné synonymá a hovorové názvy (rožky aj pečivo, kofola aj malinovka), značka, ak ju poznáš, a zásadné vlastnosti (nealko, bezlepkové, bez laktózy, vegan, bio, light, bez cukru, svetlé, tmavé, príchuť, na čo sa používa: na grilovanie, na pečenie, na raňajky). Napríklad "Wywar nealko" -> ["pivo","nealko","svetle"], "Birell" -> ["pivo","nealko"], "Coca-Cola Zero" -> ["cola","bez cukru"]. Nevymýšľaj: píš len to, čo z názvu alebo z tvojej istej znalosti produktu vyplýva.
 
@@ -99,7 +103,7 @@ async function askClaude(apiKey, items) {
 /** Načíta pamäť AI kategórií (kľúč názvu -> id kategórie). */
 export async function loadCategoryCache(DATA) {
   try {
-    return JSON.parse(await fs.readFile(path.join(DATA, "category_cache.json"), "utf8"));
+    return JSON.parse(await fs.readFile(path.join(DATA, "category_cache_v2.json"), "utf8"));
   } catch {
     return {};
   }
@@ -113,7 +117,7 @@ export async function classifyAll(index, DATA, only) {
     return false;
   }
   const cachePath = path.join(DATA, "type_cache.json");
-  const catPath = path.join(DATA, "category_cache.json");
+  const catPath = path.join(DATA, "category_cache_v2.json");
   let cache = {};
   try {
     cache = JSON.parse(await fs.readFile(cachePath, "utf8"));
