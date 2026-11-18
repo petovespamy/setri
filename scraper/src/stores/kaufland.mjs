@@ -9,10 +9,6 @@ const USER_AGENT =
 import { recategorize } from "../categorize.mjs";
 import { conditionFromText } from "../conditions.mjs";
 
-// Oblasti, ktoré do potravinovej appky nepatria.
-const SKIP_CATEGORY = /^(elektro|oble[cč]enie|dom,)/i;
-// Nepotravinový tovar, ktorý sa objaví aj v potravinových oddieloch (kvety, dekorácie).
-const SKIP_NAME = /náhrobn|dekorác|kvetin|chryzant|vresov|hrob|sviečk|rastlin|hrnc/i;
 
 const ALCOHOL = /pivo|pilsner|víno|vodka|whisk|\brum\b|likér|gin\b|prosecco|šumivé víno|brandy|borovič|slivovic|radler|koňak|vermut|aperol|cider/i;
 const PETS = /pre psov|pre mačk|granule|krmivo|whiskas|pedigree|felix|sheba|perfect fit|kitekat/i;
@@ -38,6 +34,8 @@ function categoryFor(kauflandCategory, text) {
   if (c.startsWith("nápoje")) return "drinks";
   if (c.startsWith("drogéria")) return "drugstore";
   if (c.startsWith("dom,")) return "household";
+  // Nepotravinové oddiely letáku (elektro, oblečenie, hračky, ostatné) – appka má na ne kategóriu "Ostatný tovar".
+  if (/^(elektro|oble[cč]enie|hra[cč]ky|ostatn)/.test(c)) return "nonfood";
   return undefined;
 }
 
@@ -73,10 +71,13 @@ const dayNum = (iso) => Math.round(Date.parse(iso) / 86400000);
 export function offersToLeaflets(ssr) {
   const out = [];
   for (const cycle of ssr.props.offerData.cycles) {
-    const cats = cycle.categories.filter((c) => c.main && !SKIP_CATEGORY.test(c.displayName));
+    // Berieme CELÝ leták: aj nepotravinové oddiely a špeciálne zoznamy (Senzačne nízke ceny, Ponuka OD DO, Vianočné pečenie, Hračky…).
+    // Platnosť letáku sa však určuje len z hlavných týždenných oddielov.
+    const cats = cycle.categories;
+    const weekly = cats.filter((c) => c.main);
     const counts = new Map();
     let total = 0;
-    for (const c of cats) {
+    for (const c of weekly) {
       if (!isIso(c.dateFrom) || !isIso(c.dateTo)) continue;
       const key = `${c.dateFrom}|${c.dateTo}`;
       counts.set(key, (counts.get(key) ?? 0) + c.offers.length);
@@ -95,7 +96,10 @@ export function offersToLeaflets(ssr) {
     const deals = [];
     for (const cat of cats) {
       for (const o of cat.offers) {
-        if (seen.has(o.offerId) || !(o.price > 0)) continue;
+        // "Bonus buy": produkt za zvýhodnenú cenu pri nákupe nad určitú sumu (cena je v loyaltyFormattedPrice, nie v price).
+        const bonusPrice = o.bonusbuy ? Number(String(o.loyaltyFormattedPrice ?? "").replace(",", ".")) : 0;
+        const price = o.price > 0 ? o.price : bonusPrice;
+        if (seen.has(o.offerId) || !(price > 0)) continue;
         // Vlastná platnosť ponuky (ak ju Kaufland uvádza), inak platnosť kategórie.
         const from = isIso(o.dateFrom) ? o.dateFrom : cat.dateFrom;
         const to = isIso(o.dateTo) ? o.dateTo : cat.dateTo;
@@ -106,19 +110,21 @@ export function offersToLeaflets(ssr) {
         const title = oneLine(o.title);
         const productLine = subLines.find((l) => !isUnitLike(l));
         const name = oneLine([title, productLine].filter(Boolean).join(" ")) || oneLine(o.detailTitle);
-        if (!name || SKIP_NAME.test(name)) continue;
+        if (!name) continue;
 
         const extra = subLines.filter((l) => l !== productLine && l !== o.unit);
         const detail = oneLine([o.unit, ...extra].filter(Boolean).join(", "));
 
-        const oldPrice = o.formattedOldPrice ? Number(String(o.formattedOldPrice).replace(",", ".")) : null;
-        const deal = { n: name.slice(0, 60), p: Math.round(o.price * 100) / 100 };
+        const oldRaw = o.formattedOldPrice ?? (o.price > 0 ? null : o.loyaltyFormattedOldPrice);
+        const oldPrice = oldRaw ? Number(String(oldRaw).replace(",", ".")) : null;
+        const deal = { n: name.slice(0, 60), p: Math.round(price * 100) / 100 };
         if (detail) deal.d = detail.slice(0, 70);
-        if (oldPrice && oldPrice > o.price) {
+        if (oldPrice && oldPrice > price) {
           deal.o = oldPrice;
-          deal.x = o.discount > 0 ? o.discount : Math.round((1 - o.price / oldPrice) * 100);
+          deal.x = o.price > 0 && o.discount > 0 ? o.discount : Math.round((1 - price / oldPrice) * 100);
         }
-        const cond = conditionOf(o);
+        const minSpend = o.price > 0 ? null : String(o.detailDescription ?? "").match(/nad\s*(\d+(?:[.,]\d+)?)\s*(?:€|eur)/i)?.[1];
+        const cond = minSpend ? `pri nákupe nad ${minSpend.replace(".", ",")} €` : conditionOf(o);
         if (cond) deal.q = cond;
         const cs = recategorize("kaufland", name, detail, categoryFor(cat.displayName, `${name} ${detail}`.toLowerCase()));
         if (cs) deal.c = cs;
