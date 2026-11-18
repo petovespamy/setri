@@ -54,8 +54,10 @@ export default {
       console.log(`  [tesco] sťahujem ${slug}`);
       const res = await fetch(source, { headers: { "user-agent": UA } });
       if (!res.ok) throw new Error(`PDF ${source}: HTTP ${res.status}`);
-      const pages = await readPdfPages(await res.arrayBuffer());
+      const pdfBytes = Buffer.from(await res.arrayBuffer());
+      const pages = await readPdfPages(pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength));
       out.push({
+        pdf: pdfBytes,
         source,
         validFrom: day.format(new Date(leaflet.validFrom)),
         validTo: day.format(new Date(leaflet.validTo)),

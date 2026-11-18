@@ -51,9 +51,10 @@ export default {
       console.log(`  [lidl] sťahujem ${slug}`);
       const res = await fetch(source, { headers: { "user-agent": UA } });
       if (!res.ok) throw new Error(`PDF ${source}: HTTP ${res.status}`);
-      const pages = await readPdfPages(await res.arrayBuffer());
+      const pdfBytes = Buffer.from(await res.arrayBuffer());
+      const pages = await readPdfPages(pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength));
       const deals = parseLidl(pages);
-      out.push({ source, validFrom: flyer.offerStartDate, validTo: flyer.offerEndDate, deals });
+      out.push({ pdf: pdfBytes, source, validFrom: flyer.offerStartDate, validTo: flyer.offerEndDate, deals });
     }
     return out;
   },

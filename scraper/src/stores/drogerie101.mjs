@@ -21,13 +21,14 @@ export default {
       if (known.has(pdf)) continue;
       const pdfRes = await fetch(pdf, { headers: { "user-agent": UA } });
       if (!pdfRes.ok) throw new Error(`PDF ${pdf}: HTTP ${pdfRes.status}`);
-      const pages = await readPdfPages(await pdfRes.arrayBuffer());
+      const pdfBytes = Buffer.from(await pdfRes.arrayBuffer());
+      const pages = await readPdfPages(pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength));
       const validity = drogerieValidity(pages);
       if (!validity) {
         console.warn(`  [drogerie101] ${pdf}: nenašla sa platnosť`);
         continue;
       }
-      out.push({ source: pdf, ...validity, deals: parseDrogerie(pages) });
+      out.push({ pdf: pdfBytes, source: pdf, ...validity, deals: parseDrogerie(pages) });
     }
     return out;
   },

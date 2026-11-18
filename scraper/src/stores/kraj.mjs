@@ -33,10 +33,12 @@ export default {
       if (known.has(pdf)) continue;
       const res = await fetch(pdf, { headers: { "user-agent": UA } });
       if (!res.ok) throw new Error(`PDF ${pdf}: HTTP ${res.status}`);
-      const pages = await readPdfPages(await res.arrayBuffer());
+      const pdfBytes = Buffer.from(await res.arrayBuffer());
+      const pages = await readPdfPages(pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength));
       const toYear = Number(r[5]);
       const fromYear = Number(r[2]) > Number(r[4]) ? toYear - 1 : toYear;
       out.push({
+        pdf: pdfBytes,
         source: pdf,
         validFrom: `${fromYear}-${pad(r[2])}-${pad(r[1])}`,
         validTo: `${toYear}-${pad(r[4])}-${pad(r[3])}`,

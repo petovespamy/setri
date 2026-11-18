@@ -53,6 +53,7 @@ const CHECK_DAYS_BEFORE_END = 3;
 /** Staré letáky mažeme po toľkých dňoch od konca platnosti. */
 const KEEP_DAYS_AFTER_END = 7;
 
+let problems = 0; // koľkokrát sa odmietol leták so zlou platnosťou
 const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Bratislava" }).format(new Date()); // YYYY-MM-DD
 
 const dayNumber = (iso) => {
@@ -60,6 +61,48 @@ const dayNumber = (iso) => {
   return Math.round(Date.UTC(y, m - 1, d) / 86400000);
 };
 const daysBetween = (a, b) => dayNumber(b) - dayNumber(a);
+
+/** Najdlhšia možná platnosť jedného letáku (dni vrátane oboch krajných). Dlhšia platnosť = chyba pri čítaní dátumov. */
+const MAX_DAYS = { kaufland: 14, billa: 8, tesco: 8, lidl: 8, coop: 8, kraj: 8, drogerie101: 15, teta: 3, yeme: 3 };
+/** Obchody, ktoré nemajú pevné letákové obdobie (dáta zo stránky e-shopu, každý deň nové) – tam sa prekrývanie nekontroluje. */
+const DAILY_SNAPSHOT = new Set(["teta", "yeme"]);
+const isRealDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().slice(0, 10) === v;
+
+/** Vráti text chyby, ak je platnosť letáku nezmyselná, inak null. Zlá platnosť sa NIKDY neuloží. */
+function validityProblem(storeId, validFrom, validTo) {
+  if (!isRealDate(validFrom) || !isRealDate(validTo)) return `neplatný dátum (${validFrom} – ${validTo})`;
+  if (validFrom > validTo) return `začiatok ${validFrom} je po konci ${validTo}`;
+  const days = daysBetween(validFrom, validTo) + 1;
+  const max = MAX_DAYS[storeId] ?? 15;
+  if (days > max) return `platnosť ${validFrom} – ${validTo} je ${days} dní (maximum ${max})`;
+  return null;
+}
+
+/** Overí celý index: platnosť každého letáku, zhodu so súborom a že sa letáky jedného obchodu neprekrývajú. */
+async function auditIndex(index) {
+  const problems = [];
+  for (const l of index.leaflets) {
+    const bad = validityProblem(l.store, l.validFrom, l.validTo);
+    if (bad) problems.push(`[${l.store}] ${l.file}: ${bad}`);
+    try {
+      const f = JSON.parse(await fs.readFile(path.join(DATA, l.file), "utf8"));
+      if (f.validFrom !== l.validFrom || f.validTo !== l.validTo) problems.push(`[${l.store}] ${l.file}: platnosť v súbore (${f.validFrom} – ${f.validTo}) sa líši od indexu (${l.validFrom} – ${l.validTo})`);
+      for (const d of f.deals ?? []) {
+        if ((d.vf && !isRealDate(d.vf)) || (d.vt && !isRealDate(d.vt))) { problems.push(`[${l.store}] ${l.file}: ponuka "${d.n}" má neplatné dátumy`); break; }
+      }
+    } catch {
+      problems.push(`[${l.store}] ${l.file}: súbor chýba alebo je poškodený`);
+    }
+  }
+  for (const store of new Set(index.leaflets.map((l) => l.store))) {
+    if (DAILY_SNAPSHOT.has(store)) continue;
+    const mine = index.leaflets.filter((l) => l.store === store).sort((a, b) => a.validFrom.localeCompare(b.validFrom));
+    for (let i = 1; i < mine.length; i++) {
+      if (mine[i].validFrom <= mine[i - 1].validTo) problems.push(`[${store}] letáky sa prekrývajú: ${mine[i - 1].validFrom}–${mine[i - 1].validTo} a ${mine[i].validFrom}–${mine[i].validTo}`);
+    }
+  }
+  return problems;
+}
 
 async function readIndex() {
   try {
@@ -108,7 +151,19 @@ async function processStore(store, index) {
     const useAI = AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY;
     // Pri vynútenom čítaní (--force) sa znova prečíta aj leták, ktorý už máme.
     const known = force ? new Set() : new Set(mine.map((l) => l.source));
-    for (const lf of await store.fetchLeaflets({ known })) {
+    const fetched = await store.fetchLeaflets({ known });
+    // Kaufland: starý chybný leták (zlepené viaceré týždne) nahradia správne týždenné letáky.
+    if (store.id === "kaufland" && fetched.length) {
+      const starts = new Set(fetched.map((l) => l.validFrom));
+      const stale = (l) => l.store === "kaufland" && !starts.has(l.validFrom) && l.validTo >= fetched[0].validFrom && l.validFrom <= fetched[fetched.length - 1].validTo;
+      for (const l of index.leaflets.filter(stale)) {
+        await fs.rm(path.join(DATA, l.file), { force: true });
+        console.log(`[kaufland] odstraňujem starý prekrývajúci sa leták ${l.file} (${l.validFrom} – ${l.validTo})`);
+      }
+      index.leaflets = index.leaflets.filter((l) => !stale(l));
+      changed = true;
+    }
+    for (const lf of fetched) {
       if (useAI && lf.pdf) {
         // Za AI čítanie platíme, takže nikdy nečítame leták, ktorý už skončil.
         if (lf.validTo < today) {
@@ -116,6 +171,12 @@ async function processStore(store, index) {
           continue;
         }
         lf.deals = await readWithAI(store.id, lf.pdf, lf.deals);
+      }
+      const problem = validityProblem(store.id, lf.validFrom, lf.validTo);
+      if (problem) {
+        console.error(`[${store.id}] leták neukladám, zlá platnosť: ${problem}`);
+        problems++;
+        continue;
       }
       const prev = mine.find((l) => l.validFrom === lf.validFrom);
       const file = `${store.id}/${lf.validFrom}.json`;
@@ -159,6 +220,12 @@ async function processStore(store, index) {
       continue;
     }
 
+    const problem = validityProblem(store.id, validity.validFrom, validity.validTo);
+    if (problem) {
+      console.error(`[${store.id}] leták neukladám, zlá platnosť: ${problem}`);
+      problems++;
+      continue;
+    }
     let deals = parseFlyer(pages);
     if (AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY) {
       deals = await readWithAI(store.id, pdf, deals);
@@ -308,6 +375,11 @@ async function main() {
   changed = (await recategorizeAll(index)) || changed;
   changed = (await classifyAll(index, DATA, only)) || changed;
   changed = (await stampRevisions(index)) || changed;
+
+  // Posledná poistka: ak by index obsahoval zlú alebo si odporujúcu platnosť, beh skončí chybou (Actions zčervenie).
+  const audit = await auditIndex(index);
+  for (const p of audit) console.error(`KONTROLA PLATNOSTI: ${p}`);
+  if (audit.length || problems) failures += audit.length + problems;
 
   if (changed) {
     index.leaflets.sort((a, b) => a.store.localeCompare(b.store) || a.validFrom.localeCompare(b.validFrom));
