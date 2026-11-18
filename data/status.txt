@@ -1,8 +1,10 @@
-2026-11-18T10:48:46.834Z
+2026-11-18T11:09:05.403Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-11-12.json (791 zliav, 2026-11-12 až 2026-11-18)
+[kaufland] uložené: kaufland/2026-11-19.json (793 zliav, 2026-11-19 až 2026-11-25)
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
   [tesco] sťahujem tesco-letak-2026-11-11
@@ -51,4 +53,9 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 35: 1968 produktov doteraz
 [teta] strana 36: 2015 produktov doteraz
 [teta] zmeny od 2026-11-17: 2016 → 2015 produktov, pribudlo 5, ubudlo 4, zmenená cena 4
+odstránený starý leták teta/2026-11-09.json
+odstránený starý leták yeme/2026-11-09.json
+[kaufland] kaufland/2026-11-12.json: znova zaradených 63 produktov do kategórií
+[kaufland] kaufland/2026-11-19.json: znova zaradených 64 produktov do kategórií
+[classify] názvy na zaradenie: 668, typy od AI: 660, kategórie od AI: 668, slová od AI: 668
 index.json aktualizovaný
