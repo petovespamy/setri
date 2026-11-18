@@ -63,7 +63,7 @@ const dayNumber = (iso) => {
 const daysBetween = (a, b) => dayNumber(b) - dayNumber(a);
 
 /** Najdlhšia možná platnosť jedného letáku (dni vrátane oboch krajných). Dlhšia platnosť = chyba pri čítaní dátumov. */
-const MAX_DAYS = { kaufland: 14, billa: 8, tesco: 8, lidl: 8, coop: 8, kraj: 8, drogerie101: 15, teta: 3, yeme: 3 };
+const MAX_DAYS = { kaufland: 14, billa: 8, tesco: 8, lidl: 8, coop: 8, kraj: 8, drogerie101: 15, teta: 2, yeme: 2 };
 /** Obchody, ktoré nemajú pevné letákové obdobie (dáta zo stránky e-shopu, každý deň nové) – tam sa prekrývanie nekontroluje. */
 const DAILY_SNAPSHOT = new Set(["teta", "yeme"]);
 const isRealDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v)) && new Date(v).toISOString().slice(0, 10) === v;
@@ -179,6 +179,28 @@ async function processStore(store, index) {
         continue;
       }
       const prev = mine.find((l) => l.validFrom === lf.validFrom);
+      // Teta a YEME nemajú platnosť uvedenú nikde (ceny z e-shopu, nie leták). Preto každý deň porovnáme nové ponuky
+      // s predošlým stavom: zapíšeme, koľko sa ich zmenilo (z toho sa dá vidieť, ako často sa menia), a čiastočné
+      // stiahnutie (výrazne menej produktov než včera) radšej neuložíme.
+      if (DAILY_SNAPSHOT.has(store.id)) {
+        const last = [...mine].filter((l) => l.validFrom < lf.validFrom).sort((a, b) => b.validFrom.localeCompare(a.validFrom))[0];
+        if (last) {
+          try {
+            const before = JSON.parse(await fs.readFile(path.join(DATA, last.file), "utf8")).deals ?? [];
+            const old = new Map(before.map((d) => [d.n, d]));
+            const now = new Map(lf.deals.map((d) => [d.n, d]));
+            const added = [...now.keys()].filter((k) => !old.has(k)).length;
+            const removed = [...old.keys()].filter((k) => !now.has(k)).length;
+            const repriced = [...now.keys()].filter((k) => old.has(k) && old.get(k).p !== now.get(k).p).length;
+            console.log(`[${store.id}] zmeny od ${last.validFrom}: ${before.length} → ${lf.deals.length} produktov, pribudlo ${added}, ubudlo ${removed}, zmenená cena ${repriced}`);
+            if (lf.deals.length < before.length * 0.8) {
+              console.error(`[${store.id}] podozrivo málo produktov (${lf.deals.length} oproti ${before.length}), stiahnutie neukladám`);
+              problems++;
+              continue;
+            }
+          } catch { /* predošlý súbor chýba – nie je s čím porovnať */ }
+        }
+      }
       const file = `${store.id}/${lf.validFrom}.json`;
       const content = JSON.stringify({ store: store.id, validFrom: lf.validFrom, validTo: lf.validTo, deals: lf.deals });
       let existing = null;
@@ -375,6 +397,19 @@ async function main() {
   changed = (await recategorizeAll(index)) || changed;
   changed = (await classifyAll(index, DATA, only)) || changed;
   changed = (await stampRevisions(index)) || changed;
+
+  // Teta/YEME: staršie snapshoty mali platnosť o deň dlhšiu; skrátime ich na "deň sťahovania a nasledujúci deň".
+  for (const l of index.leaflets.filter((l) => DAILY_SNAPSHOT.has(l.store) && daysBetween(l.validFrom, l.validTo) > 1)) {
+    const to = new Date((dayNumber(l.validFrom) + 1) * 86400000).toISOString().slice(0, 10);
+    try {
+      const f = JSON.parse(await fs.readFile(path.join(DATA, l.file), "utf8"));
+      f.validTo = to;
+      await fs.writeFile(path.join(DATA, l.file), JSON.stringify(f), "utf8");
+      l.validTo = to;
+      changed = true;
+    } catch { /* súbor chýba – auditom sa ohlási */ }
+  }
+  if (changed) changed = (await stampRevisions(index)) || changed;
 
   // Posledná poistka: ak by index obsahoval zlú alebo si odporujúcu platnosť, beh skončí chybou (Actions zčervenie).
   const audit = await auditIndex(index);

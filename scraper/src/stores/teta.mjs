@@ -1,5 +1,5 @@
 // Teta drogérie: akcie (letak=true) sú priamo v HTML e-shopu, bez PDF. Berieme ich každý deň nanovo,
-// platnosť nastavíme na pár dní dopredu (keby jeden deň zlyhalo sťahovanie).
+// stránka dátum platnosti neuvádza, preto platí "dnes a zajtra" (keby jeden deň zlyhalo sťahovanie, ostane včerajší stav).
 import { crawlTeta } from "../tetaParser.mjs";
 import { guessCategory } from "../parseFlyer.mjs";
 
@@ -47,7 +47,7 @@ export default {
       {
         source: `https://www.tetadrogerie.sk/produkty/?letak=true#${today}`,
         validFrom: today,
-        validTo: addDays(today, 2),
+        validTo: addDays(today, 1),
         deals,
       },
     ];
