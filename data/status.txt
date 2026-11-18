@@ -1,40 +1,17 @@
-2026-11-18T10:41:13.206Z
+2026-11-18T10:48:46.834Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
 [kaufland] kontrolujem: kontrola dát na stránke
-[kaufland] odstraňujem starý prekrývajúci sa leták kaufland/2026-11-05.json (2026-11-05 – 2026-11-25)
-[kaufland] uložené: kaufland/2026-11-12.json (289 zliav, 2026-11-12 až 2026-11-18)
-[kaufland] uložené: kaufland/2026-11-19.json (296 zliav, 2026-11-19 až 2026-11-25)
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
   [tesco] sťahujem tesco-letak-2026-11-11
 [tesco] leták 2026-11-11 až 2026-11-17 už skončil, AI ho nečíta
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
-  [ai] strana 1/18: 4 zliav
-  [ai] strana 2/18: 10 zliav
-  [ai] strana 3/18: 1 zliav
-  [ai] strana 4/18: 1 zliav
-  [ai] strana 5/18: 7 zliav
-  [ai] strana 6/18: 12 zliav
-  [ai] strana 7/18: 2 zliav
-  [ai] strana 8/18: 2 zliav
-  [ai] strana 9/18: 11 zliav
-  [ai] strana 10/18: 11 zliav
-  [ai] strana 11/18: 1 zliav
-  [ai] strana 12/18: 2 zliav
-  [ai] strana 13/18: 12 zliav
-  [ai] strana 14/18: 7 zliav
-  [ai] strana 15/18: 7 zliav
-  [ai] strana 16/18: 7 zliav
-  [ai] strana 17/18: 0 zliav
-  [ai] strana 18/18: 11 zliav
-[kraj] AI: 100 zliav (pôvodný parser 65), strán 18, model claude-sonnet-5-5, tokeny 55584/10217, zahodených 0, opravených percent 1
-[kraj] uložené: kraj/2026-11-19.json (100 zliav, 2026-11-19 až 2026-11-25)
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] uložené: yeme/2026-11-18.json (766 zliav, 2026-11-18 až 2026-11-20)
+[yeme] zmeny od 2026-11-17: 775 → 766 produktov, pribudlo 1, ubudlo 10, zmenená cena 0
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 0 produktov doteraz
 [teta] strana 1: 38 produktov doteraz
@@ -73,9 +50,5 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 34: 1909 produktov doteraz
 [teta] strana 35: 1968 produktov doteraz
 [teta] strana 36: 2015 produktov doteraz
-[kaufland] kaufland/2026-11-12.json: znova zaradených 60 produktov do kategórií
-[kaufland] kaufland/2026-11-19.json: znova zaradených 61 produktov do kategórií
-[kraj] kraj/2026-11-19.json: znova zaradených 8 produktov do kategórií
-[yeme] yeme/2026-11-18.json: znova zaradených 268 produktov do kategórií
-[classify] názvy na zaradenie: 81, typy od AI: 81, kategórie od AI: 81, slová od AI: 81
+[teta] zmeny od 2026-11-17: 2016 → 2015 produktov, pribudlo 5, ubudlo 4, zmenená cena 4
 index.json aktualizovaný
