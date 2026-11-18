@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T05:32:22.501Z",
+  "updatedAt": "2026-11-18T10:41:13.205Z",
   "leaflets": [
     {
       "store": "billa",
@@ -73,12 +73,21 @@
     },
     {
       "store": "kaufland",
-      "file": "kaufland/2026-11-05.json",
-      "validFrom": "2026-11-05",
+      "file": "kaufland/2026-11-12.json",
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-18",
+      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-11-12",
+      "count": 289,
+      "rev": "224a72455a"
+    },
+    {
+      "store": "kaufland",
+      "file": "kaufland/2026-11-19.json",
+      "validFrom": "2026-11-19",
       "validTo": "2026-11-25",
-      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-11-05",
-      "count": 585,
-      "rev": "491e89f236"
+      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-11-19",
+      "count": 296,
+      "rev": "98f5dcbf75"
     },
     {
       "store": "kraj",
@@ -103,9 +112,9 @@
       "file": "kraj/2026-11-19.json",
       "validFrom": "2026-11-19",
       "validTo": "2026-11-25",
-      "source": "https://view.publitas.com/75539/3541161/pdfs/6862902b-adf4-4ee1-9934-e7c43e09a90e.pdf",
-      "count": 65,
-      "rev": "cf2c64e344"
+      "source": "https://view.publitas.com/75539/3541161/pdfs/35c4a460-e1d9-476b-b457-6791c6339100.pdf",
+      "count": 100,
+      "rev": "47d3b6b2f9"
     },
     {
       "store": "lidl",
@@ -320,8 +329,8 @@
       "validFrom": "2026-11-18",
       "validTo": "2026-11-20",
       "source": "https://www.yeme.sk/hrdinovia#2026-11-18",
-      "count": 769,
-      "rev": "209e13d5f0"
+      "count": 766,
+      "rev": "4c915165b0"
     }
   ]
 }
