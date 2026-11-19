@@ -34,22 +34,40 @@ async function get(url) {
   return res.text();
 }
 
-/** Všetky akciové produkty zo stránok letak=true. */
+/** Jedna stránka; pri chybe alebo bez kariet ju skúsi znova (web občas vráti prázdnu/čiastočnú odpoveď). */
+async function getPage(page) {
+  let last = [];
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      const cards = parseTetaCards(await get(`${BASE}/produkty/?nparams=page;${page};letak;true`));
+      if (cards.length) return cards;
+      last = cards;
+      console.warn(`[teta] strana ${page}: 0 kariet, pokus ${attempt}/4`);
+    } catch (e) {
+      console.warn(`[teta] strana ${page}: ${e.message}, pokus ${attempt}/4`);
+    }
+    await new Promise((r) => setTimeout(r, attempt * 3000));
+  }
+  return last;
+}
+
+/** Všetky akciové produkty zo stránok letak=true. Koniec nastane až po 2 prázdnych stranách po sebe (nie po jedinej). */
 export async function crawlTeta() {
   const seen = new Set();
   const all = [];
   const started = Date.now();
-  for (let page = 0; page < 40; page++) {
-    if (Date.now() - started > 4 * 60_000) { console.warn(`[teta] limit 4 min, končím na strane ${page}`); break; }
-    const html = await get(`${BASE}/produkty/?nparams=page;${page};letak;true`);
-    console.log(`[teta] strana ${page}: ${all.length} produktov doteraz`);
-    const cards = parseTetaCards(html);
+  let empty = 0;
+  for (let page = 0; page < 60; page++) {
+    if (Date.now() - started > 8 * 60_000) { console.warn(`[teta] limit 8 min, končím na strane ${page}`); break; }
+    const cards = await getPage(page);
     const fresh = cards.filter((c) => !seen.has(c.name));
-    if (!fresh.length) break;
     for (const c of fresh) {
       seen.add(c.name);
       all.push(c);
     }
+    console.log(`[teta] strana ${page}: ${all.length} produktov doteraz`);
+    empty = fresh.length ? 0 : empty + 1;
+    if (empty >= 2) break;
   }
   return all;
 }
