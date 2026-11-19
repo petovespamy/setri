@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T11:09:05.399Z",
+  "updatedAt": "2026-11-19T05:32:21.518Z",
   "leaflets": [
     {
       "store": "billa",
@@ -16,15 +16,6 @@
       "validTo": "2026-11-24",
       "source": "https://view.publitas.com/64070/3538012/pdfs/ef7ea18b-3776-47b7-9752-1206e7ffc2d1.pdf",
       "rev": "a0a2259243"
-    },
-    {
-      "store": "coop",
-      "file": "coop/2026-11-05.json",
-      "validFrom": "2026-11-05",
-      "validTo": "2026-11-11",
-      "source": "https://www.coop.sk/letaky/potraviny-supermarket-a-tempo-44-2026",
-      "count": 296,
-      "rev": "1c565f84a0"
     },
     {
       "store": "coop",
@@ -64,15 +55,6 @@
     },
     {
       "store": "kaufland",
-      "file": "kaufland/2026-10-29.json",
-      "validFrom": "2026-10-29",
-      "validTo": "2026-11-11",
-      "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-10-29",
-      "count": 571,
-      "rev": "28f617d030"
-    },
-    {
-      "store": "kaufland",
       "file": "kaufland/2026-11-12.json",
       "validFrom": "2026-11-12",
       "validTo": "2026-11-18",
@@ -88,15 +70,6 @@
       "source": "https://predajne.kaufland.sk/aktualna-ponuka/prehlad.html#2026-11-19",
       "count": 793,
       "rev": "39deb39200"
-    },
-    {
-      "store": "kraj",
-      "file": "kraj/2026-11-05.json",
-      "validFrom": "2026-11-05",
-      "validTo": "2026-11-11",
-      "source": "https://view.publitas.com/75539/3500016/pdfs/cddda4e7-5187-44b5-95bc-1064b6f75c89.pdf",
-      "count": 66,
-      "rev": "37dc954eff"
     },
     {
       "store": "kraj",
@@ -151,15 +124,6 @@
       "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/ec6daded-aae3-4e93-a9d2-a954e27d8420/20261112004934638_2026_P38_SK_HM-CHM.pdf",
       "count": 182,
       "rev": "12791ccb2e"
-    },
-    {
-      "store": "teta",
-      "file": "teta/2026-11-10.json",
-      "validFrom": "2026-11-10",
-      "validTo": "2026-11-11",
-      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-10",
-      "count": 2065,
-      "rev": "1216872930"
     },
     {
       "store": "teta",
@@ -235,15 +199,6 @@
     },
     {
       "store": "yeme",
-      "file": "yeme/2026-11-10.json",
-      "validFrom": "2026-11-10",
-      "validTo": "2026-11-11",
-      "source": "https://www.yeme.sk/hrdinovia#2026-11-10",
-      "count": 748,
-      "rev": "f37a1df505"
-    },
-    {
-      "store": "yeme",
       "file": "yeme/2026-11-11.json",
       "validFrom": "2026-11-11",
       "validTo": "2026-11-12",
@@ -313,6 +268,15 @@
       "source": "https://www.yeme.sk/hrdinovia#2026-11-18",
       "count": 766,
       "rev": "b18c883e9a"
+    },
+    {
+      "store": "yeme",
+      "file": "yeme/2026-11-19.json",
+      "validFrom": "2026-11-19",
+      "validTo": "2026-11-20",
+      "source": "https://www.yeme.sk/hrdinovia#2026-11-19",
+      "count": 766,
+      "rev": "d9168b7d29"
     }
   ]
 }
