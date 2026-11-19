@@ -1,4 +1,4 @@
-2026-11-19T05:32:21.519Z
+2026-11-19T08:29:14.027Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
@@ -6,33 +6,92 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
   [tesco] sťahujem tesco-letak-2026-11-11
+  [tesco] sťahujem tesco-letak-2026-11-18
 [tesco] leták 2026-11-11 až 2026-11-17 už skončil, AI ho nečíta
+  [ai] strana 1/51: 10 zliav
+  [ai] strana 2/51: 10 zliav
+  [ai] strana 3/51: 9 zliav
+  [ai] strana 4/51: 11 zliav
+  [ai] strana 5/51: 10 zliav
+  [ai] strana 6/51: 10 zliav
+  [ai] strana 7/51: 10 zliav
+  [ai] strana 8/51: 10 zliav
+  [ai] strana 9/51: 9 zliav
+  [ai] strana 10/51: 6 zliav
+  [ai] strana 11/51: 8 zliav
+  [ai] strana 12/51: 4 zliav
+  [ai] strana 13/51: 7 zliav
+  [ai] strana 14/51: 8 zliav
+  [ai] strana 15/51: 12 zliav
+  [ai] strana 16/51: 12 zliav
+  [ai] strana 17/51: 15 zliav
+  [ai] strana 18/51: 13 zliav
+  [ai] strana 19/51: 14 zliav
+  [ai] strana 20/51: 13 zliav
+  [ai] strana 21/51: 15 zliav
+  [ai] strana 22/51: 1 zliav
+  [ai] strana 23/51: 10 zliav
+  [ai] strana 24/51: 9 zliav
+  [ai] strana 25/51: 9 zliav
+  [ai] strana 26/51: 10 zliav
+  [ai] strana 27/51: 15 zliav
+  [ai] strana 28/51: 6 zliav
+  [ai] strana 29/51: 7 zliav
+  [ai] strana 30/51: 12 zliav
+  [ai] strana 31/51: 9 zliav
+  [ai] strana 32/51: 13 zliav
+  [ai] strana 33/51: 15 zliav
+  [ai] strana 34/51: 13 zliav
+  [ai] strana 35/51: 13 zliav
+  [ai] strana 36/51: 9 zliav
+  [ai] strana 37/51: 13 zliav
+  [ai] strana 38/51: 8 zliav
+  [ai] strana 39/51: 12 zliav
+  [ai] strana 40/51: 12 zliav
+  [ai] strana 41/51: 11 zliav
+  [ai] strana 42/51: 13 zliav
+  [ai] strana 43/51: 10 zliav
+  [ai] strana 44/51: 13 zliav
+  [ai] strana 45/51: 12 zliav
+  [ai] strana 46/51: 3 zliav
+  [ai] strana 47/51: 0 zliav
+  [ai] strana 48/51: 2 zliav
+  [ai] strana 49/51: 10 zliav
+  [ai] strana 50/51: 6 zliav
+  [ai] strana 51/51: 2 zliav
+[tesco] AI: 490 zliav (pôvodný parser 182), strán 51, model claude-sonnet-5-5, tokeny 143208/44688, zahodených 4, opravených percent 2
+[tesco] uložené: tesco/2026-11-18.json (490 zliav, 2026-11-18 až 2026-11-24)
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-18: 766 → 766 produktov, pribudlo 1, ubudlo 1, zmenená cena 0
-[yeme] uložené: yeme/2026-11-19.json (766 zliav, 2026-11-19 až 2026-11-20)
+[yeme] zmeny od 2026-11-18: 766 → 764 produktov, pribudlo 1, ubudlo 3, zmenená cena 0
+[yeme] uložené: yeme/2026-11-19.json (764 zliav, 2026-11-19 až 2026-11-20)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] strana 0: 0 produktov doteraz
-[teta] strana 1: 51 produktov doteraz
-[teta] strana 2: 103 produktov doteraz
-[teta] strana 3: 157 produktov doteraz
-[teta] strana 4: 208 produktov doteraz
-[teta] strana 5: 249 produktov doteraz
-[teta] strana 6: 309 produktov doteraz
-[teta] strana 7: 365 produktov doteraz
-[teta] strana 8: 411 produktov doteraz
-[teta] strana 9: 471 produktov doteraz
-[teta] strana 10: 529 produktov doteraz
+[teta] strana 0: 51 produktov doteraz
+[teta] strana 1: 103 produktov doteraz
+[teta] strana 2: 157 produktov doteraz
+[teta] strana 3: 208 produktov doteraz
+[teta] strana 4: 249 produktov doteraz
+[teta] strana 5: 309 produktov doteraz
+[teta] strana 6: 365 produktov doteraz
+[teta] strana 7: 411 produktov doteraz
+[teta] strana 8: 471 produktov doteraz
+[teta] strana 9: 529 produktov doteraz
+[teta] strana 10: 569 produktov doteraz
+WARN: [teta] strana 11: 0 kariet, pokus 1/4
+WARN: [teta] strana 11: 0 kariet, pokus 2/4
+WARN: [teta] strana 11: 0 kariet, pokus 3/4
+WARN: [teta] strana 11: 0 kariet, pokus 4/4
 [teta] strana 11: 569 produktov doteraz
+WARN: [teta] strana 12: 0 kariet, pokus 1/4
+WARN: [teta] strana 12: 0 kariet, pokus 2/4
+WARN: [teta] strana 12: 0 kariet, pokus 3/4
+WARN: [teta] strana 12: 0 kariet, pokus 4/4
+[teta] strana 12: 569 produktov doteraz
 [teta] zmeny od 2026-11-18: 2015 → 569 produktov, pribudlo 1, ubudlo 1338, zmenená cena 6
 ERROR: [teta] podozrivo málo produktov (569 oproti 2015), stiahnutie neukladám
-odstránený starý leták coop/2026-11-05.json
-odstránený starý leták kaufland/2026-10-29.json
-odstránený starý leták kraj/2026-11-05.json
-odstránený starý leták teta/2026-11-10.json
-odstránený starý leták yeme/2026-11-10.json
+[tesco] tesco/2026-11-18.json: znova zaradených 14 produktov do kategórií
 [yeme] yeme/2026-11-19.json: znova zaradených 267 produktov do kategórií
-[classify] názvy na zaradenie: 1, typy od AI: 1, kategórie od AI: 1, slová od AI: 1
+[classify] názvy na zaradenie: 404, typy od AI: 394, kategórie od AI: 404, slová od AI: 404
 index.json aktualizovaný

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T05:32:21.518Z",
+  "updatedAt": "2026-11-19T08:29:14.026Z",
   "leaflets": [
     {
       "store": "billa",
@@ -121,9 +121,9 @@
       "file": "tesco/2026-11-18.json",
       "validFrom": "2026-11-18",
       "validTo": "2026-11-24",
-      "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/ec6daded-aae3-4e93-a9d2-a954e27d8420/20261112004934638_2026_P38_SK_HM-CHM.pdf",
-      "count": 182,
-      "rev": "12791ccb2e"
+      "source": "https://digitalcontent.api.tesco.com/v2/media/dotcom-hu/8ca68446-8dcf-45cf-8a97-bca51a1e73d5/20261119052945029_2026_P38_SK_HM-CHM.pdf",
+      "count": 490,
+      "rev": "65ad71666c"
     },
     {
       "store": "teta",
@@ -275,8 +275,8 @@
       "validFrom": "2026-11-19",
       "validTo": "2026-11-20",
       "source": "https://www.yeme.sk/hrdinovia#2026-11-19",
-      "count": 766,
-      "rev": "d9168b7d29"
+      "count": 764,
+      "rev": "89df0889b1"
     }
   ]
 }
