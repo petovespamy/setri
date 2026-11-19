@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-19T08:29:14.026Z",
+  "updatedAt": "2026-11-19T08:45:15.001Z",
   "leaflets": [
     {
       "store": "billa",
@@ -196,6 +196,15 @@
       "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-18",
       "count": 2015,
       "rev": "04f3c3e90e"
+    },
+    {
+      "store": "teta",
+      "file": "teta/2026-11-19.json",
+      "validFrom": "2026-11-19",
+      "validTo": "2026-11-20",
+      "source": "https://www.tetadrogerie.sk/produkty/?letak=true#2026-11-19",
+      "count": 569,
+      "rev": "ad4cd28154"
     },
     {
       "store": "yeme",
