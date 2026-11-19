@@ -49,6 +49,7 @@ export default {
         validFrom: today,
         validTo: addDays(today, 1),
         deals,
+        complete: products.complete === true,
       },
     ];
   },

@@ -34,40 +34,43 @@ async function get(url) {
   return res.text();
 }
 
-/** Jedna stránka; pri chybe alebo bez kariet ju skúsi znova (web občas vráti prázdnu/čiastočnú odpoveď). */
+const END_MARK = /nevyhovuje žiadny výrobok/;
+
+/** Jedna stránka; pri chybe alebo bez kariet ju skúsi znova. `end` = web sám napísal, že ďalšie produkty nie sú. */
 async function getPage(page) {
-  let last = [];
-  for (let attempt = 1; attempt <= 4; attempt++) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const cards = parseTetaCards(await get(`${BASE}/produkty/?nparams=page;${page};letak;true`));
-      if (cards.length) return cards;
-      last = cards;
-      console.warn(`[teta] strana ${page}: 0 kariet, pokus ${attempt}/4`);
+      const html = await get(`${BASE}/produkty/?nparams=page;${page};letak;true`);
+      const cards = parseTetaCards(html);
+      if (cards.length) return { cards, end: false };
+      if (END_MARK.test(html)) return { cards, end: true };
+      console.warn(`[teta] strana ${page}: 0 kariet bez potvrdenia konca, pokus ${attempt}/3`);
     } catch (e) {
-      console.warn(`[teta] strana ${page}: ${e.message}, pokus ${attempt}/4`);
+      console.warn(`[teta] strana ${page}: ${e.message}, pokus ${attempt}/3`);
     }
     await new Promise((r) => setTimeout(r, attempt * 3000));
   }
-  return last;
+  return { cards: [], end: false };
 }
 
-/** Všetky akciové produkty zo stránok letak=true. Koniec nastane až po 2 prázdnych stranách po sebe (nie po jedinej). */
+/** Všetky akciové produkty zo stránok letak=true. `complete` = koniec zoznamu potvrdil web (nie chyba/limit). */
 export async function crawlTeta() {
   const seen = new Set();
   const all = [];
   const started = Date.now();
-  let empty = 0;
-  for (let page = 0; page < 60; page++) {
+  let complete = false;
+  for (let page = 0; page < 80; page++) {
     if (Date.now() - started > 8 * 60_000) { console.warn(`[teta] limit 8 min, končím na strane ${page}`); break; }
-    const cards = await getPage(page);
-    const fresh = cards.filter((c) => !seen.has(c.name));
-    for (const c of fresh) {
+    const { cards, end } = await getPage(page);
+    for (const c of cards) {
+      if (seen.has(c.name)) continue;
       seen.add(c.name);
       all.push(c);
     }
     console.log(`[teta] strana ${page}: ${all.length} produktov doteraz`);
-    empty = fresh.length ? 0 : empty + 1;
-    if (empty >= 2) break;
+    if (end) { complete = true; break; }
+    if (!cards.length) break;
   }
+  all.complete = complete;
   return all;
 }

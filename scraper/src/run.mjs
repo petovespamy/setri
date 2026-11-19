@@ -193,7 +193,9 @@ async function processStore(store, index) {
             const removed = [...old.keys()].filter((k) => !now.has(k)).length;
             const repriced = [...now.keys()].filter((k) => old.has(k) && old.get(k).p !== now.get(k).p).length;
             console.log(`[${store.id}] zmeny od ${last.validFrom}: ${before.length} → ${lf.deals.length} produktov, pribudlo ${added}, ubudlo ${removed}, zmenená cena ${repriced}`);
-            if (lf.deals.length < before.length * 0.8) {
+            if (lf.complete) {
+              if (lf.deals.length < before.length * 0.8) console.warn(`[${store.id}] výrazný pokles (${before.length} → ${lf.deals.length}), ale web potvrdil koniec zoznamu, ukladám`);
+            } else if (lf.deals.length < before.length * 0.8) {
               console.error(`[${store.id}] podozrivo málo produktov (${lf.deals.length} oproti ${before.length}), stiahnutie neukladám`);
               problems++;
               continue;
