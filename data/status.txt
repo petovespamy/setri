@@ -1,33 +1,33 @@
-2026-11-19T08:45:15.002Z
+2026-11-20T05:31:46.848Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
 [kaufland] kontrolujem: kontrola dát na stránke
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
-  [tesco] sťahujem tesco-letak-2026-11-11
-[tesco] leták 2026-11-11 až 2026-11-17 už skončil, AI ho nečíta
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-18: 766 → 764 produktov, pribudlo 1, ubudlo 3, zmenená cena 0
+[yeme] zmeny od 2026-11-19: 764 → 764 produktov, pribudlo 0, ubudlo 0, zmenená cena 1
+[yeme] uložené: yeme/2026-11-20.json (764 zliav, 2026-11-20 až 2026-11-21)
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 51 produktov doteraz
 [teta] strana 1: 103 produktov doteraz
 [teta] strana 2: 157 produktov doteraz
-[teta] strana 3: 208 produktov doteraz
-[teta] strana 4: 249 produktov doteraz
-[teta] strana 5: 309 produktov doteraz
-[teta] strana 6: 365 produktov doteraz
-[teta] strana 7: 411 produktov doteraz
-[teta] strana 8: 471 produktov doteraz
-[teta] strana 9: 529 produktov doteraz
-[teta] strana 10: 569 produktov doteraz
-[teta] strana 11: 569 produktov doteraz
-[teta] zmeny od 2026-11-18: 2015 → 569 produktov, pribudlo 1, ubudlo 1338, zmenená cena 6
-WARN: [teta] výrazný pokles (2015 → 569), ale web potvrdil koniec zoznamu, ukladám
-[teta] uložené: teta/2026-11-19.json (569 zliav, 2026-11-19 až 2026-11-20)
-[teta] teta/2026-11-19.json: znova zaradených 228 produktov do kategórií
-[classify] názvy na zaradenie: 1, typy od AI: 1, kategórie od AI: 1, slová od AI: 1
+[teta] strana 3: 217 produktov doteraz
+[teta] strana 4: 276 produktov doteraz
+[teta] strana 5: 326 produktov doteraz
+[teta] strana 6: 384 produktov doteraz
+[teta] strana 7: 430 produktov doteraz
+[teta] strana 8: 489 produktov doteraz
+[teta] strana 9: 522 produktov doteraz
+[teta] strana 10: 568 produktov doteraz
+[teta] strana 11: 568 produktov doteraz
+[teta] zmeny od 2026-11-19: 569 → 568 produktov, pribudlo 0, ubudlo 1, zmenená cena 0
+[teta] uložené: teta/2026-11-20.json (568 zliav, 2026-11-20 až 2026-11-21)
+odstránený starý leták teta/2026-11-11.json
+odstránený starý leták yeme/2026-11-11.json
+[yeme] yeme/2026-11-20.json: znova zaradených 267 produktov do kategórií
+[teta] teta/2026-11-20.json: znova zaradených 229 produktov do kategórií
 index.json aktualizovaný
