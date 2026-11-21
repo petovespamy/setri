@@ -1,33 +1,160 @@
-2026-11-20T05:31:46.848Z
+2026-11-21T05:38:15.978Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] preskakujem (aktuálny leták platí do 2026-11-24)
+[billa] kontrolujem: leták končí, hľadáme nový
+[billa] nájdené letáky: 1
 [kaufland] kontrolujem: kontrola dát na stránke
+[kaufland] uložené: kaufland/2026-11-19.json (802 zliav, 2026-11-19 až 2026-11-25)
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-23-11-2026
+  [ai] strana 1/119: 15 zliav
+  [ai] strana 2/119: 4 zliav
+  [ai] strana 3/119: 6 zliav
+  [ai] strana 4/119: 10 zliav
+  [ai] strana 5/119: 0 zliav
+  [ai] strana 6/119: 6 zliav
+  [ai] strana 7/119: 5 zliav
+  [ai] strana 8/119: 6 zliav
+  [ai] strana 9/119: 7 zliav
+  [ai] strana 10/119: 7 zliav
+  [ai] strana 11/119: 7 zliav
+  [ai] strana 12/119: 5 zliav
+  [ai] strana 13/119: 0 zliav
+  [ai] strana 14/119: 8 zliav
+  [ai] strana 15/119: 6 zliav
+  [ai] strana 16/119: 10 zliav
+  [ai] strana 17/119: 6 zliav
+  [ai] strana 18/119: 6 zliav
+  [ai] strana 19/119: 5 zliav
+  [ai] strana 20/119: 6 zliav
+  [ai] strana 21/119: 6 zliav
+  [ai] strana 22/119: 9 zliav
+  [ai] strana 23/119: 10 zliav
+  [ai] strana 24/119: 8 zliav
+  [ai] strana 25/119: 11 zliav
+  [ai] strana 26/119: 8 zliav
+  [ai] strana 27/119: 9 zliav
+  [ai] strana 28/119: 9 zliav
+  [ai] strana 29/119: 8 zliav
+  [ai] strana 30/119: 7 zliav
+  [ai] strana 31/119: 5 zliav
+  [ai] strana 32/119: 4 zliav
+  [ai] strana 33/119: 8 zliav
+  [ai] strana 34/119: 7 zliav
+  [ai] strana 35/119: 8 zliav
+  [ai] strana 36/119: 1 zliav
+  [ai] strana 37/119: 6 zliav
+  [ai] strana 38/119: 7 zliav
+  [ai] strana 39/119: 5 zliav
+  [ai] strana 40/119: 6 zliav
+  [ai] strana 41/119: 5 zliav
+  [ai] strana 42/119: 7 zliav
+  [ai] strana 43/119: 5 zliav
+  [ai] strana 44/119: 7 zliav
+  [ai] strana 45/119: 6 zliav
+  [ai] strana 46/119: 8 zliav
+  [ai] strana 47/119: 7 zliav
+  [ai] strana 48/119: 7 zliav
+  [ai] strana 49/119: 11 zliav
+  [ai] strana 50/119: 7 zliav
+  [ai] strana 51/119: 7 zliav
+  [ai] strana 52/119: 7 zliav
+  [ai] strana 53/119: 7 zliav
+  [ai] strana 54/119: 9 zliav
+  [ai] strana 55/119: 7 zliav
+  [ai] strana 56/119: 7 zliav
+  [ai] strana 57/119: 9 zliav
+  [ai] strana 58/119: 8 zliav
+  [ai] strana 59/119: 0 zliav
+  [ai] strana 60/119: 3 zliav
+  [ai] strana 61/119: 1 zliav
+  [ai] strana 62/119: 5 zliav
+  [ai] strana 63/119: 6 zliav
+  [ai] strana 64/119: 8 zliav
+  [ai] strana 65/119: 7 zliav
+  [ai] strana 66/119: 4 zliav
+  [ai] strana 67/119: 8 zliav
+  [ai] strana 68/119: 9 zliav
+  [ai] strana 69/119: 9 zliav
+  [ai] strana 70/119: 7 zliav
+  [ai] strana 71/119: 8 zliav
+  [ai] strana 72/119: 8 zliav
+  [ai] strana 73/119: 2 zliav
+  [ai] strana 74/119: 4 zliav
+  [ai] strana 75/119: 1 zliav
+  [ai] strana 76/119: 5 zliav
+  [ai] strana 77/119: 0 zliav
+  [ai] strana 78/119: 2 zliav
+  [ai] strana 79/119: 3 zliav
+  [ai] strana 80/119: 5 zliav
+  [ai] strana 81/119: 5 zliav
+  [ai] strana 82/119: 4 zliav
+  [ai] strana 83/119: 5 zliav
+  [ai] strana 84/119: 6 zliav
+  [ai] strana 85/119: 5 zliav
+  [ai] strana 86/119: 5 zliav
+  [ai] strana 87/119: 8 zliav
+  [ai] strana 88/119: 5 zliav
+  [ai] strana 89/119: 13 zliav
+  [ai] strana 90/119: 6 zliav
+  [ai] strana 91/119: 5 zliav
+  [ai] strana 92/119: 6 zliav
+  [ai] strana 93/119: 7 zliav
+  [ai] strana 94/119: 7 zliav
+  [ai] strana 95/119: 8 zliav
+  [ai] strana 96/119: 8 zliav
+  [ai] strana 97/119: 7 zliav
+  [ai] strana 98/119: 7 zliav
+  [ai] strana 99/119: 9 zliav
+  [ai] strana 100/119: 9 zliav
+  [ai] strana 101/119: 6 zliav
+  [ai] strana 102/119: 3 zliav
+  [ai] strana 103/119: 3 zliav
+  [ai] strana 104/119: 4 zliav
+  [ai] strana 105/119: 3 zliav
+  [ai] strana 106/119: 3 zliav
+  [ai] strana 107/119: 4 zliav
+  [ai] strana 108/119: 3 zliav
+  [ai] strana 109/119: 1 zliav
+  [ai] strana 110/119: 5 zliav
+  [ai] strana 111/119: 6 zliav
+  [ai] strana 112/119: 2 zliav
+  [ai] strana 113/119: 0 zliav
+  [ai] strana 114/119: 0 zliav
+  [ai] strana 115/119: 0 zliav
+  [ai] strana 116/119: 0 zliav
+  [ai] strana 117/119: 6 zliav
+  [ai] strana 118/119: 0 zliav
+  [ai] strana 119/119: 0 zliav
+[lidl] AI: 669 zliav (pôvodný parser 115), strán 119, model claude-sonnet-5-5, tokeny 342608/60996, zahodených 3, opravených percent 1
+[lidl] uložené: lidl/2026-11-23.json (669 zliav, 2026-11-23 až 2026-11-29)
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-19: 764 → 764 produktov, pribudlo 0, ubudlo 0, zmenená cena 1
-[yeme] uložené: yeme/2026-11-20.json (764 zliav, 2026-11-20 až 2026-11-21)
+[yeme] zmeny od 2026-11-20: 764 → 761 produktov, pribudlo 3, ubudlo 6, zmenená cena 0
+[yeme] uložené: yeme/2026-11-21.json (761 zliav, 2026-11-21 až 2026-11-22)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] strana 0: 51 produktov doteraz
+[teta] strana 0: 52 produktov doteraz
 [teta] strana 1: 103 produktov doteraz
 [teta] strana 2: 157 produktov doteraz
-[teta] strana 3: 217 produktov doteraz
-[teta] strana 4: 276 produktov doteraz
-[teta] strana 5: 326 produktov doteraz
-[teta] strana 6: 384 produktov doteraz
-[teta] strana 7: 430 produktov doteraz
-[teta] strana 8: 489 produktov doteraz
-[teta] strana 9: 522 produktov doteraz
-[teta] strana 10: 568 produktov doteraz
-[teta] strana 11: 568 produktov doteraz
-[teta] zmeny od 2026-11-19: 569 → 568 produktov, pribudlo 0, ubudlo 1, zmenená cena 0
-[teta] uložené: teta/2026-11-20.json (568 zliav, 2026-11-20 až 2026-11-21)
-odstránený starý leták teta/2026-11-11.json
-odstránený starý leták yeme/2026-11-11.json
-[yeme] yeme/2026-11-20.json: znova zaradených 267 produktov do kategórií
-[teta] teta/2026-11-20.json: znova zaradených 229 produktov do kategórií
+[teta] strana 3: 208 produktov doteraz
+[teta] strana 4: 249 produktov doteraz
+[teta] strana 5: 309 produktov doteraz
+[teta] strana 6: 363 produktov doteraz
+[teta] strana 7: 421 produktov doteraz
+[teta] strana 8: 470 produktov doteraz
+[teta] strana 9: 527 produktov doteraz
+[teta] strana 10: 573 produktov doteraz
+[teta] strana 11: 573 produktov doteraz
+[teta] zmeny od 2026-11-20: 568 → 573 produktov, pribudlo 6, ubudlo 1, zmenená cena 1
+[teta] uložené: teta/2026-11-21.json (573 zliav, 2026-11-21 až 2026-11-22)
+odstránený starý leták teta/2026-11-12.json
+odstránený starý leták yeme/2026-11-12.json
+[kaufland] kaufland/2026-11-19.json: znova zaradených 200 produktov do kategórií
+[lidl] lidl/2026-11-23.json: znova zaradených 7 produktov do kategórií
+[yeme] yeme/2026-11-21.json: znova zaradených 261 produktov do kategórií
+[teta] teta/2026-11-21.json: znova zaradených 232 produktov do kategórií
+[classify] názvy na zaradenie: 646, typy od AI: 639, kategórie od AI: 646, slová od AI: 646
 index.json aktualizovaný
