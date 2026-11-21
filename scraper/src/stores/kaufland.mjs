@@ -98,7 +98,10 @@ export function offersToLeaflets(ssr) {
       for (const o of cat.offers) {
         // "Bonus buy": produkt za zvýhodnenú cenu pri nákupe nad určitú sumu (cena je v loyaltyFormattedPrice, nie v price).
         const bonusPrice = o.bonusbuy ? Number(String(o.loyaltyFormattedPrice ?? "").replace(",", ".")) : 0;
-        const price = o.price > 0 ? o.price : bonusPrice;
+        // Xtra cena (s Kaufland Card): ak je nižšia než bežná akciová cena, ukazujeme ju – vždy platí najväčšia zľava.
+        const xtraPrice = Number(String(o.loyaltyFormattedPrice ?? "").replace(",", "."));
+        const xtra = o.price > 0 && xtraPrice > 0 && xtraPrice < o.price;
+        const price = xtra ? xtraPrice : o.price > 0 ? o.price : bonusPrice;
         if (seen.has(o.offerId) || !(price > 0)) continue;
         // Vlastná platnosť ponuky (ak ju Kaufland uvádza), inak platnosť kategórie.
         const from = isIso(o.dateFrom) ? o.dateFrom : cat.dateFrom;
@@ -115,16 +118,19 @@ export function offersToLeaflets(ssr) {
         const extra = subLines.filter((l) => l !== productLine && l !== o.unit);
         const detail = oneLine([o.unit, ...extra].filter(Boolean).join(", "));
 
-        const oldRaw = o.formattedOldPrice ?? (o.price > 0 ? null : o.loyaltyFormattedOldPrice);
+        const oldRaw = o.formattedOldPrice ?? (o.price > 0 && !xtra ? null : o.loyaltyFormattedOldPrice);
         const oldPrice = oldRaw ? Number(String(oldRaw).replace(",", ".")) : null;
         const deal = { n: name.slice(0, 60), p: Math.round(price * 100) / 100 };
         if (detail) deal.d = detail.slice(0, 70);
         if (oldPrice && oldPrice > price) {
           deal.o = oldPrice;
-          deal.x = o.price > 0 && o.discount > 0 ? o.discount : Math.round((1 - price / oldPrice) * 100);
+          deal.x = xtra ? Math.round((1 - price / oldPrice) * 100)
+            : o.price > 0 && o.discount > 0 ? o.discount : Math.round((1 - price / oldPrice) * 100);
         }
-        const minSpend = o.price > 0 ? null : String(o.detailDescription ?? "").match(/nad\s*(\d+(?:[.,]\d+)?)\s*(?:€|eur)/i)?.[1];
-        const cond = minSpend ? `pri nákupe nad ${minSpend.replace(".", ",")} €` : conditionOf(o);
+        const minSpend = o.price > 0 && !xtra ? null : String(o.detailDescription ?? "").match(/nad\s*(\d+(?:[.,]\d+)?)\s*(?:€|eur)/i)?.[1];
+        let cond = minSpend ? `pri nákupe nad ${minSpend.replace(".", ",")} €` : conditionOf(o);
+        // Xtra cena platí len s kartou (ak nejde o nákup nad sumu) – appka podľa slova "kartou" ukáže ikonku karty.
+        if (xtra && !minSpend) cond = ["s kartou Kaufland Card Xtra", cond].filter(Boolean).join(", ");
         if (cond) deal.q = cond;
         const cs = recategorize("kaufland", name, detail, categoryFor(cat.displayName, `${name} ${detail}`.toLowerCase()));
         if (cs) deal.c = cs;
