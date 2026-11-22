@@ -1,17 +1,18 @@
-2026-11-21T13:20:30.719Z
+2026-11-22T05:27:35.731Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] kontrolujem: leták končí, hľadáme nový
 [billa] nájdené letáky: 1
 [kaufland] kontrolujem: kontrola dát na stránke
-[kaufland] uložené: kaufland/2026-11-19.json (802 zliav, 2026-11-19 až 2026-11-25)
+[kaufland] uložené: kaufland/2026-11-19.json (803 zliav, 2026-11-19 až 2026-11-25)
 [lidl] kontrolujem: kontrola dát na stránke
 [tesco] kontrolujem: kontrola dát na stránke
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-20: 764 → 761 produktov, pribudlo 3, ubudlo 6, zmenená cena 0
+[yeme] zmeny od 2026-11-21: 761 → 761 produktov, pribudlo 0, ubudlo 0, zmenená cena 0
+[yeme] uložené: yeme/2026-11-22.json (761 zliav, 2026-11-22 až 2026-11-23)
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 52 produktov doteraz
 [teta] strana 1: 103 produktov doteraz
@@ -19,12 +20,17 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 3: 208 produktov doteraz
 [teta] strana 4: 249 produktov doteraz
 [teta] strana 5: 309 produktov doteraz
-[teta] strana 6: 363 produktov doteraz
-[teta] strana 7: 421 produktov doteraz
-[teta] strana 8: 470 produktov doteraz
-[teta] strana 9: 527 produktov doteraz
+[teta] strana 6: 362 produktov doteraz
+[teta] strana 7: 413 produktov doteraz
+[teta] strana 8: 471 produktov doteraz
+[teta] strana 9: 528 produktov doteraz
 [teta] strana 10: 573 produktov doteraz
 [teta] strana 11: 573 produktov doteraz
-[teta] zmeny od 2026-11-20: 568 → 573 produktov, pribudlo 6, ubudlo 1, zmenená cena 1
+[teta] zmeny od 2026-11-21: 573 → 573 produktov, pribudlo 0, ubudlo 0, zmenená cena 0
+[teta] uložené: teta/2026-11-22.json (573 zliav, 2026-11-22 až 2026-11-23)
+odstránený starý leták teta/2026-11-13.json
+odstránený starý leták yeme/2026-11-13.json
 [kaufland] kaufland/2026-11-19.json: znova zaradených 202 produktov do kategórií
+[yeme] yeme/2026-11-22.json: znova zaradených 263 produktov do kategórií
+[teta] teta/2026-11-22.json: znova zaradených 232 produktov do kategórií
 index.json aktualizovaný
