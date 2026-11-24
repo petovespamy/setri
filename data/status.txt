@@ -1,4 +1,4 @@
-2026-11-24T11:03:14.776Z
+2026-11-24T11:48:39.005Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
@@ -10,7 +10,6 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
 [yeme] zmeny od 2026-11-23: 763 → 759 produktov, pribudlo 0, ubudlo 4, zmenená cena 2
-[yeme] uložené: yeme/2026-11-24.json (759 zliav, 2026-11-24 až 2026-11-25)
 [teta] kontrolujem: kontrola dát na stránke
 [teta] strana 0: 58 produktov doteraz
 [teta] strana 1: 115 produktov doteraz
@@ -53,5 +52,54 @@ Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [teta] strana 38: 2262 produktov doteraz
 [teta] strana 39: 2262 produktov doteraz
 [teta] zmeny od 2026-11-23: 2269 → 2262 produktov, pribudlo 4, ubudlo 10, zmenená cena 5
-[yeme] yeme/2026-11-24.json: znova zaradených 263 produktov do kategórií
 index.json aktualizovaný
+  [preklad] batch msgbatch_01Nvm4FmGxHKvd5z7cwyXZN2: 100 dávok
+ERROR:   [preklad] batch dávka 74: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 65: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 90: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 58: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 15: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 22: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 78: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 10: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 49: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 9: čakal som 100 prekladov, prišlo 99
+ERROR:   [preklad] batch dávka 71: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+  [preklad] batch msgbatch_01SbDKoBA8roiBWhHVcdfqoR: 26 dávok
+ERROR:   [preklad] batch dávka 21: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 20: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 14: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 15: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 2: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 13: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 12: čakal som 100 prekladov, prišlo 95
+ERROR:   [preklad] batch dávka 4: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 8: Unexpected end of JSON input
+ERROR:   [preklad] batch dávka 7: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unterminated string in JSON at position 2164 (line 1 column 2165)
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
+ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
+[preklad] 9945 názvov, 2547 podrobností; nových 12492 (z 12492), model claude-haiku-5-5, tokeny 365000/492002
