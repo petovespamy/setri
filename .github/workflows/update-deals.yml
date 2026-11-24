@@ -9,6 +9,10 @@ on:
         description: "Skúška AI čítania letáku Billa (nič sa neukladá, výsledok je v Summary)"
         type: boolean
         default: false
+      ai_test_model:
+        description: "Model pre skúšku AI čítania (prázdne = predvolený claude-sonnet-5-5), napr. claude-haiku-5-5"
+        type: string
+        default: ""
       reread_store:
         description: "Znova prečítať aktuálny leták jedného obchodu cez AI (prepíše ho): billa, tesco, lidl, kraj alebo drogerie101. Prázdne = nič."
         type: string
@@ -52,6 +56,7 @@ jobs:
           node scraper/src/aiTest.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AI_TEST_MODEL: ${{ inputs.ai_test_model }}
       - name: Uloženie zmien
         if: always()
         run: |
