@@ -1,4 +1,4 @@
-2026-11-24T11:54:02.671Z
+2026-11-24T12:03:49.297Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-11-24)
@@ -60,9 +60,4 @@ ERROR: [kraj] CHYBA: TypeError: fetch failed
 [teta] strana 39: 2262 produktov doteraz
 [teta] zmeny od 2026-11-23: 2269 → 2262 produktov, pribudlo 4, ubudlo 10, zmenená cena 5
 index.json aktualizovaný
-  [preklad] batch msgbatch_01AC7fnYunPrjaLMYw94wKY2: 21 dávok
-ERROR:   [preklad] batch dávka 5: Unexpected end of JSON input
-ERROR:   [preklad] pokus 1 zlyhal: Unexpected end of JSON input
-ERROR:   [preklad] pokus 2 zlyhal: Unexpected end of JSON input
-ERROR:   [preklad] pokus 3 zlyhal: Unexpected end of JSON input
-[preklad] 9945 názvov, 2081 častí podrobností a podmienok; nových 2081 (z 2081), model claude-haiku-5-5, tokeny 43645/73108
+[preklad] 9945 názvov, 2081 častí podrobností a podmienok; nových 0 (z 0), model claude-haiku-5-5, tokeny 0/0
