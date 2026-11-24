@@ -12,6 +12,7 @@ import { parseFlyer, extractValidity, pageText } from "./parseFlyer.mjs";
 import { recategorize, dietTags } from "./categorize.mjs";
 import { classifyAll, keyOf, loadCategoryCache } from "./classify.mjs";
 import { readFlyerWithAI, toAppDeals } from "./aiReader.mjs";
+import { translateAll } from "./translate.mjs";
 import { fillCondition, tidyCondition } from "./conditions.mjs";
 
 // Žiadne sieťové volanie nesmie visieť donekonečna (server, ktorý neodpovedá, by zablokoval celý beh):
@@ -426,6 +427,8 @@ async function main() {
   } else {
     console.log("bez zmien");
   }
+  // Anglické názvy produktov (samostatný súbor, nikdy nezhodí beh).
+  await translateAll(index, DATA);
   await fs.writeFile(path.join(DATA, "status.txt"), `${new Date().toISOString()}\n${logLines.join("\n")}\n`, "utf8");
   if (failures) process.exitCode = 1;
 }
