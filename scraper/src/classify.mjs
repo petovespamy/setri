@@ -65,15 +65,87 @@ let connectionFailures = 0;
 let lastErrorWasParse = false;
 const MAX_CONNECTION_FAILURES = 6;
 
+const API_HEADERS = (apiKey) => ({ "x-api-key": apiKey, "anthropic-version": "2023-06-01", "content-type": "application/json" });
+/** Zadanie pre AI sa nemení; cache_control ho po prvom volaní číta za desatinu ceny (výsledok je rovnaký). */
+const SYSTEM_BLOCKS = [{ type: "text", text: SYSTEM, cache_control: { type: "ephemeral" } }];
+const listOf = (items) => items.map((it, i) => `${i + 1}. ${it.deal.n}${it.deal.d ? " | " + it.deal.d : ""}`).join("\n");
+const parseAnswer = (text) => JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
+
+// Hotové odpovede z Batch API (zoznam produktov -> JSON). askClaude ich použije namiesto bežného volania.
+const prefetched = new Map();
+const BATCH_MIN_CHUNKS = 6;
+const BATCH_WAIT_MS = (Number(process.env.AI_BATCH_WAIT_MIN) || 20) * 60_000;
+
+/**
+ * Pri veľkom počte názvov (napr. po zmene pravidiel) pošle dávky cez Message Batches API (polovičná cena, rovnaký model
+ * aj zadanie). Čo sa nepodarí, dobehne bežným volaním v askClaude, takže výsledok je rovnaký, len lacnejší.
+ */
+async function prefetchViaBatch(apiKey, chunks) {
+  if (chunks.length < BATCH_MIN_CHUNKS) return;
+  const lists = chunks.map(listOf);
+  try {
+    const create = await fetch("https://api.anthropic.com/v1/messages/batches", {
+      method: "POST",
+      headers: API_HEADERS(apiKey),
+      body: JSON.stringify({
+        requests: lists.map((list, i) => ({
+          custom_id: `c${i}`,
+          params: { model: MODEL, max_tokens: 8000, system: SYSTEM_BLOCKS, messages: [{ role: "user", content: list }] },
+        })),
+      }),
+    });
+    if (!create.ok) throw new Error(`HTTP ${create.status}: ${(await create.text()).slice(0, 200)}`);
+    const batch = await create.json();
+    console.log(`[classify] batch ${batch.id}: ${lists.length} dávok`);
+    const started = Date.now();
+    let info = batch;
+    let cancelled = false;
+    while (info.processing_status !== "ended") {
+      await new Promise((r) => setTimeout(r, 30_000));
+      const r = await fetch(`https://api.anthropic.com/v1/messages/batches/${batch.id}`, { headers: API_HEADERS(apiKey) });
+      if (!r.ok) throw new Error(`HTTP ${r.status} pri čakaní na batch`);
+      info = await r.json();
+      if (!cancelled && Date.now() - started > BATCH_WAIT_MS) {
+        console.warn("[classify] batch trvá dlho, rušíme ho a zvyšok dobehne bežne");
+        await fetch(`https://api.anthropic.com/v1/messages/batches/${batch.id}/cancel`, { method: "POST", headers: API_HEADERS(apiKey) });
+        cancelled = true;
+      }
+      if (cancelled && Date.now() - started > BATCH_WAIT_MS + 5 * 60_000) throw new Error("batch sa po zrušení neukončil");
+    }
+    if (!info.results_url) throw new Error("batch nemá results_url");
+    const res = await fetch(info.results_url, { headers: API_HEADERS(apiKey) });
+    if (!res.ok) throw new Error(`HTTP ${res.status} pri sťahovaní výsledkov`);
+    let ok = 0;
+    for (const line of (await res.text()).split("\n")) {
+      if (!line.trim()) continue;
+      try {
+        const row = JSON.parse(line);
+        if (row.result?.type !== "succeeded") continue;
+        const i = Number(String(row.custom_id).slice(1));
+        const text = row.result.message?.content?.map((c) => c.text ?? "").join("") ?? "";
+        prefetched.set(lists[i], parseAnswer(text));
+        ok++;
+      } catch { /* táto dávka dobehne bežne */ }
+    }
+    console.log(`[classify] batch hotový: ${ok} z ${lists.length} dávok, zvyšok dobehne bežne`);
+  } catch (err) {
+    console.error(`[classify] batch zlyhal (${err.message}), všetko prebehne bežne`);
+  }
+}
+
 async function askClaude(apiKey, items) {
-  const list = items.map((it, i) => `${i + 1}. ${it.deal.n}${it.deal.d ? " | " + it.deal.d : ""}`).join("\n");
+  const list = listOf(items);
+  if (prefetched.has(list)) {
+    connectionFailures = 0;
+    return prefetched.get(list);
+  }
   for (let attempt = 1; attempt <= 2; attempt++) {
     let parseProblem = false;
     try {
       const res = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: { "x-api-key": apiKey, "anthropic-version": "2023-06-01", "content-type": "application/json" },
-        body: JSON.stringify({ model: MODEL, max_tokens: 8000, system: SYSTEM, messages: [{ role: "user", content: list }] }),
+        body: JSON.stringify({ model: MODEL, max_tokens: 8000, system: SYSTEM_BLOCKS, messages: [{ role: "user", content: list }] }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
       const body = await res.json();
@@ -232,6 +304,9 @@ export async function classifyAll(index, DATA, only) {
     if (askedKeywords !== savedKeywords) { await fs.writeFile(kwPath, JSON.stringify(kwCache, null, 0), "utf8"); savedKeywords = askedKeywords; changedAny = true; }
     if (askedCategories !== savedCategories) { await fs.writeFile(catPath, JSON.stringify(catCache, null, 0), "utf8"); savedCategories = askedCategories; changedAny = true; }
   };
+  const allChunks = [];
+  for (let i = 0; i < keys.length; i += BATCH) allChunks.push(keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal })));
+  await prefetchViaBatch(apiKey, allChunks);
   for (let i = 0; i < keys.length; i += BATCH) {
     await handleChunk(keys.slice(i, i + BATCH).map((k) => ({ key: k, deal: pending.get(k)[0].deal })));
     if (connectionFailures >= MAX_CONNECTION_FAILURES) {
