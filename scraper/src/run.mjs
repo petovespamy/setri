@@ -281,9 +281,9 @@ async function processStore(store, index) {
 async function readWithAI(storeId, pdf, fallback) {
   try {
     const model = process.env[`AI_READ_MODEL_${storeId.toUpperCase()}`] || undefined;
-    const read = await readFlyerWithAI(pdf, model ? { model } : {});
+    const read = await readFlyerWithAI(pdf, { ...(model ? { model } : {}), cachePath: path.join(DATA, "ai_page_cache.json") });
     const { deals, issues } = toAppDeals(read.deals);
-    console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), strán ${read.pages}, model ${read.model}, tokeny ${read.usage.input}/${read.usage.output}, zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
+    console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), strán ${read.pages}, model ${read.model}, tokeny ${read.usage.input}/${read.usage.output} (z cache ${read.usage.cachedPages} strán, batch ${read.usage.batchPages}), zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
     if (read.failedPages > 0) {
       console.warn(`[${storeId}] AI neprečítala ${read.failedPages} strán, používam pôvodný parser`);
       return fallback;
