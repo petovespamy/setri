@@ -1,6 +1,8 @@
 // Anglické názvy produktov pre cudzincov na Slovensku.
-// Zo všetkých aktuálnych letákov vezme unikátne názvy (n) a podrobnosti (d), preloží len tie, ktoré ešte nemajú preklad,
-// a uloží ich do data/translations_en.json: { v, updatedAt, n: { "slovenský názov": "English name" }, d: { … } }.
+// Zo všetkých aktuálnych letákov vezme unikátne názvy (n) a časti podrobností (d) a podmienok (q), preloží len tie,
+// ktoré ešte nemajú preklad, a uloží ich do data/translations_en.json:
+//   { v, updatedAt, n: { "slovenský názov": "English name" }, p: { "časť podrobnosti/podmienky": "English part" } }.
+// Podrobnosti a podmienky sa delia na časti rovnako ako v appke (čiarka okrem desatinnej, bodkočiarka, zátvorky).
 // Letáky samotné sa nemenia (platnosť letákov je jadro appky, preto sa jej nedotýkame) – appka si preklady stiahne zvlášť.
 // Preklad je samostatný krok na konci behu: ak zlyhá, appka ukáže slovenský názov a zajtra sa to skúsi znova.
 //
@@ -17,7 +19,7 @@ const BATCH_WAIT_MS = (Number(process.env.AI_BATCH_WAIT_MIN) || 15) * 60_000;
 const MAX_NEW_PER_RUN = Number(process.env.AI_TRANSLATE_MAX) || 15000;   // poistka proti nečakane veľkému účtu
 
 const SYSTEM = `You translate product names from Slovak supermarket flyers into English for foreigners living in Slovakia.
-You get a JSON array of Slovak strings (product names, or short package/detail descriptions such as "rôzne druhy" or "cena za 1 kg").
+You get a JSON array of Slovak strings (product names, or short package/detail/condition phrases such as "rôzne druhy", "cena za 1 kg" or "pri kúpe od 2 ks").
 Return ONLY a JSON array of English strings: same length, same order, one translation per input, on a single line, no other text.
 Rules:
 - Natural, short, what an English speaker would call the product ("Mlieko polotučné" -> "Semi-skimmed milk").
@@ -29,6 +31,19 @@ Rules:
 const headers = (apiKey) => ({ "x-api-key": apiKey, "anthropic-version": "2023-06-01", "content-type": "application/json" });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const hasWords = (s) => /\p{L}{4,}/u.test(s);
+
+/** Rovnaké delenie ako Deal.parts v appke: čiarka (okrem desatinnej), bodkočiarka a zátvorky oddeľujú časti. */
+export function splitParts(text) {
+  const chars = [...String(text ?? "")];
+  const out = [];
+  let cur = "";
+  chars.forEach((ch, i) => {
+    const decimal = ch === "," && i > 0 && i < chars.length - 1 && /\d/.test(chars[i - 1]) && /\d/.test(chars[i + 1]);
+    if ((ch === "," && !decimal) || ch === ";" || ch === "(" || ch === ")") { out.push(cur); cur = ""; } else cur += ch;
+  });
+  out.push(cur);
+  return out.map((x) => x.replace(/^[ \t]+|[ \t]+$/g, "")).filter(Boolean);
+}
 
 function params(items) {
   return { model: MODEL, max_tokens: 6000, system: SYSTEM, messages: [{ role: "user", content: JSON.stringify(items) }] };
@@ -139,21 +154,24 @@ export async function translateAll(index, DATA, { apiKey = process.env.ANTHROPIC
   if (!apiKey || process.env.AI_TRANSLATE === "0") return;
   try {
     const file = path.join(DATA, "translations_en.json");
-    let saved = { v: 1, n: {}, d: {} };
+    let saved = { v: 1, n: {}, p: {} };
     try { saved = { ...saved, ...JSON.parse(await fs.readFile(file, "utf8")) }; } catch { /* ešte neexistuje */ }
 
-    const names = new Set(), details = new Set();
+    const names = new Set(), parts = new Set();
     for (const l of index.leaflets) {
       let deals;
       try { deals = JSON.parse(await fs.readFile(path.join(DATA, l.file), "utf8")).deals ?? []; } catch { continue; }
       for (const d of deals) {
         if (typeof d.n === "string" && d.n.trim()) names.add(d.n.trim());
-        if (typeof d.d === "string" && hasWords(d.d)) details.add(d.d.trim());
+        for (const field of [d.d, d.q]) {
+          if (typeof field !== "string") continue;
+          for (const part of splitParts(field)) if (hasWords(part)) parts.add(part);
+        }
       }
     }
 
     const missingN = [...names].filter((s) => !saved.n[s]);
-    const missingD = [...details].filter((s) => !saved.d[s]);
+    const missingD = [...parts].filter((s) => !saved.p[s]);
     const limitedN = missingN.slice(0, MAX_NEW_PER_RUN);
     const limitedD = missingD.slice(0, Math.max(0, MAX_NEW_PER_RUN - limitedN.length));
     if (missingN.length + missingD.length > limitedN.length + limitedD.length) {
@@ -165,12 +183,12 @@ export async function translateAll(index, DATA, { apiKey = process.env.ANTHROPIC
     const newD = limitedD.length ? await translateStrings(apiKey, limitedD, usage) : new Map();
 
     // Uložíme len to, čo sa v aktuálnych letákoch ešte vyskytuje (staré názvy sa tak samy čistia).
-    const next = { v: 1, updatedAt: new Date().toISOString(), n: {}, d: {} };
+    const next = { v: 1, updatedAt: new Date().toISOString(), n: {}, p: {} };
     for (const s of names) { const t = newN.get(s) ?? saved.n[s]; if (t) next.n[s] = t; }
-    for (const s of details) { const t = newD.get(s) ?? saved.d[s]; if (t) next.d[s] = t; }
+    for (const s of parts) { const t = newD.get(s) ?? saved.p[s]; if (t) next.p[s] = t; }
 
-    const same = JSON.stringify(next.n) === JSON.stringify(saved.n) && JSON.stringify(next.d) === JSON.stringify(saved.d);
-    console.log(`[preklad] ${names.size} názvov, ${details.size} podrobností; nových ${newN.size + newD.size} (z ${limitedN.length + limitedD.length}), model ${MODEL}, tokeny ${usage.input}/${usage.output}`);
+    const same = JSON.stringify(next.n) === JSON.stringify(saved.n) && JSON.stringify(next.p) === JSON.stringify(saved.p);
+    console.log(`[preklad] ${names.size} názvov, ${parts.size} častí podrobností a podmienok; nových ${newN.size + newD.size} (z ${limitedN.length + limitedD.length}), model ${MODEL}, tokeny ${usage.input}/${usage.output}`);
     if (!same) await fs.writeFile(file, JSON.stringify(next), "utf8");
   } catch (err) {
     console.warn(`[preklad] preskočené (${err.message})`);
