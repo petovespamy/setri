@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T06:04:00.494Z",
+  "updatedAt": "2026-11-24T11:03:14.775Z",
   "leaflets": [
     {
       "store": "billa",
@@ -319,8 +319,8 @@
       "validFrom": "2026-11-24",
       "validTo": "2026-11-25",
       "source": "https://www.yeme.sk/hrdinovia#2026-11-24",
-      "count": 760,
-      "rev": "820709492e"
+      "count": 759,
+      "rev": "e6d63b66a5"
     }
   ]
 }
