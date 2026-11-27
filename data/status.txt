@@ -1,190 +1,146 @@
-2026-11-26T14:15:52.804Z
+2026-11-27T14:19:39.656Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
 [billa] preskakujem (aktuálny leták platí do 2026-12-01)
 [kaufland] kontrolujem: kontrola dát na stránke
-[kaufland] uložené: kaufland/2026-11-26.json (667 zliav, 2026-11-26 až 2026-12-02)
 [lidl] kontrolujem: kontrola dát na stránke
+  [lidl] sťahujem online-letak-platny-od-30-11-2026
+  [ai] batch msgbatch_01QB5JGksRVxaGPe9uaHoChG: 124 strán odoslaných
+  [ai] strana 1/124: 12 zliav (batch)
+  [ai] strana 2/124: 7 zliav (batch)
+  [ai] strana 3/124: 10 zliav (batch)
+  [ai] strana 4/124: 5 zliav (batch)
+  [ai] strana 5/124: 5 zliav (batch)
+  [ai] strana 6/124: 6 zliav (batch)
+  [ai] strana 7/124: 6 zliav (batch)
+  [ai] strana 8/124: 7 zliav (batch)
+  [ai] strana 9/124: 6 zliav (batch)
+  [ai] strana 10/124: 10 zliav (batch)
+  [ai] strana 11/124: 9 zliav (batch)
+  [ai] strana 12/124: 7 zliav (batch)
+  [ai] strana 13/124: 0 zliav (batch)
+  [ai] strana 14/124: 8 zliav (batch)
+  [ai] strana 15/124: 5 zliav (batch)
+  [ai] strana 16/124: 5 zliav (batch)
+  [ai] strana 17/124: 4 zliav (batch)
+  [ai] strana 18/124: 5 zliav (batch)
+  [ai] strana 19/124: 6 zliav (batch)
+  [ai] strana 20/124: 1 zliav (batch)
+  [ai] strana 21/124: 6 zliav (batch)
+  [ai] strana 22/124: 9 zliav (batch)
+  [ai] strana 23/124: 8 zliav (batch)
+  [ai] strana 24/124: 9 zliav (batch)
+  [ai] strana 25/124: 5 zliav (batch)
+  [ai] strana 26/124: 9 zliav (batch)
+  [ai] strana 27/124: 5 zliav (batch)
+  [ai] strana 28/124: 7 zliav (batch)
+  [ai] strana 29/124: 2 zliav (batch)
+  [ai] strana 30/124: 8 zliav (batch)
+  [ai] strana 31/124: 11 zliav (batch)
+  [ai] strana 32/124: 7 zliav (batch)
+  [ai] strana 33/124: 7 zliav (batch)
+  [ai] strana 34/124: 4 zliav (batch)
+  [ai] strana 35/124: 6 zliav (batch)
+  [ai] strana 36/124: 7 zliav (batch)
+  [ai] strana 37/124: 10 zliav (batch)
+  [ai] strana 38/124: 6 zliav (batch)
+  [ai] strana 39/124: 6 zliav (batch)
+  [ai] strana 40/124: 7 zliav (batch)
+  [ai] strana 41/124: 5 zliav (batch)
+  [ai] strana 42/124: 5 zliav (batch)
+  [ai] strana 43/124: 4 zliav (batch)
+  [ai] strana 44/124: 4 zliav (batch)
+  [ai] strana 45/124: 8 zliav (batch)
+  [ai] strana 46/124: 6 zliav (batch)
+  [ai] strana 47/124: 7 zliav (batch)
+  [ai] strana 48/124: 6 zliav (batch)
+  [ai] strana 49/124: 8 zliav (batch)
+  [ai] strana 50/124: 3 zliav (batch)
+  [ai] strana 51/124: 0 zliav (batch)
+  [ai] strana 52/124: 8 zliav (batch)
+  [ai] strana 53/124: 9 zliav (batch)
+  [ai] strana 54/124: 9 zliav (batch)
+  [ai] strana 55/124: 9 zliav (batch)
+  [ai] strana 56/124: 6 zliav (batch)
+  [ai] strana 57/124: 8 zliav (batch)
+  [ai] strana 58/124: 7 zliav (batch)
+  [ai] strana 59/124: 1 zliav (batch)
+  [ai] strana 60/124: 9 zliav (batch)
+  [ai] strana 61/124: 9 zliav (batch)
+  [ai] strana 62/124: 5 zliav (batch)
+  [ai] strana 63/124: 6 zliav (batch)
+  [ai] strana 64/124: 9 zliav (batch)
+  [ai] strana 65/124: 8 zliav (batch)
+  [ai] strana 66/124: 9 zliav (batch)
+  [ai] strana 67/124: 0 zliav (batch)
+  [ai] strana 68/124: 4 zliav (batch)
+  [ai] strana 69/124: 0 zliav (batch)
+  [ai] strana 70/124: 6 zliav (batch)
+  [ai] strana 71/124: 1 zliav (batch)
+  [ai] strana 72/124: 14 zliav (batch)
+  [ai] strana 73/124: 14 zliav (batch)
+  [ai] strana 74/124: 6 zliav (batch)
+  [ai] strana 75/124: 4 zliav (batch)
+  [ai] strana 76/124: 5 zliav (batch)
+  [ai] strana 77/124: 4 zliav (batch)
+  [ai] strana 78/124: 4 zliav (batch)
+  [ai] strana 79/124: 0 zliav (batch)
+  [ai] strana 80/124: 5 zliav (batch)
+  [ai] strana 81/124: 4 zliav (batch)
+  [ai] strana 82/124: 4 zliav (batch)
+  [ai] strana 83/124: 3 zliav (batch)
+  [ai] strana 84/124: 3 zliav (batch)
+  [ai] strana 85/124: 5 zliav (batch)
+  [ai] strana 86/124: 3 zliav (batch)
+  [ai] strana 87/124: 5 zliav (batch)
+  [ai] strana 88/124: 5 zliav (batch)
+  [ai] strana 89/124: 0 zliav (batch)
+  [ai] strana 90/124: 11 zliav (batch)
+  [ai] strana 91/124: 0 zliav (batch)
+  [ai] strana 92/124: 7 zliav (batch)
+  [ai] strana 93/124: 8 zliav (batch)
+  [ai] strana 94/124: 6 zliav (batch)
+  [ai] strana 95/124: 9 zliav (batch)
+  [ai] strana 96/124: 8 zliav (batch)
+  [ai] strana 97/124: 7 zliav (batch)
+  [ai] strana 98/124: 8 zliav (batch)
+  [ai] strana 99/124: 9 zliav (batch)
+  [ai] strana 100/124: 7 zliav (batch)
+  [ai] strana 101/124: 8 zliav (batch)
+  [ai] strana 102/124: 8 zliav (batch)
+  [ai] strana 103/124: 6 zliav (batch)
+  [ai] strana 104/124: 6 zliav (batch)
+  [ai] strana 105/124: 8 zliav (batch)
+  [ai] strana 106/124: 6 zliav (batch)
+  [ai] strana 107/124: 6 zliav (batch)
+  [ai] strana 108/124: 3 zliav (batch)
+  [ai] strana 109/124: 6 zliav (batch)
+  [ai] strana 110/124: 7 zliav (batch)
+  [ai] strana 111/124: 0 zliav (batch)
+  [ai] strana 112/124: 3 zliav (batch)
+  [ai] strana 113/124: 0 zliav (batch)
+  [ai] strana 114/124: 4 zliav (batch)
+  [ai] strana 115/124: 5 zliav (batch)
+  [ai] strana 116/124: 4 zliav (batch)
+  [ai] strana 117/124: 5 zliav (batch)
+  [ai] strana 118/124: 2 zliav (batch)
+  [ai] strana 119/124: 0 zliav (batch)
+  [ai] strana 120/124: 3 zliav (batch)
+  [ai] strana 121/124: 4 zliav (batch)
+  [ai] strana 122/124: 0 zliav (batch)
+  [ai] strana 123/124: 0 zliav (batch)
+  [ai] strana 124/124: 0 zliav (batch)
+[lidl] AI: 675 zliav (pôvodný parser 70), strán 124, model claude-sonnet-5-5, tokeny 240576/43673 (z cache 0 strán, batch 124), zahodených 7, opravených percent 8
+[lidl] uložené: lidl/2026-11-30.json (675 zliav, 2026-11-30 až 2026-12-06)
 [tesco] kontrolujem: kontrola dát na stránke
-  [tesco] sťahujem tesco-letak-2026-11-25
-ERROR:   [ai] batch zlyhal (HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJwBWiCAj4Aw9eqxYy"}), zvyšok čítam bežne
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJwdJWtYxmbv6kKxCs"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJx7KAXBWcaXHmAdtk"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJxUPWpYjBpaCFzSpB"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJxqUsDHHwVuDPH2q2"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJyCJgVvcSjtyoVz6V"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJyYPVETdMo2eMk6Vh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJyuTgP2nMTRbqFn6t"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJzGo86QCrabeRveK6"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJzddVthJNwhgh1MPP"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgJzzCgFYupTtJZaiyd"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK1L3sMwvrwrcDez4F"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK1h8JDQ6W4o6Ksg8m"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK23CjdSuWv7kZzKmu"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK2QHSqb1Svmdw393J"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK35y6MwqbQZQGawYW"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK3RokJLtapB9PftJb"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK3nPHZRE9mn29Ffuf"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK4Ah9G7EV27gPp2VP"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK4WngAXZagtxj6xYQ"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK4srgrsAYMkbDEivx"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK5FS5378xvKA8YyCb"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK5ejvyt5EkS1VRQYG"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK634afApjiSyXcj9d"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK6PejEuwXBFHAFi4B"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK6jykugRLQzuwELN1"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK76JwBMv53XoNLe2a"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK7V8mEoiHN31ewAqK"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK7qx3APZioUo2hocG"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK8EXfTTUfUCWi52Px"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK8dLmwisanskT5sJq"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK8zASh2t1ZuBm85yh"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK9NjrMwda6bab3N21"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgK9jZbBVAxwbDvCnyB"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKA6PaYyj1mZJLbkZ8"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKATDVkFxjKfPRUPap"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKAoozU79VtpgRceEK"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKBA8oLoo6MtFqt6Gk"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKBWj6cxVUX7AGo3nf"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKBt3TFWWdjoX4U7ZA"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKCEPMmcTGTnX9bZVL"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKCchGJqRU823YY7pi"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKCymn7dLLKFd5Ehgp"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKDMbZqiZycJr7fotT"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKDiS6FjCMyvBKQtYy"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKE51W2s3j94cPFW7d"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKERqrfLVukodVxRE3"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKEnR86q1u2uA1jYnp"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKF9kCm4NsStkRAmJs"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKFWL4i3XXqeFCwngg"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKFseYX1RQi8jFsT1M"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKGJT28fRLjiqUWxc6"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKGf3Gha2pYhv6KyFH"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKH2rvC2qKzPKnYQxK"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKHPSa86Mven3QtbDo"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKHnFNj8w6NY7PaSiF"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKJ95m7FopJ1R9s3ch"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKJVuaVCH9PPuHbrKd"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKJrFV51NFijBrgEP3"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKKDKtmN5QYVf1wJSw"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKKaeejuNpV1H14jZP"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKKwjHXEMcmrKYv6wQ"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKLK3aoWaY6TfLQdMi"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKLfsgdJt2yt2rCPRn"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKM5vq69LcojC7hbL2"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKMSXBiTo5tAay7tGu"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKMobik3pAJnRtuLLa"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKNAv2e13mKFg2TALA"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKNXFejgVmLa1wxGS6"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKNupJrmzPzvFMHag1"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKPG9og9GuhpSakEoe"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKPczDGdMxmM7KPi4H"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKPypbAmuadfswehTE"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKQLQN7f1iYnSr1Jni"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKQgyX4ZN6sYMYVPYa"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKR3KLN3pkPEsp9Gye"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKRQPirzjf61Qs6BdW"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKRmyDmmvoChfCXQzT"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKS93fm4M3gz2gQt4G"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKSWN5GJvqhjf2HfEu"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKSsCKaXHsX9qy7PRT"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKTEH1JRfA1qaF9ATC"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKTaNCKev3ivZtYjSH"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKTwwXnd6RH9JYNGLx"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKUJma1Yq8xpfB94AZ"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKUfbtbfaCrStq7Fz5"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKV3RVU6BKKK3UmSxo"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKVPWUAeVaZjkdFNGb"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKVkaoSwnHwRZQT2E6"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKW7AEWbHLC1oZdEa7"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKWTzPSX14MTCVDg8u"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKWqKcmXGsAQy7wE2a"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKXBQC7QWXXTvSZr3y"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKXYUmUA8PSr6fxRfn"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKXv4HPzSveoy8o7v6"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKYHd8mUmZyajDQLrL"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKYfD4tku1hMK3gRcW"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKZ1YaNdx8aT43qDAs"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKZNcYS6wd3f3D4UMr"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKZjw6TVzWJJqjx7Hh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKa6GUzqZwsaH7xNt7"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKaTMizFPYNSNMDe7b"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKasQXyZ5hZHZF22kh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKbEj7vLFEzG49dRtx"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKbb4QbHkiqZkBYF3K"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKbwtmEX6zq54uxevK"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKcKU3XYe3tRYsc3TT"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKcnVv6cVo27CuPpvj"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKd8LAAcCy1dRwZe8z"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKdUvAkAntk9NfCt22"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKdsEXB1XPTFZsAHFK"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKeEK1oq2288PyCemj"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKeatjAPQyDLFxzX2n"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKewEcCusN3PWVg8Kj"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKfJ4kCpuNwWU1KRKU"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKfetYw5QH17mQdEki"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKg1U11wzeTwAZK27S"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKgNo9y4PgQ4e8JFPh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKgit652dxx1X2PM6Z"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKh5UNfzR2xTXCY6X4"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKhS3iahQ43BtCSEtF"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKhp7TCezQdKLGpgJM"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKiDvKeeEtV1WJXtaS"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKiaWfJDTvy5x5YWfS"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKiwLeNbaa64WMhbHg"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKjJR5jhsfPhEupSHR"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKjfEtfutUFwCimtt2"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKk1aPRScf5EBfgSFw"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKkNQY2uDwm7mg6mev"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKkjVANWXeduFQ4Uts"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKm654GK8NFBpxc2iT"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKmTtTMnmGERWmHEgt"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKmpiP6JUNPTEsB46M"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKnBYSuPCUEyn4Cfie"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKnZNCRmjXG7djm1xH"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKnxRYEHAVTeRdkGoQ"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKoK1y6HxbySXYGGLw"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKog6AEu6g1otTpeVm"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKp4AQtPAk8cJeC8SV"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKpRF9sGqqLYefgZT4"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKpna2z5Wciha8Kx5T"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKqB86LAEJ1tcpinwM"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKqXTsfpaPhXL3zeQj"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKr2E9GfsmBGtm18rH"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKrP4ci7SP4bNpavpL"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKritteXbkqxn6vXEj"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKs5DzWyD2vpKAgG9u"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKsT3oD5u3GUD826uU"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKsoP5wpNVnTTVbEoT"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKtADgrb2eSEqxwNkX"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKtVp4MeJH6bG1UVPh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKtt8dsYVTP8uQjCVA"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKuLudiLcPjS1jLZop"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKujDsYt46KvSoqT5t"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKv5JYBpJtJMSAaHuA"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKvS8pXL1ubiuP5yuA"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKvnyYJiTd2vN4NLTh"}
-ERROR:   [ai] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKw94PvqnpJvo6T5WD"}
-ERROR:   [ai] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKwW8U3giaEe5Yz6nx"}
-ERROR:   [ai] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgKwsiCBdgfmfPkNM9Z"}
-[tesco] AI: 0 zliav (pôvodný parser 236), strán 53, model claude-sonnet-5-5, tokeny 0/0 (z cache 0 strán, batch 0), zahodených 0, opravených percent 0
-WARN: [tesco] AI neprečítala 53 strán, používam pôvodný parser
-[tesco] uložené: tesco/2026-11-25.json (236 zliav, 2026-11-25 až 2026-12-01)
 [coop] kontrolujem: kontrola dát na stránke
 [kraj] kontrolujem: kontrola dát na stránke
-ERROR: [kraj] CHYBA: TypeError: fetch failed
-    at node:internal/deps/undici/undici:15456:13
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
-    at async text (file:///home/runner/work/setri/setri/scraper/src/stores/kraj.mjs:11:15)
-    at async Object.fetchLeaflets (file:///home/runner/work/setri/setri/scraper/src/stores/kraj.mjs:21:18)
-    at async processStore (file:///home/runner/work/setri/setri/scraper/src/run.mjs:155:21)
-    at async main (file:///home/runner/work/setri/setri/scraper/src/run.mjs:388:20)
 [drogerie101] kontrolujem: kontrola dát na stránke
 [yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-25: 765 → 764 produktov, pribudlo 1, ubudlo 2, zmenená cena 0
-[yeme] uložené: yeme/2026-11-26.json (764 zliav, 2026-11-26 až 2026-11-27)
+[yeme] zmeny od 2026-11-26: 764 → 774 produktov, pribudlo 10, ubudlo 0, zmenená cena 1
+[yeme] uložené: yeme/2026-11-27.json (774 zliav, 2026-11-27 až 2026-11-28)
 [teta] kontrolujem: kontrola dát na stránke
-[teta] strana 0: 57 produktov doteraz
+[teta] strana 0: 58 produktov doteraz
 [teta] strana 1: 115 produktov doteraz
 [teta] strana 2: 175 produktov doteraz
 [teta] strana 3: 234 produktov doteraz
@@ -197,7 +153,7 @@ ERROR: [kraj] CHYBA: TypeError: fetch failed
 [teta] strana 10: 652 produktov doteraz
 [teta] strana 11: 712 produktov doteraz
 [teta] strana 12: 772 produktov doteraz
-[teta] strana 13: 831 produktov doteraz
+[teta] strana 13: 832 produktov doteraz
 [teta] strana 14: 881 produktov doteraz
 [teta] strana 15: 941 produktov doteraz
 [teta] strana 16: 1000 produktov doteraz
@@ -206,68 +162,35 @@ ERROR: [kraj] CHYBA: TypeError: fetch failed
 [teta] strana 19: 1180 produktov doteraz
 [teta] strana 20: 1240 produktov doteraz
 [teta] strana 21: 1300 produktov doteraz
-[teta] strana 22: 1358 produktov doteraz
-[teta] strana 23: 1412 produktov doteraz
+[teta] strana 22: 1360 produktov doteraz
+[teta] strana 23: 1413 produktov doteraz
 [teta] strana 24: 1472 produktov doteraz
 [teta] strana 25: 1532 produktov doteraz
-[teta] strana 26: 1592 produktov doteraz
+[teta] strana 26: 1591 produktov doteraz
 [teta] strana 27: 1651 produktov doteraz
-[teta] strana 28: 1711 produktov doteraz
-[teta] strana 29: 1771 produktov doteraz
-[teta] strana 30: 1831 produktov doteraz
-[teta] strana 31: 1891 produktov doteraz
-[teta] strana 32: 1947 produktov doteraz
-[teta] strana 33: 2007 produktov doteraz
-[teta] strana 34: 2067 produktov doteraz
-[teta] strana 35: 2127 produktov doteraz
-[teta] strana 36: 2150 produktov doteraz
-[teta] strana 37: 2150 produktov doteraz
-[teta] zmeny od 2026-11-25: 2257 → 2150 produktov, pribudlo 3, ubudlo 102, zmenená cena 5
-[teta] uložené: teta/2026-11-26.json (2150 zliav, 2026-11-26 až 2026-11-27)
-odstránený starý leták coop/2026-11-12.json
-odstránený starý leták kaufland/2026-11-12.json
-odstránený starý leták kraj/2026-11-12.json
-odstránený starý leták teta/2026-11-17.json
-odstránený starý leták yeme/2026-11-17.json
-[kaufland] kaufland/2026-11-26.json: znova zaradených 175 produktov do kategórií
-[tesco] tesco/2026-11-25.json: znova zaradených 26 produktov do kategórií
-[yeme] yeme/2026-11-26.json: znova zaradených 262 produktov do kategórií
-[teta] teta/2026-11-26.json: znova zaradených 767 produktov do kategórií
-ERROR: [classify] batch zlyhal (HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgQYYeELqEXmRSXv1dW"}), všetko prebehne bežne
-ERROR: [classify] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgQYxD1ycsdTAWRj5QQ"}
-ERROR: [classify] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgQrVA2VUmp7ciETz4n"}
-ERROR: [classify] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgRT9jMojy4svCgXFnm"}
-ERROR: [classify] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgRkgvUp4fCToRFa8NZ"}
-ERROR: [classify] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSMKH5T13vvuxXo2jk"}
-ERROR: [classify] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSerDCknpEQhdskNF9"}
-ERROR: [classify] prerušené: AI je nedostupná (sieť alebo limit). Hotová práca sa uloží, zvyšok dobehne nabudúce.
-[classify] názvy na zaradenie: 236, typy od AI: 0, kategórie od AI: 0, slová od AI: 0
+[teta] strana 28: 1710 produktov doteraz
+[teta] strana 29: 1770 produktov doteraz
+[teta] strana 30: 1830 produktov doteraz
+[teta] strana 31: 1890 produktov doteraz
+[teta] strana 32: 1950 produktov doteraz
+[teta] strana 33: 2010 produktov doteraz
+[teta] strana 34: 2069 produktov doteraz
+[teta] strana 35: 2126 produktov doteraz
+[teta] strana 36: 2186 produktov doteraz
+[teta] strana 37: 2246 produktov doteraz
+[teta] strana 38: 2261 produktov doteraz
+[teta] strana 39: 2261 produktov doteraz
+[teta] zmeny od 2026-11-26: 2150 → 2261 produktov, pribudlo 103, ubudlo 0, zmenená cena 4
+[teta] uložené: teta/2026-11-27.json (2261 zliav, 2026-11-27 až 2026-11-28)
+odstránený starý leták teta/2026-11-18.json
+odstránený starý leták yeme/2026-11-18.json
+[lidl] lidl/2026-11-30.json: znova zaradených 27 produktov do kategórií
+[yeme] yeme/2026-11-27.json: znova zaradených 265 produktov do kategórií
+[teta] teta/2026-11-27.json: znova zaradených 794 produktov do kategórií
+[classify] batch msgbatch_013NxqSE8T9XXSFGG3XdrzA9: 21 dávok
+[classify] batch hotový: 21 z 21 dávok, zvyšok dobehne bežne
+[classify] názvy na zaradenie: 810, typy od AI: 776, kategórie od AI: 810, slová od AI: 810
 index.json aktualizovaný
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSfsyoc6knwUWPpnWS"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSgJn8x1sej8tk56Du"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSgfMHAtCH2WAfnm38"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSgyxjFqNETBXFmJpM"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgShLnPS3koXRwDFn6z"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgShi7cjZG5MHuKHSfN"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSi4gtBv1Rmv9GDLpM"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSiSGHxVWk91DXLJRt"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSio6ww1b6FQk3iCnG"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSj8SUdebyssCA7NkX"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSjWmBk9u991AbnfGA"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSjs6Jknds6kS47KxT"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSkDBNn2q4VGMM8C88"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSkZm4Z9pueMGYuthA"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSkw5W3g8te1SfLjoB"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSmK9aYvtAjdxdthiy"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSmiDTvxdPSJtPMpvi"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSn6Y4qKYCeXFNg1Ru"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSnTcjSFxtJSxJdw8q"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSnnxVESyFdJVUvK4w"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSoCkzcbBkE6XbRYRc"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSoZqpiJEoWcoUcPjU"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSowf3v35jxDJUSK7e"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSpKEt7zxTcMqTufUv"}
-ERROR:   [preklad] pokus 1 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSpfKpAPe4ZkqvBANm"}
-ERROR:   [preklad] pokus 2 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSq1QmhiE19N4odTYZ"}
-ERROR:   [preklad] pokus 3 zlyhal: HTTP 401: {"type":"error","error":{"type":"authentication_error","message":"invalid x-api-key"},"request_id":"req_011ChRgSqMk7akaMesBpYaRG"}
-[preklad] 8565 názvov, 1690 častí podrobností a podmienok; nových 0 (z 194), model claude-haiku-5-5, tokeny 0/0
+  [preklad] batch msgbatch_01LY63cMTHWfkk7ohaiL9mku: 7 dávok
+ERROR:   [preklad] batch dávka 5: Unexpected end of JSON input
+[preklad] 8046 názvov, 1885 častí podrobností a podmienok; nových 877 (z 877), model claude-haiku-5-5, tokeny 16020/32953
