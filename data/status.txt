@@ -1,196 +1,77 @@
-2026-11-27T14:19:39.656Z
+2026-11-28T11:15:17.030Z
 Warning: Cannot polyfill `DOMMatrix`, rendering may be broken.
 Warning: Cannot polyfill `Path2D`, rendering may be broken.
-[billa] preskakujem (aktuálny leták platí do 2026-12-01)
-[kaufland] kontrolujem: kontrola dát na stránke
-[lidl] kontrolujem: kontrola dát na stránke
-  [lidl] sťahujem online-letak-platny-od-30-11-2026
-  [ai] batch msgbatch_01QB5JGksRVxaGPe9uaHoChG: 124 strán odoslaných
-  [ai] strana 1/124: 12 zliav (batch)
-  [ai] strana 2/124: 7 zliav (batch)
-  [ai] strana 3/124: 10 zliav (batch)
-  [ai] strana 4/124: 5 zliav (batch)
-  [ai] strana 5/124: 5 zliav (batch)
-  [ai] strana 6/124: 6 zliav (batch)
-  [ai] strana 7/124: 6 zliav (batch)
-  [ai] strana 8/124: 7 zliav (batch)
-  [ai] strana 9/124: 6 zliav (batch)
-  [ai] strana 10/124: 10 zliav (batch)
-  [ai] strana 11/124: 9 zliav (batch)
-  [ai] strana 12/124: 7 zliav (batch)
-  [ai] strana 13/124: 0 zliav (batch)
-  [ai] strana 14/124: 8 zliav (batch)
-  [ai] strana 15/124: 5 zliav (batch)
-  [ai] strana 16/124: 5 zliav (batch)
-  [ai] strana 17/124: 4 zliav (batch)
-  [ai] strana 18/124: 5 zliav (batch)
-  [ai] strana 19/124: 6 zliav (batch)
-  [ai] strana 20/124: 1 zliav (batch)
-  [ai] strana 21/124: 6 zliav (batch)
-  [ai] strana 22/124: 9 zliav (batch)
-  [ai] strana 23/124: 8 zliav (batch)
-  [ai] strana 24/124: 9 zliav (batch)
-  [ai] strana 25/124: 5 zliav (batch)
-  [ai] strana 26/124: 9 zliav (batch)
-  [ai] strana 27/124: 5 zliav (batch)
-  [ai] strana 28/124: 7 zliav (batch)
-  [ai] strana 29/124: 2 zliav (batch)
-  [ai] strana 30/124: 8 zliav (batch)
-  [ai] strana 31/124: 11 zliav (batch)
-  [ai] strana 32/124: 7 zliav (batch)
-  [ai] strana 33/124: 7 zliav (batch)
-  [ai] strana 34/124: 4 zliav (batch)
-  [ai] strana 35/124: 6 zliav (batch)
-  [ai] strana 36/124: 7 zliav (batch)
-  [ai] strana 37/124: 10 zliav (batch)
-  [ai] strana 38/124: 6 zliav (batch)
-  [ai] strana 39/124: 6 zliav (batch)
-  [ai] strana 40/124: 7 zliav (batch)
-  [ai] strana 41/124: 5 zliav (batch)
-  [ai] strana 42/124: 5 zliav (batch)
-  [ai] strana 43/124: 4 zliav (batch)
-  [ai] strana 44/124: 4 zliav (batch)
-  [ai] strana 45/124: 8 zliav (batch)
-  [ai] strana 46/124: 6 zliav (batch)
-  [ai] strana 47/124: 7 zliav (batch)
-  [ai] strana 48/124: 6 zliav (batch)
-  [ai] strana 49/124: 8 zliav (batch)
-  [ai] strana 50/124: 3 zliav (batch)
-  [ai] strana 51/124: 0 zliav (batch)
-  [ai] strana 52/124: 8 zliav (batch)
-  [ai] strana 53/124: 9 zliav (batch)
-  [ai] strana 54/124: 9 zliav (batch)
-  [ai] strana 55/124: 9 zliav (batch)
-  [ai] strana 56/124: 6 zliav (batch)
-  [ai] strana 57/124: 8 zliav (batch)
-  [ai] strana 58/124: 7 zliav (batch)
-  [ai] strana 59/124: 1 zliav (batch)
-  [ai] strana 60/124: 9 zliav (batch)
-  [ai] strana 61/124: 9 zliav (batch)
-  [ai] strana 62/124: 5 zliav (batch)
-  [ai] strana 63/124: 6 zliav (batch)
-  [ai] strana 64/124: 9 zliav (batch)
-  [ai] strana 65/124: 8 zliav (batch)
-  [ai] strana 66/124: 9 zliav (batch)
-  [ai] strana 67/124: 0 zliav (batch)
-  [ai] strana 68/124: 4 zliav (batch)
-  [ai] strana 69/124: 0 zliav (batch)
-  [ai] strana 70/124: 6 zliav (batch)
-  [ai] strana 71/124: 1 zliav (batch)
-  [ai] strana 72/124: 14 zliav (batch)
-  [ai] strana 73/124: 14 zliav (batch)
-  [ai] strana 74/124: 6 zliav (batch)
-  [ai] strana 75/124: 4 zliav (batch)
-  [ai] strana 76/124: 5 zliav (batch)
-  [ai] strana 77/124: 4 zliav (batch)
-  [ai] strana 78/124: 4 zliav (batch)
-  [ai] strana 79/124: 0 zliav (batch)
-  [ai] strana 80/124: 5 zliav (batch)
-  [ai] strana 81/124: 4 zliav (batch)
-  [ai] strana 82/124: 4 zliav (batch)
-  [ai] strana 83/124: 3 zliav (batch)
-  [ai] strana 84/124: 3 zliav (batch)
-  [ai] strana 85/124: 5 zliav (batch)
-  [ai] strana 86/124: 3 zliav (batch)
-  [ai] strana 87/124: 5 zliav (batch)
-  [ai] strana 88/124: 5 zliav (batch)
-  [ai] strana 89/124: 0 zliav (batch)
-  [ai] strana 90/124: 11 zliav (batch)
-  [ai] strana 91/124: 0 zliav (batch)
-  [ai] strana 92/124: 7 zliav (batch)
-  [ai] strana 93/124: 8 zliav (batch)
-  [ai] strana 94/124: 6 zliav (batch)
-  [ai] strana 95/124: 9 zliav (batch)
-  [ai] strana 96/124: 8 zliav (batch)
-  [ai] strana 97/124: 7 zliav (batch)
-  [ai] strana 98/124: 8 zliav (batch)
-  [ai] strana 99/124: 9 zliav (batch)
-  [ai] strana 100/124: 7 zliav (batch)
-  [ai] strana 101/124: 8 zliav (batch)
-  [ai] strana 102/124: 8 zliav (batch)
-  [ai] strana 103/124: 6 zliav (batch)
-  [ai] strana 104/124: 6 zliav (batch)
-  [ai] strana 105/124: 8 zliav (batch)
-  [ai] strana 106/124: 6 zliav (batch)
-  [ai] strana 107/124: 6 zliav (batch)
-  [ai] strana 108/124: 3 zliav (batch)
-  [ai] strana 109/124: 6 zliav (batch)
-  [ai] strana 110/124: 7 zliav (batch)
-  [ai] strana 111/124: 0 zliav (batch)
-  [ai] strana 112/124: 3 zliav (batch)
-  [ai] strana 113/124: 0 zliav (batch)
-  [ai] strana 114/124: 4 zliav (batch)
-  [ai] strana 115/124: 5 zliav (batch)
-  [ai] strana 116/124: 4 zliav (batch)
-  [ai] strana 117/124: 5 zliav (batch)
-  [ai] strana 118/124: 2 zliav (batch)
-  [ai] strana 119/124: 0 zliav (batch)
-  [ai] strana 120/124: 3 zliav (batch)
-  [ai] strana 121/124: 4 zliav (batch)
-  [ai] strana 122/124: 0 zliav (batch)
-  [ai] strana 123/124: 0 zliav (batch)
-  [ai] strana 124/124: 0 zliav (batch)
-[lidl] AI: 675 zliav (pôvodný parser 70), strán 124, model claude-sonnet-5-5, tokeny 240576/43673 (z cache 0 strán, batch 124), zahodených 7, opravených percent 8
-[lidl] uložené: lidl/2026-11-30.json (675 zliav, 2026-11-30 až 2026-12-06)
 [tesco] kontrolujem: kontrola dát na stránke
-[coop] kontrolujem: kontrola dát na stránke
-[kraj] kontrolujem: kontrola dát na stránke
-[drogerie101] kontrolujem: kontrola dát na stránke
-[yeme] kontrolujem: kontrola dát na stránke
-[yeme] zmeny od 2026-11-26: 764 → 774 produktov, pribudlo 10, ubudlo 0, zmenená cena 1
-[yeme] uložené: yeme/2026-11-27.json (774 zliav, 2026-11-27 až 2026-11-28)
-[teta] kontrolujem: kontrola dát na stránke
-[teta] strana 0: 58 produktov doteraz
-[teta] strana 1: 115 produktov doteraz
-[teta] strana 2: 175 produktov doteraz
-[teta] strana 3: 234 produktov doteraz
-[teta] strana 4: 294 produktov doteraz
-[teta] strana 5: 354 produktov doteraz
-[teta] strana 6: 413 produktov doteraz
-[teta] strana 7: 472 produktov doteraz
-[teta] strana 8: 532 produktov doteraz
-[teta] strana 9: 592 produktov doteraz
-[teta] strana 10: 652 produktov doteraz
-[teta] strana 11: 712 produktov doteraz
-[teta] strana 12: 772 produktov doteraz
-[teta] strana 13: 832 produktov doteraz
-[teta] strana 14: 881 produktov doteraz
-[teta] strana 15: 941 produktov doteraz
-[teta] strana 16: 1000 produktov doteraz
-[teta] strana 17: 1060 produktov doteraz
-[teta] strana 18: 1120 produktov doteraz
-[teta] strana 19: 1180 produktov doteraz
-[teta] strana 20: 1240 produktov doteraz
-[teta] strana 21: 1300 produktov doteraz
-[teta] strana 22: 1360 produktov doteraz
-[teta] strana 23: 1413 produktov doteraz
-[teta] strana 24: 1472 produktov doteraz
-[teta] strana 25: 1532 produktov doteraz
-[teta] strana 26: 1591 produktov doteraz
-[teta] strana 27: 1651 produktov doteraz
-[teta] strana 28: 1710 produktov doteraz
-[teta] strana 29: 1770 produktov doteraz
-[teta] strana 30: 1830 produktov doteraz
-[teta] strana 31: 1890 produktov doteraz
-[teta] strana 32: 1950 produktov doteraz
-[teta] strana 33: 2010 produktov doteraz
-[teta] strana 34: 2069 produktov doteraz
-[teta] strana 35: 2126 produktov doteraz
-[teta] strana 36: 2186 produktov doteraz
-[teta] strana 37: 2246 produktov doteraz
-[teta] strana 38: 2261 produktov doteraz
-[teta] strana 39: 2261 produktov doteraz
-[teta] zmeny od 2026-11-26: 2150 → 2261 produktov, pribudlo 103, ubudlo 0, zmenená cena 4
-[teta] uložené: teta/2026-11-27.json (2261 zliav, 2026-11-27 až 2026-11-28)
-odstránený starý leták teta/2026-11-18.json
-odstránený starý leták yeme/2026-11-18.json
-[lidl] lidl/2026-11-30.json: znova zaradených 27 produktov do kategórií
-[yeme] yeme/2026-11-27.json: znova zaradených 265 produktov do kategórií
-[teta] teta/2026-11-27.json: znova zaradených 794 produktov do kategórií
-[classify] batch msgbatch_013NxqSE8T9XXSFGG3XdrzA9: 21 dávok
-[classify] batch hotový: 21 z 21 dávok, zvyšok dobehne bežne
-[classify] názvy na zaradenie: 810, typy od AI: 776, kategórie od AI: 810, slová od AI: 810
+  [tesco] sťahujem tesco-letak-2026-11-25
+  [tesco] záložný parser: 457 ponúk z 466 cien na letáku
+WARN:   [tesco] nespárované: strana 23: cena 9.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 14.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 17.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 17.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 19.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 23.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 34.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 16.99 bez názvu
+WARN:   [tesco] nespárované: strana 23: cena 32.99 bez názvu
+  [ai] batch msgbatch_01Ds9k1Ys5T1FWzEuURWBnRw: 53 strán odoslaných
+  [ai] strana 1/53: 12 zliav (batch)
+  [ai] strana 2/53: 10 zliav (batch)
+  [ai] strana 3/53: 12 zliav (batch)
+  [ai] strana 4/53: 11 zliav (batch)
+  [ai] strana 5/53: 10 zliav (batch)
+  [ai] strana 6/53: 10 zliav (batch)
+  [ai] strana 7/53: 11 zliav (batch)
+  [ai] strana 8/53: 10 zliav (batch)
+  [ai] strana 9/53: 10 zliav (batch)
+  [ai] strana 10/53: 7 zliav (batch)
+  [ai] strana 11/53: 7 zliav (batch)
+  [ai] strana 12/53: 5 zliav (batch)
+  [ai] strana 13/53: 9 zliav (batch)
+  [ai] strana 14/53: 0 zliav (batch)
+  [ai] strana 15/53: 2 zliav (batch)
+  [ai] strana 16/53: 12 zliav (batch)
+  [ai] strana 17/53: 12 zliav (batch)
+  [ai] strana 18/53: 12 zliav (batch)
+  [ai] strana 19/53: 15 zliav (batch)
+  [ai] strana 20/53: 12 zliav (batch)
+  [ai] strana 21/53: 12 zliav (batch)
+  [ai] strana 22/53: 4 zliav (batch)
+  [ai] strana 23/53: 10 zliav (batch)
+  [ai] strana 24/53: 6 zliav (batch)
+  [ai] strana 25/53: 6 zliav (batch)
+  [ai] strana 26/53: 7 zliav (batch)
+  [ai] strana 27/53: 4 zliav (batch)
+  [ai] strana 28/53: 12 zliav (batch)
+  [ai] strana 29/53: 12 zliav (batch)
+  [ai] strana 30/53: 7 zliav (batch)
+  [ai] strana 31/53: 14 zliav (batch)
+  [ai] strana 32/53: 4 zliav (batch)
+  [ai] strana 33/53: 12 zliav (batch)
+  [ai] strana 34/53: 11 zliav (batch)
+  [ai] strana 35/53: 14 zliav (batch)
+  [ai] strana 36/53: 13 zliav (batch)
+  [ai] strana 37/53: 13 zliav (batch)
+  [ai] strana 38/53: 14 zliav (batch)
+  [ai] strana 39/53: 12 zliav (batch)
+  [ai] strana 40/53: 13 zliav (batch)
+  [ai] strana 41/53: 15 zliav (batch)
+  [ai] strana 42/53: 13 zliav (batch)
+  [ai] strana 43/53: 12 zliav (batch)
+  [ai] strana 44/53: 13 zliav (batch)
+  [ai] strana 45/53: 13 zliav (batch)
+  [ai] strana 46/53: 12 zliav (batch)
+  [ai] strana 47/53: 16 zliav (batch)
+  [ai] strana 48/53: 3 zliav (batch)
+  [ai] strana 49/53: 1 zliav (batch)
+  [ai] strana 50/53: 3 zliav (batch)
+  [ai] strana 51/53: 11 zliav (batch)
+  [ai] strana 52/53: 7 zliav (batch)
+  [ai] strana 53/53: 8 zliav (batch)
+[tesco] AI: 513 zliav (pôvodný parser 457), strán 53, model claude-sonnet-5-5, tokeny 99428/35779 (z cache 0 strán, batch 53), zahodených 3, opravených percent 0
+[tesco] uložené: tesco/2026-11-25.json (513 zliav, 2026-11-25 až 2026-12-01)
+odstránený starý leták teta/2026-11-19.json
+odstránený starý leták yeme/2026-11-19.json
+[tesco] tesco/2026-11-25.json: znova zaradených 136 produktov do kategórií
+[classify] názvy na zaradenie: 135, typy od AI: 133, kategórie od AI: 135, slová od AI: 135
 index.json aktualizovaný
-  [preklad] batch msgbatch_01LY63cMTHWfkk7ohaiL9mku: 7 dávok
-ERROR:   [preklad] batch dávka 5: Unexpected end of JSON input
-[preklad] 8046 názvov, 1885 častí podrobností a podmienok; nových 877 (z 877), model claude-haiku-5-5, tokeny 16020/32953
+[preklad] 8269 názvov, 1997 častí podrobností a podmienok; nových 418 (z 418), model claude-haiku-5-5, tokeny 8234/11370
