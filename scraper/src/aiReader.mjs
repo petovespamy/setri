@@ -91,16 +91,26 @@ function addUsage(total, u = {}) {
   total.cacheWrite += u.cache_creation_input_tokens ?? 0;
 }
 
+/** Posledná chyba, pri ktorej nemá zmysel opakovať (napr. neplatný kľúč). Zastaví ďalšie pokusy. */
+let fatalAiError = null;
+
 /** Bežné (okamžité) volanie jednej strany. Vráti null, ak ani na tretí pokus nevyšlo. */
 async function readPage(apiKey, jpegBase64, model) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(`${API}/messages`, { method: "POST", headers: headers(apiKey), body: JSON.stringify(buildParams(jpegBase64, model)) });
-      if (!res.ok) throw new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+      if (!res.ok) {
+        const e = new Error(`HTTP ${res.status}: ${(await res.text()).slice(0, 200)}`);
+        // 401/403 = neplatný kľúč alebo bez oprávnenia, 400 = zlá požiadavka: opakovaním sa to nezlepší.
+        if ([400, 401, 403].includes(res.status)) e.fatal = true;
+        throw e;
+      }
       const body = await res.json();
       return { deals: parseDeals(textOf(body)), usage: body.usage ?? {} };
     } catch (err) {
       console.error(`  [ai] pokus ${attempt} zlyhal: ${err.message}`);
+      if (err.fatal) { fatalAiError = err.message; return null; }
+      if (attempt < 3) await sleep(attempt * 8000); // chvíľu počkáme, preťažené API sa často za pár sekúnd uvoľní
     }
   }
   return null;
@@ -227,9 +237,22 @@ export async function readFlyerWithAI(pdfBuffer, { apiKey = process.env.ANTHROPI
         for (const it of pending) if (done.has(it.i)) { finish(it, done.get(it.i), " (batch)"); usage.batchPages++; }
         todo = pending.filter((it) => !done.has(it.i));
       }
-      for (const it of todo) {
-        const out = await readPage(apiKey, it.b64, model);
-        if (out) finish(it, out, "");
+      // Strana, ktorá zlyhá, sa skúsi znova (až dvakrát po 30 s). Jedna nečitateľná strana by inak znamenala,
+      // že sa celý leták nahradí slabším záložným parserom.
+      let remaining = todo;
+      fatalAiError = null;
+      for (let round = 1; round <= 3 && remaining.length && !fatalAiError; round++) {
+        if (round > 1) {
+          console.warn(`  [ai] ${remaining.length} strán sa nepodarilo prečítať, ďalší pokus o 30 s (${round}/3)`);
+          await sleep(30_000);
+        }
+        const failed = [];
+        for (const it of remaining) {
+          if (fatalAiError) { failed.push(it); continue; } // neplatný kľúč: ostatné strany sa ani nepokúšame čítať
+          const out = await readPage(apiKey, it.b64, model);
+          if (out) finish(it, out, ""); else failed.push(it);
+        }
+        remaining = failed;
       }
     } finally {
       await saveCache(cachePath, cache);

@@ -1,7 +1,7 @@
 // Tesco: leták hypermarketov vychádza vo štvrtok-streda, adresa má tvar "tesco-letak-RRRR-MM-DD" (dátum
 // prvého dňa platnosti, zvyčajne streda). PDF a platnosť dá ich rozhranie (GraphQL).
 import { readPdfPages } from "../pdf.mjs";
-import { parseTesco } from "../tescoParser.mjs";
+import { parseTesco, lastReport } from "../tescoParser.mjs";
 
 const GRAPHQL = "https://api.prod.retail.tesco.com/marketing/leaflets-be/graphql";
 const QUERY =
@@ -56,12 +56,16 @@ export default {
       if (!res.ok) throw new Error(`PDF ${source}: HTTP ${res.status}`);
       const pdfBytes = Buffer.from(await res.arrayBuffer());
       const pages = await readPdfPages(pdfBytes.buffer.slice(pdfBytes.byteOffset, pdfBytes.byteOffset + pdfBytes.byteLength));
+      const parsed = parseTesco(pages);
+      // Záložný parser nahlási, koľko cien našiel a čo sa mu nepodarilo spárovať s názvom (nič sa nestratí potichu).
+      console.log(`  [tesco] záložný parser: ${parsed.length} ponúk z ${lastReport.anchors} cien na letáku`);
+      for (const u of lastReport.unresolved) console.warn(`  [tesco] nespárované: ${u}`);
       out.push({
         pdf: pdfBytes,
         source,
         validFrom: day.format(new Date(leaflet.validFrom)),
         validTo: day.format(new Date(leaflet.validTo)),
-        deals: parseTesco(pages),
+        deals: parsed,
       });
     }
     return out;

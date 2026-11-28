@@ -113,6 +113,28 @@ async function readIndex() {
   }
 }
 
+/**
+ * Čítala tento leták AI? Staré záznamy bez značky `ai` poznáme podľa toho, že majú podmienky ("q"), ktoré
+ * záložný parser nevie (leták prečítaný len parserom ich nemá).
+ */
+async function readByAI(l) {
+  if (typeof l.ai === "boolean") return l.ai;
+  try {
+    return (await fs.readFile(path.join(DATA, l.file), "utf8")).includes('"q":');
+  } catch {
+    return true; // súbor chýba – rieši to kontrola indexu
+  }
+}
+
+/**
+ * Leták obchodu s AI čítaním, ktorý ešte platí, ale AI ho neprečítala (spadlo sa na záložný parser, ktorý môže
+ * vynechať ponuky). Takýto leták sa pri každom behu skúsi prečítať AI znova, kým sa to nepodarí.
+ */
+async function needsAiReread(store, l) {
+  if (!AI_STORES.has(store.id) || !process.env.ANTHROPIC_API_KEY || l.validTo < today) return false;
+  return !(await readByAI(l));
+}
+
 async function download(url) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
@@ -138,8 +160,12 @@ function needsCheck(leaflets) {
 
 async function processStore(store, index) {
   const mine = index.leaflets.filter((l) => l.store === store.id);
+  const rereads = [];
+  for (const l of mine) if (await needsAiReread(store, l)) rereads.push(l);
   // Obchody s hotovými dátami na stránke (bez PDF a AI) kontrolujeme vždy – je to lacné a ponuky sa tam môžu meniť.
-  const reason = store.fetchLeaflets ? "kontrola dát na stránke" : needsCheck(mine);
+  const reason = store.fetchLeaflets
+    ? "kontrola dát na stránke"
+    : needsCheck(mine) || (rereads.length ? "leták nebol prečítaný AI, skúšam znova" : null);
   if (!reason) {
     console.log(`[${store.id}] preskakujem (aktuálny leták platí do ${mine.find((l) => l.validFrom <= today && today <= l.validTo)?.validTo})`);
     return false;
@@ -151,7 +177,7 @@ async function processStore(store, index) {
     let changed = false;
     const useAI = AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY;
     // Pri vynútenom čítaní (--force) sa znova prečíta aj leták, ktorý už máme.
-    const known = force ? new Set() : new Set(mine.map((l) => l.source));
+    const known = force ? new Set() : new Set(mine.filter((l) => !rereads.includes(l)).map((l) => l.source));
     const fetched = await store.fetchLeaflets({ known });
     // Kaufland: starý chybný leták (zlepené viaceré týždne) nahradia správne týždenné letáky.
     if (store.id === "kaufland" && fetched.length) {
@@ -171,7 +197,13 @@ async function processStore(store, index) {
           console.log(`[${store.id}] leták ${lf.validFrom} až ${lf.validTo} už skončil, AI ho nečíta`);
           continue;
         }
-        lf.deals = await readWithAI(store.id, lf.pdf, lf.deals);
+        const read = await readWithAI(store.id, lf.pdf, lf.deals);
+        lf.deals = read.deals;
+        lf.ai = read.ai;
+        if (!read.ai) {
+          console.error(`[${store.id}] POZOR: leták ${lf.validFrom} až ${lf.validTo} prečítal len záložný parser, môže byť neúplný. Pri ďalšom behu sa AI skúsi znova.`);
+          problems++;
+        }
       }
       const problem = validityProblem(store.id, lf.validFrom, lf.validTo);
       if (problem) {
@@ -211,7 +243,7 @@ async function processStore(store, index) {
       // Prepíšeme len vtedy, keď sa obsah zmenil (existujúci súbor má doplnené kategórie, preto porovnávame počet aj podmienky).
       const sameCount = prev && prev.count === lf.deals.length;
       const conditionsCount = (txt) => (txt.match(/"q":/g) ?? []).length;
-      if (!force && sameCount && existing && conditionsCount(existing) >= conditionsCount(content)) continue;
+      if (!force && sameCount && existing && conditionsCount(existing) >= conditionsCount(content) && !(prev && prev.ai === false && lf.ai)) continue;
       if (lf.deals.length < 10) {
         console.warn(`[${store.id}] podozrivo málo zliav (${lf.deals.length}), leták neukladám`);
         continue;
@@ -219,7 +251,7 @@ async function processStore(store, index) {
       await fs.mkdir(path.join(DATA, store.id), { recursive: true });
       await fs.writeFile(path.join(DATA, file), content, "utf8");
       index.leaflets = index.leaflets.filter((l) => !(l.store === store.id && l.validFrom === lf.validFrom));
-      index.leaflets.push({ store: store.id, file, validFrom: lf.validFrom, validTo: lf.validTo, source: lf.source, count: lf.deals.length });
+      index.leaflets.push({ store: store.id, file, validFrom: lf.validFrom, validTo: lf.validTo, source: lf.source, count: lf.deals.length, ...(lf.ai === undefined ? {} : { ai: lf.ai }) });
       console.log(`[${store.id}] uložené: ${file} (${lf.deals.length} zliav, ${lf.validFrom} až ${lf.validTo})`);
       changed = true;
     }
@@ -232,7 +264,7 @@ async function processStore(store, index) {
 
   for (const item of found) {
     const source = item.pdfUrl.split("?")[0];
-    if (!force && mine.some((l) => l.source === source)) continue;
+    if (!force && mine.some((l) => l.source === source && !rereads.includes(l))) continue;
 
     console.log(`[${store.id}] sťahujem ${source}`);
     const pdf = await download(item.pdfUrl);
@@ -252,8 +284,15 @@ async function processStore(store, index) {
       continue;
     }
     let deals = parseFlyer(pages);
+    let aiRead;
     if (AI_STORES.has(store.id) && process.env.ANTHROPIC_API_KEY) {
-      deals = await readWithAI(store.id, pdf, deals);
+      const read = await readWithAI(store.id, pdf, deals);
+      deals = read.deals;
+      aiRead = read.ai;
+      if (!read.ai) {
+        console.error(`[${store.id}] POZOR: leták ${validity.validFrom} až ${validity.validTo} prečítal len záložný parser, môže byť neúplný. Pri ďalšom behu sa AI skúsi znova.`);
+        problems++;
+      }
     }
     if (deals.length < 10) {
       console.warn(`[${store.id}] podozrivo málo zliav (${deals.length}), leták neukladám`);
@@ -268,7 +307,7 @@ async function processStore(store, index) {
       "utf8"
     );
     index.leaflets = index.leaflets.filter((l) => !(l.store === store.id && l.validFrom === validity.validFrom));
-    index.leaflets.push({ store: store.id, file, validFrom: validity.validFrom, validTo: validity.validTo, source });
+    index.leaflets.push({ store: store.id, file, validFrom: validity.validFrom, validTo: validity.validTo, source, ...(aiRead === undefined ? {} : { ai: aiRead }) });
     console.log(`[${store.id}] uložené: ${file} (${deals.length} zliav, ${validity.validFrom} až ${validity.validTo})`);
     changed = true;
   }
@@ -287,16 +326,16 @@ async function readWithAI(storeId, pdf, fallback) {
     console.log(`[${storeId}] AI: ${deals.length} zliav (pôvodný parser ${fallback.length}), strán ${read.pages}, model ${read.model}, tokeny ${read.usage.input}/${read.usage.output} (z cache ${read.usage.cachedPages} strán, batch ${read.usage.batchPages}), zahodených ${issues.dropped}, opravených percent ${issues.percentFixed}`);
     if (read.failedPages > 0) {
       console.warn(`[${storeId}] AI neprečítala ${read.failedPages} strán, používam pôvodný parser`);
-      return fallback;
+      return { deals: fallback, ai: false };
     }
     if (deals.length < fallback.length * 0.8) {
       console.warn(`[${storeId}] AI našla podozrivo málo zliav, používam pôvodný parser`);
-      return fallback;
+      return { deals: fallback, ai: false };
     }
-    return deals;
+    return { deals, ai: true };
   } catch (err) {
     console.warn(`[${storeId}] AI čítanie zlyhalo (${err.message}), používam pôvodný parser`);
-    return fallback;
+    return { deals: fallback, ai: false };
   }
 }
 
